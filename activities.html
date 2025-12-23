@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Activities Page</title>
+
+  <!-- Google Fonts + AOS -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #f0f4f9, #e0e8f3);
+      color: #2d2d2d;
+    }
+    .logo-container {
+      background: linear-gradient(to right, #003973, #e5e5be);
+      text-align: center;
+      padding: 20px 0;
+    }
+    .logo-container img {
+      max-height: 120px;
+      transition: transform 0.3s ease;
+    }
+    .logo-container img:hover {
+      transform: scale(1.05);
+    }
+    .taskbar {
+      background-color: white;
+      border-bottom: 2px solid #d0e0f0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      display: flex;
+      justify-content: center;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    .taskbar a {
+      color: #004080;
+      text-decoration: none;
+      margin: 0 25px;
+      font-size: 18px;
+      font-weight: 600;
+      position: relative;
+    }
+    .taskbar a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      left: 0;
+      bottom: -5px;
+      background-color: #004080;
+      transition: width 0.3s ease;
+    }
+    .taskbar a:hover::after {
+      width: 100%;
+    }
+    .quiz-section {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      padding: 40px;
+      margin: 40px auto;
+      max-width: 1000px;
+    }
+    .quiz-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: #003366;
+      margin-bottom: 30px;
+      text-align: center;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 10px;
+    }
+    .quiz-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    .quiz-item {
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid #e0e0e0;
+      transition: background-color 0.3s;
+    }
+    .quiz-item:hover {
+      background-color: #f0f8ff;
+    }
+    .question {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .quiz-item label {
+      display: block;
+      font-size: 16px;
+      margin: 6px 0;
+      cursor: pointer;
+    }
+    .quiz-item input[type="radio"] {
+      margin-right: 8px;
+      cursor: pointer;
+    }
+    .submit-button {
+      display: block;
+      margin: 30px auto 10px;
+      background-color: #007BFF;
+      color: #ffffff;
+      padding: 12px 24px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+    }
+    .submit-button:hover {
+      background-color: #0056b3;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      text-align: center;
+      font-weight: 500;
+    }
+    .correct {
+      color: #28a745;
+    }
+    .incorrect {
+      color: #dc3545;
+    }
+  </style>
+  
+<style>
+
+:root{
+  --bg:#eef6ff !important;
+  --card:#ffffff !important;
+  --muted:#334155 !important;
+  --primary:#0b63ff !important;
+  --accent:#06b6d4 !important;
+  --heading:#071130 !important;
+  --border:rgba(7,17,48,0.06) !important;
+  --radius:14px !important;
+}
+
+/* Reset and force base styles */
+*{box-sizing:border-box !important}
+html,body{height:100% !important;margin:0 !important;padding:0 !important}
+body{
+  padding:28px !important;
+  background: linear-gradient(180deg,var(--bg), #ffffff 60%) !important;
+  color:var(--muted) !important;
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial !important;
+  -webkit-font-smoothing:antialiased !important;
+  line-height:1.6 !important;
+}
+
+/* Container */
+.container{max-width:1150px !important;margin:0 auto !important;padding:12px !important;background:transparent !important}
+
+/* Header & logo centering across pages */
+.header, .site-header, header, .logo-area { display:flex !important; align-items:center !important; justify-content:center !important; gap:16px !important; margin-bottom:18px !important; }
+.header img, .logo-area img, header img { height:84px !important; width:auto !important; border-radius:12px !important; box-shadow:0 10px 30px rgba(11,99,255,0.08) !important; border:1px solid rgba(11,99,255,0.06) !important;}
+
+/* Navigation (taskbar) across pages */
+.taskbar, nav, .navbar { display:flex !important; gap:10px !important; flex-wrap:wrap !important; justify-content:center !important; margin-bottom:22px !important; }
+.taskbar a, nav a, .navbar a { text-decoration:none !important; color:var(--primary) !important; padding:9px 16px !important; border-radius:999px !important; font-weight:700 !important; border:1px solid transparent !important; background:transparent !important; box-shadow:0 4px 14px rgba(11,99,255,0.04) !important; transition:all .22s cubic-bezier(.2,.9,.3,1) !important; }
+.taskbar a:hover, nav a:hover, .navbar a:hover { background:linear-gradient(90deg,var(--primary),var(--accent)) !important; color:white !important; transform:translateY(-4px) scale(1.02) !important; box-shadow:0 18px 40px rgba(11,99,255,0.12) !important;}
+
+/* Sections/card override */
+.section, .card, .panel, .content-box { background:var(--card) !important; padding:18px !important; border-radius:var(--radius) !important; box-shadow:0 12px 36px rgba(9,30,66,0.04) !important; border:1px solid var(--border) !important; margin-bottom:18px !important; color:var(--muted) !important;}
+
+/* Headings and text */
+h1,h2,h3,h4 { color:var(--heading) !important; margin:0 0 10px 0 !important; font-weight:700 !important; }
+p, li { color:var(--muted) !important; line-height:1.6 !important; }
+
+/* Gallery force grid and hover */
+.gallery-grid, .gallery, .photos, .image-grid { display:grid !important; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)) !important; gap:12px !important; }
+.gallery-grid img, .gallery img, .photos img, .image-grid img { border-radius:12px !important; border:1px solid rgba(6,16,33,0.04) !important; box-shadow:0 10px 26px rgba(9,30,66,0.04) !important; transition:transform .35s cubic-bezier(.2,.9,.3,1), filter .25s ease !important; display:block !important; max-width:100% !important; height:auto !important; }
+.gallery-grid img:hover, .gallery img:hover, .photos img:hover, .image-grid img:hover { transform:translateY(-8px) scale(1.04) !important; filter:brightness(1.04) saturate(1.05) !important;}
+
+/* Buttons */
+.btn, button, .button, a.button { display:inline-block !important; padding:10px 16px !important; border-radius:10px !important; font-weight:700 !important; text-decoration:none !important; border:1px solid transparent !important; background:linear-gradient(90deg,var(--primary),var(--accent)) !important; color:white !important; box-shadow:0 10px 30px rgba(11,99,255,0.12) !important;}
+
+/* Links */
+a { color:var(--primary) !important; }
+a:visited { color:var(--primary) !important; }
+
+/* Force background for body sections that try to set a dark/dim background */
+body *[style*="background"] { background:transparent !important; }
+body *[style*="background-color"] { background-color:transparent !important; }
+
+/* Ensure AOS reveals visible */
+[data-aos] { opacity:1 !important; transform:none !important; transition:all .6s cubic-bezier(.2,.9,.3,1) !important; }
+
+/* Footer */
+.footer, .site-footer { font-size:13px !important; color:var(--muted) !important; text-align:center !important; padding:18px !important; margin-top:12px !important; background:transparent !important; border-top:none !important;}
+
+/* Responsive tweaks */
+@media (max-width:700px){
+  body{padding:14px !important}
+  .header img{height:64px !important}
+  h1{font-size:22px !important}
+}
+
+</style>
+</head>
+<body>
+  <div class="logo-container">
+    <a href="index.html">
+      <img src="assets/images/symbol.jpg" alt="Logo" />
+    </a>
+  </div>
+  <div class="taskbar">
+    <a href="resource.html">Resources</a>
+    <a href="projects.html">Projects</a>
+    <a href="activities.html">Activities</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="aboutus.html">About Us</a>
+  </div>
+
+  <div class="quiz-section" data-aos="fade-up">
+  <h2 class="quiz-title">Quiz Level 1</h2>
+  <form id="quiz1" class="quiz-grid">
+    <div class="quiz-item">
+      <div class="question">1. What does AI stand for?</div>
+      <label><input type="radio" name="q1" value="A" /> Automated Intelligence</label>
+      <label><input type="radio" name="q1" value="B" /> Augmented Interface</label>
+      <label><input type="radio" name="q1" value="C" /> Artificial Intelligence</label>
+      <label><input type="radio" name="q1" value="D" /> Actual Innovation</label>
+    </div>
+    <div class="quiz-item">
+      <div class="question">2. Which of these is an application of AI?</div>
+      <label><input type="radio" name="q2" value="A" /> Gardening</label>
+      <label><input type="radio" name="q2" value="B" /> Cooking</label>
+      <label><input type="radio" name="q2" value="C" /> Self-driving cars</label>
+      <label><input type="radio" name="q2" value="D" /> Painting</label>
+    </div>
+    <div class="quiz-item">
+      <div class="question">3. AI systems are trained using:</div>
+      <label><input type="radio" name="q3" value="A" /> Water</label>
+      <label><input type="radio" name="q3" value="B" /> Batteries</label>
+      <label><input type="radio" name="q3" value="C" /> Fuel</label>
+      <label><input type="radio" name="q3" value="D" /> Data</label>
+    </div>
+    <div class="quiz-item">
+      <div class="question">4. Which technology is closely related to AI?</div>
+      <label><input type="radio" name="q4" value="A" /> Woodwork</label>
+      <label><input type="radio" name="q4" value="B" /> Plumbing</label>
+      <label><input type="radio" name="q4" value="C" /> Machine Learning</label>
+      <label><input type="radio" name="q4" value="D" /> Tailoring</label>
+    </div>
+    <div class="quiz-item">
+      <div class="question">5. Which device often uses AI?</div>
+      <label><input type="radio" name="q5" value="A" /> Toaster</label>
+      <label><input type="radio" name="q5" value="B" /> Smartphone</label>
+      <label><input type="radio" name="q5" value="C" /> Hammer</label>
+      <label><input type="radio" name="q5" value="D" /> Screwdriver</label>
+    </div>
+    <div class="quiz-item">
+      <div class="question">6. AI is short for:</div>
+      <label><input type="radio" name="q6" value="A" /> Audio Interface</label>
+      <label><input type="radio" name="q6" value="B" /> Artificial Intelligence</label>
+      <label><input type="radio" name="q6" value="C" /> Android Interface</label>
+      <label><input type="radio" name="q6" value="D" /> Analog Indicator</label>
+    </div>
+    <div class="quiz-item">
+      <div class="question">7. Which company uses AI in its search engine?</div>
+      <label><input type="radio" name="q7" value="A" /> Pepsi</label>
+      <label><input type="radio" name="q7" value="B" /> Google</label>
+      <label><input type="radio" name="q7" value="C" /> Lego</label>
+      <label><input type="radio" name="q7" value="D" /> Nike</label>
+    </div>
+    <div class="quiz-item">
+      <div class="question">8. AI can be used to:</div>
+      <label><input type="radio" name="q8" value="A" /> Translate languages</label>
+      <label><input type="radio" name="q8" value="B" /> Cook food</label>
+      <label><input type="radio" name="q8" value="C" /> Drive boats</label>
+      <label><input type="radio" name="q8" value="D" /> Paint fences</label>
+    </div>
+    <div class="quiz-item">
+      <div class="question">9. The core of AI is:</div>
+      <label><input type="radio" name="q9" value="A" /> Bricks</label>
+      <label><input type="radio" name="q9" value="B" /> Fabric</label>
+      <label><input type="radio" name="q9" value="C" /> Algorithms</label>
+      <label><input type="radio" name="q9" value="D" /> Gasoline</label>
+    </div>
+    <div class="quiz-item">
+      <div class="question">10. AI helps in:</div>
+      <label><input type="radio" name="q10" value="A" /> Digging holes</label>
+      <label><input type="radio" name="q10" value="B" /> Writing books by hand</label>
+      <label><input type="radio" name="q10" value="C" /> Detecting fraud</label>
+      <label><input type="radio" name="q10" value="D" /> Sharpening pencils</label>
+    </div>
+    <button type="button" class="submit-button" onclick="submitQuiz('quiz1', quiz1Answers, 'result1')">Submit Level 1</button>
+    <div id="result1" class="result"></div>
+  </form>
+</div>
+<div class="quiz-section" data-aos="fade-up" data-aos-delay="100">
+  <h2 class="quiz-title">Quiz Level 2</h2>
+  <form id="quiz2" class="quiz-grid">
+    <div class="quiz-item">
+      <div class="question">1. What is Machine Learning?</div>
+      <label><input type="radio" name="q1" value="A" /> Programming manually</label>
+      <label><input type="radio" name="q1" value="B" /> Training machines to learn from data</label>
+      <label><input type="radio" name="q1" value="C" /> Building machines physically</label>
+      <label><input type="radio" name="q1" value="D" /> Repairing machines</label>
+    </div>
+    <div class="quiz-item">
+      <div class="question">2. A common algorithm used in Machine Learning is:</div>
+      <label><input type="radio" name="q2" value="A" /> Bubble Sort</label>
+      <label><input type="radio" name="q2" value="B" /> Decision Tree</label>
+      <label><input type="radio" name="q2" value="C" /> Long Division</label>
+      <label><input type="radio" name="q2" value="D" /> Cross Stitch</label>
+    </div>
+    <div class="quiz-item">
+      <div class="question">3. Machine Learning needs:</div>
+      <label><input type="radio" name="q3" value="A" /> Cement</label>
+      <label><input type="radio" name="q3" value="B" /> Data</label>
+      <label><input type="radio" name="q3" value="C" /> Nails</label>
+      <label><input type="radio" name="q3" value="D" /> Paint</label>
+    </div>
+    <div class="quiz-item">
+      <div class="question">4. The goal of ML is to:</div>
+      <label><input type="radio" name="q4" value="A" /> Build houses</label>
+      <label><input type="radio" name="q4" value="B" /> Make predictions</label>
+      <label><input type="radio" name="q4" value="C" /> Water plants</label>
+      <label><input type="radio" name="q4" value="D" /> Cook meals</label>
+    </div>
+    <div class="quiz-item">
+      <div class="question">5. Which is a supervised learning task?</div>
+      <label><input type="radio" name="q5" value="A" /> Drawing pictures</label>
+      <label><input type="radio" name="q5" value="B" /> Reading books</label>
+      <label><input type="radio" name="q5" value="C" /> Classifying emails as spam or not</label>
+      <label><input type="radio" name="q5" value="D" /> Cleaning floors</label>
+    </div>
+    <div class="quiz-item">
+      <div class="question">6. Unsupervised learning:</div>
+      <label><input type="radio" name="q6" value="A" /> Has labeled output</label>
+      <label><input type="radio" name="q6" value="B" /> Has no labeled output</label>
+      <label><input type="radio" name="q6" value="C" /> Uses hammers</label>
+      <label><input type="radio" name="q6" value="D" /> Uses motors</label>
+    </div>
+    <div class="quiz-item">
+      <div class="question">7. Which field uses ML?</div>
+      <label><input type="radio" name="q7" value="A" /> Plumbing</label>
+      <label><input type="radio" name="q7" value="B" /> Healthcare</label>
+      <label><input type="radio" name="q7" value="C" /> Carpentry</label>
+      <label><input type="radio" name="q7" value="D" /> Fishing</label>
+    </div>
+    <div class="quiz-item">
+      <div class="question">8. Regression predicts:</div>
+      <label><input type="radio" name="q8" value="A" /> Continuous values</label>
+      <label><input type="radio" name="q8" value="B" /> Categories</label>
+      <label><input type="radio" name="q8" value="C" /> Tools</label>
+      <label><input type="radio" name="q8" value="D" /> Shapes</label>
+    </div>
+    <div class="quiz-item">
+      <div class="question">9. Clustering groups data by:</div>
+      <label><input type="radio" name="q9" value="A" /> Painting</label>
+      <label><input type="radio" name="q9" value="B" /> Similarity</label>
+      <label><input type="radio" name="q9" value="C" /> Shape</label>
+      <label><input type="radio" name="q9" value="D" /> Random choice</label>
+    </div>
+    <div class="quiz-item">
+      <div class="question">10. Which is NOT an ML library?</div>
+      <label><input type="radio" name="q10" value="A" /> scikit-learn</label>
+      <label><input type="radio" name="q10" value="B" /> Pandas</label>
+      <label><input type="radio" name="q10" value="C" /> NumPy</label>
+      <label><input type="radio" name="q10" value="D" /> WordPad</label>
+    </div>
+    <button type="button" class="submit-button" onclick="submitQuiz('quiz2', quiz2Answers, 'result2')">Submit Level 2</button>
+    <div id="result2" class="result"></div>
+  </form>
+</div>
+<div class="quiz-section" data-aos="fade-up" data-aos-delay="200">
+  <h2 class="quiz-title">Quiz Level 3</h2>
+  <form id="quiz3" class="quiz-grid">
+    <div class="quiz-item">
+      <div class="question">1. What is Deep Learning?</div>
+      <label><input type="radio" name="q1" value="A" /> Shallow training</label>
+      <label><input type="radio" name="q1" value="B" /> Learning using neural networks</label>
+      <label><input type="radio" name="q1" value="C" /> Memorizing texts</label>
+      <label><input type="radio" name="q1" value="D" /> Skipping learning</label>
+    </div>
+    <div class="quiz-item">
+      <div class="question">2. Neural networks are inspired by:</div>
+      <label><input type="radio" name="q2" value="A" /> Robots</label>
+      <label><input type="radio" name="q2" value="B" /> Machines</label>
+      <label><input type="radio" name="q2" value="C" /> Human brain</label>
+      <label><input type="radio" name="q2" value="D" /> Computers</label>
+    </div>
+    <div class="quiz-item">
+      <div class="question">3. A unit in neural networks is called:</div>
+      <label><input type="radio" name="q3" value="A" /> Wire</label>
+      <label><input type="radio" name="q3" value="B" /> Neuron</label>
+      <label><input type="radio" name="q3" value="C" /> Cell</label>
+      <label><input type="radio" name="q3" value="D" /> Node</label>
+    </div>
+    <div class="quiz-item">
+      <div class="question">4. Deep Learning is best at:</div>
+      <label><input type="radio" name="q4" value="A" /> Basic math</label>
+      <label><input type="radio" name="q4" value="B" /> Image recognition</label>
+      <label><input type="radio" name="q4" value="C" /> Cooking</label>
+      <label><input type="radio" name="q4" value="D" /> Plumbing</label>
+    </div>
+    <div class="quiz-item">
+      <div class="question">5. CNN stands for:</div>
+      <label><input type="radio" name="q5" value="A" /> Convolutional Neural Network</label>
+      <label><input type="radio" name="q5" value="B" /> Central Neural Net</label>
+      <label><input type="radio" name="q5" value="C" /> Core Net Node</label>
+      <label><input type="radio" name="q5" value="D" /> Computer News Network</label>
+    </div>
+    <div class="quiz-item">
+      <div class="question">6. Deep Learning requires:</div>
+      <label><input type="radio" name="q6" value="A" /> Few examples</label>
+      <label><input type="radio" name="q6" value="B" /> No data</label>
+      <label><input type="radio" name="q6" value="C" /> Large data sets</label>
+      <label><input type="radio" name="q6" value="D" /> Glue</label>
+    </div>
+    <div class="quiz-item">
+      <div class="question">7. An epoch is:</div>
+      <label><input type="radio" name="q7" value="A" /> A dance step</label>
+      <label><input type="radio" name="q7" value="B" /> A calendar date</label>
+      <label><input type="radio" name="q7" value="C" /> One full training cycle</label>
+      <label><input type="radio" name="q7" value="D" /> A holiday</label>
+    </div>
+    <div class="quiz-item">
+      <div class="question">8. Activation functions:</div>
+      <label><input type="radio" name="q8" value="A" /> Add non-linearity</label>
+      <label><input type="radio" name="q8" value="B" /> Turn on lights</label>
+      <label><input type="radio" name="q8" value="C" /> Store energy</label>
+      <label><input type="radio" name="q8" value="D" /> Create charts</label>
+    </div>
+    <div class="quiz-item">
+      <div class="question">9. ReLU is:</div>
+      <label><input type="radio" name="q9" value="A" /> An input method</label>
+      <label><input type="radio" name="q9" value="B" /> An activation function</label>
+      <label><input type="radio" name="q9" value="C" /> A learning rate</label>
+      <label><input type="radio" name="q9" value="D" /> A loss metric</label>
+    </div>
+    <div class="quiz-item">
+      <div class="question">10. Backpropagation is used for:</div>
+      <label><input type="radio" name="q10" value="A" /> Going backward in code</label>
+      <label><input type="radio" name="q10" value="B" /> Debugging</label>
+      <label><input type="radio" name="q10" value="C" /> Updating weights</label>
+      <label><input type="radio" name="q10" value="D" /> Saving models</label>
+    </div>
+    <button type="button" class="submit-button" onclick="submitQuiz('quiz3', quiz3Answers, 'result3')">Submit Level 3</button>
+    <div id="result3" class="result"></div>
+  </form>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 600, once: true });
+  </script>
+  <script>
+    const quiz1Answers = {
+      q1: 'C', q2: 'C', q3: 'D', q4: 'C', q5: 'B',
+      q6: 'B', q7: 'B', q8: 'A', q9: 'C', q10: 'C'
+    };
+    const quiz2Answers = {
+      q1: 'B', q2: 'B', q3: 'B', q4: 'B', q5: 'C',
+      q6: 'B', q7: 'B', q8: 'A', q9: 'B', q10: 'B'
+    };
+    const quiz3Answers = {
+      q1: 'B', q2: 'C', q3: 'B', q4: 'B', q5: 'A',
+      q6: 'C', q7: 'C', q8: 'A', q9: 'B', q10: 'C'
+    };
+
+    function submitQuiz(quizId, answers, resultId) {
+      let form = document.getElementById(quizId);
+      let score = 0;
+      let totalQuestions = Object.keys(answers).length;
+      let resultHTML = "";
+
+      for (let question in answers) {
+        const radios = form.elements[question];
+        const selected = Array.from(radios).find(r => r.checked);
+        const userAnswer = selected ? selected.value : null;
+
+        if (userAnswer === answers[question]) {
+          score++;
+          resultHTML += `<div class="correct">Question ${question.slice(1)}: Correct</div>`;
+        } else {
+          resultHTML += `<div class="incorrect">Question ${question.slice(1)}: Incorrect. Correct: ${answers[question]}</div>`;
+        }
+      }
+
+      resultHTML += `<div class="result">Your score is ${score}/${totalQuestions}</div>`;
+      document.getElementById(resultId).innerHTML = resultHTML;
+    }
+  </script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

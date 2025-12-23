@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <!-- AOS Animation -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #f0f4f9, #e0e8f3);
+      color: #2d2d2d;
+      line-height: 1.7;
+    }
+
+    .logo-container {
+      background: linear-gradient(to right, #003973, #e5e5be);
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .logo-container img {
+      max-height: 120px;
+      transition: transform 0.3s ease;
+    }
+
+    .logo-container img:hover {
+      transform: scale(1.05);
+    }
+
+    .taskbar {
+      background-color: white;
+      border-bottom: 2px solid #d0e0f0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      display: flex;
+      justify-content: center;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .taskbar a {
+      color: #004080;
+      text-decoration: none;
+      margin: 0 25px;
+      font-size: 18px;
+      font-weight: 600;
+      position: relative;
+    }
+
+    .taskbar a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      left: 0;
+      bottom: -5px;
+      background-color: #004080;
+      transition: width 0.3s ease;
+    }
+
+    .taskbar a:hover::after {
+      width: 100%;
+    }
+
+    .content {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    h1, h2 {
+      color: #003366;
+      margin-top: 40px;
+    }
+
+    p {
+      text-align: justify;
+      font-size: 17px;
+      margin-bottom: 20px;
+    }
+
+    .section {
+      margin-top: 60px;
+    }
+
+    .team-section, .partners-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .team-member, .partner {
+      display: flex;
+      gap: 20px;
+      background-color: #f9fbff;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      padding: 20px;
+      flex: 1 1 100%;
+    }
+
+    .team-member img, .partner img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .team-member-details, .partner-details {
+      flex: 1;
+    }
+
+    .team-member-details h3, .partner-details h3 {
+      margin: 0;
+      font-size: 22px;
+      color: #004080;
+    }
+
+    .team-member-details p, .partner-details p {
+      margin: 8px 0;
+    }
+
+    .team-member-details ul {
+      margin: 8px 0;
+      padding-left: 20px;
+    }
+
+    .contact-info {
+      margin-top: 40px;
+      padding: 20px;
+      background-color: #eef5ff;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    .contact-info p {
+      margin: 10px 0;
+    }
+
+    .contact-info a {
+      color: #004080;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .team-member, .partner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .team-member img, .partner img {
+        width: 120px;
+        height: 120px;
+      }
+
+      .team-member-details, .partner-details {
+        padding-top: 10px;
+      }
+    }
+  </style>
+  
+<style>
+
+:root{
+  --bg:#eef6ff !important;
+  --card:#ffffff !important;
+  --muted:#334155 !important;
+  --primary:#0b63ff !important;
+  --accent:#06b6d4 !important;
+  --heading:#071130 !important;
+  --border:rgba(7,17,48,0.06) !important;
+  --radius:14px !important;
+}
+
+/* Reset and force base styles */
+*{box-sizing:border-box !important}
+html,body{height:100% !important;margin:0 !important;padding:0 !important}
+body{
+  padding:28px !important;
+  background: linear-gradient(180deg,var(--bg), #ffffff 60%) !important;
+  color:var(--muted) !important;
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial !important;
+  -webkit-font-smoothing:antialiased !important;
+  line-height:1.6 !important;
+}
+
+/* Container */
+.container{max-width:1150px !important;margin:0 auto !important;padding:12px !important;background:transparent !important}
+
+/* Header & logo centering across pages */
+.header, .site-header, header, .logo-area { display:flex !important; align-items:center !important; justify-content:center !important; gap:16px !important; margin-bottom:18px !important; }
+.header img, .logo-area img, header img { height:84px !important; width:auto !important; border-radius:12px !important; box-shadow:0 10px 30px rgba(11,99,255,0.08) !important; border:1px solid rgba(11,99,255,0.06) !important;}
+
+/* Navigation (taskbar) across pages */
+.taskbar, nav, .navbar { display:flex !important; gap:10px !important; flex-wrap:wrap !important; justify-content:center !important; margin-bottom:22px !important; }
+.taskbar a, nav a, .navbar a { text-decoration:none !important; color:var(--primary) !important; padding:9px 16px !important; border-radius:999px !important; font-weight:700 !important; border:1px solid transparent !important; background:transparent !important; box-shadow:0 4px 14px rgba(11,99,255,0.04) !important; transition:all .22s cubic-bezier(.2,.9,.3,1) !important; }
+.taskbar a:hover, nav a:hover, .navbar a:hover { background:linear-gradient(90deg,var(--primary),var(--accent)) !important; color:white !important; transform:translateY(-4px) scale(1.02) !important; box-shadow:0 18px 40px rgba(11,99,255,0.12) !important;}
+
+/* Sections/card override */
+.section, .card, .panel, .content-box { background:var(--card) !important; padding:18px !important; border-radius:var(--radius) !important; box-shadow:0 12px 36px rgba(9,30,66,0.04) !important; border:1px solid var(--border) !important; margin-bottom:18px !important; color:var(--muted) !important;}
+
+/* Headings and text */
+h1,h2,h3,h4 { color:var(--heading) !important; margin:0 0 10px 0 !important; font-weight:700 !important; }
+p, li { color:var(--muted) !important; line-height:1.6 !important; }
+
+/* Gallery force grid and hover */
+.gallery-grid, .gallery, .photos, .image-grid { display:grid !important; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)) !important; gap:12px !important; }
+.gallery-grid img, .gallery img, .photos img, .image-grid img { border-radius:12px !important; border:1px solid rgba(6,16,33,0.04) !important; box-shadow:0 10px 26px rgba(9,30,66,0.04) !important; transition:transform .35s cubic-bezier(.2,.9,.3,1), filter .25s ease !important; display:block !important; max-width:100% !important; height:auto !important; }
+.gallery-grid img:hover, .gallery img:hover, .photos img:hover, .image-grid img:hover { transform:translateY(-8px) scale(1.04) !important; filter:brightness(1.04) saturate(1.05) !important;}
+
+/* Buttons */
+.btn, button, .button, a.button { display:inline-block !important; padding:10px 16px !important; border-radius:10px !important; font-weight:700 !important; text-decoration:none !important; border:1px solid transparent !important; background:linear-gradient(90deg,var(--primary),var(--accent)) !important; color:white !important; box-shadow:0 10px 30px rgba(11,99,255,0.12) !important;}
+
+/* Links */
+a { color:var(--primary) !important; }
+a:visited { color:var(--primary) !important; }
+
+/* Force background for body sections that try to set a dark/dim background */
+body *[style*="background"] { background:transparent !important; }
+body *[style*="background-color"] { background-color:transparent !important; }
+
+/* Ensure AOS reveals visible */
+[data-aos] { opacity:1 !important; transform:none !important; transition:all .6s cubic-bezier(.2,.9,.3,1) !important; }
+
+/* Footer */
+.footer, .site-footer { font-size:13px !important; color:var(--muted) !important; text-align:center !important; padding:18px !important; margin-top:12px !important; background:transparent !important; border-top:none !important;}
+
+/* Responsive tweaks */
+@media (max-width:700px){
+  body{padding:14px !important}
+  .header img{height:64px !important}
+  h1{font-size:22px !important}
+}
+
+</style>
+</head>
+<body>
+
+  <!-- Logo -->
+  <div class="logo-container">
+    <a href="index.html">
+      <img src="assets/images/symbol.jpg" alt="Logo" />
+    </a>
+  </div>
+
+  <!-- Taskbar -->
+  <div class="taskbar">
+    <a href="resource.html">Resources</a>
+    <a href="projects.html">Projects</a>
+    <a href="activities.html">Activities</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="aboutus.html">About Us</a>
+  </div>
+
+  <!-- Content -->
+  <div class="content" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-offset="200">
+    <h1 data-aos="fade-up" data-aos-anchor-placement="top-bottom">About Us</h1>
+    <p data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+      The National Council for Science & Technology Communication (NCSTC), under the Department of Science & Technology (DST), Government of India, collaborates with the National Institute of Technology Karnataka (NITK) to conduct a children-centric outreach program titled “Creating Awareness in Artificial Intelligence.” This initiative introduces secondary school children in Karnataka, Kerala, and Tamil Nadu to the fundamentals of AI through interactive sessions, real-world applications like object detection and sentiment analysis, and hands-on experiments. The program aims to make learning AI fun and engaging while preparing students for the future.    </p>
+
+    <h2 data-aos="fade-up" data-aos-anchor-placement="top-bottom">Our Vision</h2>
+    <p data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+      "Our vision is to create a future where young minds are empowered with the knowledge and skills to thrive in a technology-driven world. We aim to demystify Artificial Intelligence (AI) and make it accessible to students, fostering curiosity, creativity, and innovation in the field of AI."    </p>
+
+    <h2 data-aos="fade-up" data-aos-anchor-placement="top-bottom">Meet the Team</h2>
+    <div class="team-section">
+      <div class="team-member" data-aos="zoom-in-up" data-aos-anchor-placement="top-bottom">
+        <img src="assets/images/and.jpg" alt="Dr. Anand Kumar M"/>
+        <div class="team-member-details">
+          <h3>Dr. Anand Kumar M</h3>
+          <p><strong>Principal Investigator</strong></p>
+          <p>Associate Professor, Department of Information Technology, National Institute of Technology, SCaLAR Lab</p>
+          <p>Dr. M. Anand Kumar’s research focuses on Natural Language Processing (NLP), Machine Translation for Indian languages, and Deep Learning for Text Analytics. He has published over 185 Scopus-indexed papers and received around 2200 citations on Google Scholar. He has led significant projects, including the "Computing Tools for Tamil Language Learning" funded by the Tamil Nadu government, the "Tamil-Malayalam Subtitle Translation System" for Sharp Software, and the "Q&A Extraction from Unstructured Documents" with EduMinster (U.S.). He is also a SERB-CRG awardee (2023-2026) for a project on "Deep Explainable Framework for Legal Text Retrieval and Summarization."</p>
+          <p>Email: <a href="mailto:m_anandkumar@nitk.edu.in">m_anandkumar@nitk.edu.in</a></p>
+          <p>LinkedIn: <a href="https://www.linkedin.com/in/anand-kumar-m-9b19a7267/" target="_blank">Anand Kumar M</a></p>
+        </div>
+      </div>
+
+      <div class="team-member" data-aos="zoom-in-up" data-aos-anchor-placement="top-bottom">
+        <img src="assets/images/bij.jpg" alt="Dr. Bijuna C Mohan"/>
+        <div class="team-member-details">
+          <h3>Dr. Bijuna C Mohan</h3>
+          <p><strong>Co-Principal Investigator</strong></p>
+          <p>Associate Professor, School of Humanities, Social Sciences and Management, NITK</p>
+          <p>Received the ABP News National B –School Award 2012 for Best Professor Teaching Advertising Management. Areas of expertise include:</p>
+          <ul>
+            <li>Marketing Management</li>
+            <li>Brand Management</li>
+            <li>Consumer Behaviour</li>
+            <li>Advertising and Sales Promotion</li>
+            <li>Marketing Analytics</li>
+            <li>Services Marketing</li>
+          </ul>
+          <p>Email: <a href="mailto:bijuna@nitk.edu.in">bijuna@nitk.edu.in</a></p>
+          <p>LinkedIn: <a href="https://www.linkedin.com/in/bijuna-c-mohan-43406512/" target="_blank">Bijuna C Mohan</a></p>
+        </div>
+      </div>
+
+      <div class="team-member" data-aos="zoom-in-up" data-aos-anchor-placement="top-bottom">
+        <img src="assets/images/shr.jpg" alt="Shreya G S"/>
+        <div class="team-member-details">
+          <h3>Shreya G S</h3>
+          <p><strong>Project Assistant</strong></p>
+          <p>Centre for System Design, NITK</p>
+          <p>A detail-oriented professional with expertise in project coordination, data analysis, and administrative support. Proficient in providing operational assistance, analyzing project data to inform decision-making, and maintaining accurate records. Experienced in supporting project teams to ensure timely and successful outcomes and attention to detail. Skilled in coordinating project-related activities and ensuring compliance with project management methodologies.</p>
+          <p>Email: <a href="mailto:shreyags200@gmail.com">shreyags200@gmail.com</a></p>
+          <p>LinkedIn: <a href="https://linkedin.com/in/shreya-g-5526a4321" target="_blank">Shreya G S</a></p>
+        </div>
+      </div>
+
+      <div class="team-member" data-aos="zoom-in-up" data-aos-anchor-placement="top-bottom">
+        <img src="assets/images/ava.jpg" alt="Avanish S Velidi"/>
+        <div class="team-member-details">
+          <h3>Avanish S Velidi</h3>
+          <p><strong>Project Associate</strong></p>
+          <p>MTech(Research), CSD, IT Department, NITK</p>
+          <p>An Artificial Intelligence and Machine Learning (AIML) Engineer with a background in developing and implementing ML models. Experienced in building and deploying computer vision projects involving object detection, image classification, image segmentation, and real-time video analysis. Also skilled in web development, particularly in the Flask environment. Developer of AI awareness website.</p>
+          <p>Email: <a href="mailto:avanishsv@gmail.com">avanishsv@gmail.com</a></p>
+          <p>LinkedIn: <a href="https://www.linkedin.com/in/avanish-s-velidi-90575b202/" target="_blank">Avanish S Velidi</a></p>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section" data-aos="fade-up" data-aos-anchor-placement="top-bottom">Our Supporters</h2>
+    <div class="partners-section">
+      <div class="partner" data-aos="zoom-in-up" data-aos-anchor-placement="top-bottom">
+        <img src="assets/images/csd.jpg" alt="CSD"/>
+        <div class="partner-details">
+          <h3>Centre for System Design (CSD)</h3>
+          <p>The Centre for System Design (A Centre of Excellence at NITK Surathkal) envisages an interdisciplinary approach and means for realization of successful engineering systems. Key components include system modeling & simulation, understanding system dynamics, system optimization, virtual and physical experimentation. The Centre facilitates an environment for solving modern engineering problems that transcend traditional boundaries, ensuring integration to meet overall design objectives.</p>
+        </div>
+      </div>
+
+      <div class="partner" data-aos="zoom-in-up" data-aos-anchor-placement="top-bottom">
+        <img src="assets/images/image.jpg" alt="DST"/>
+        <div class="partner-details">
+          <h3>Department of Science & Technology (DST)</h3>
+          <p>The Department of Science & Technology (DST) was established in May 1971 with the objective of promoting new areas of science and technology. As a nodal department of the Government of India, DST is responsible for organizing, coordinating, and promoting S&T activities across the country. <strong>NCSTS-DST</strong> has sponsored this project to ensure the dissemination of AI knowledge and the development of scientific temperament among students.</p>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section" data-aos="fade-right" data-aos-anchor-placement="top-bottom">Contact Us</h2>
+    <div class="contact-info" data-aos="fade-right" data-aos-anchor-placement="top-bottom">
+      <p>Email: <a href="mailto:ca.ai.kkt@gmail.com">ca.ai.kkt@gmail.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/ai-awareness-program-csd-nitk-79942833b/" target="_blank">AI Awareness Program</a></p>
+    </div>
+  </div>
+
+  <!-- AOS Script -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: false,
+      mirror: true,
+      offset: 200
+    });
+  </script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signature Classification Project</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .header {
+            background-color: #004080;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+        .content {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            gap: 20px;
+        }
+        .section img {
+            width: 40%;
+            max-height: 320px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .section p, .section ul {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+            flex: 1;
+        }
+        .section h2 {
+            font-size: 28px;
+            color: #004080;
+            margin-bottom: 10px;
+        }
+        ul {
+            margin-left: 20px;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .button-container a {
+    display: inline-block;
+    text-decoration: none;
+    padding: 12px 25px;
+    font-size: 20px;
+    background-color: #004080;
+    color: #ffffff !important;   /* ✅ THIS FIXES IT */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+    margin: 0 12px;
+}
+
+        .button-container a:hover {
+            background-color: #003060;
+        }
+    </style>
+  
+<style>
+
+:root{
+  --bg:#eef6ff !important;
+  --card:#ffffff !important;
+  --muted:#334155 !important;
+  --primary:#0b63ff !important;
+  --accent:#06b6d4 !important;
+  --heading:#071130 !important;
+  --border:rgba(7,17,48,0.06) !important;
+  --radius:14px !important;
+}
+
+/* Reset and force base styles */
+*{box-sizing:border-box !important}
+html,body{height:100% !important;margin:0 !important;padding:0 !important}
+body{
+  padding:28px !important;
+  background: linear-gradient(180deg,var(--bg), #ffffff 60%) !important;
+  color:var(--muted) !important;
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial !important;
+  -webkit-font-smoothing:antialiased !important;
+  line-height:1.6 !important;
+}
+
+/* Container */
+.container{max-width:1150px !important;margin:0 auto !important;padding:12px !important;background:transparent !important}
+
+/* Header & logo centering across pages */
+.header, .site-header, header, .logo-area { display:flex !important; align-items:center !important; justify-content:center !important; gap:16px !important; margin-bottom:18px !important; }
+.header img, .logo-area img, header img { height:84px !important; width:auto !important; border-radius:12px !important; box-shadow:0 10px 30px rgba(11,99,255,0.08) !important; border:1px solid rgba(11,99,255,0.06) !important;}
+
+/* Navigation (taskbar) across pages */
+.taskbar, nav, .navbar { display:flex !important; gap:10px !important; flex-wrap:wrap !important; justify-content:center !important; margin-bottom:22px !important; }
+.taskbar a, nav a, .navbar a { text-decoration:none !important; color:var(--primary) !important; padding:9px 16px !important; border-radius:999px !important; font-weight:700 !important; border:1px solid transparent !important; background:transparent !important; box-shadow:0 4px 14px rgba(11,99,255,0.04) !important; transition:all .22s cubic-bezier(.2,.9,.3,1) !important; }
+.taskbar a:hover, nav a:hover, .navbar a:hover { background:linear-gradient(90deg,var(--primary),var(--accent)) !important; color:white !important; transform:translateY(-4px) scale(1.02) !important; box-shadow:0 18px 40px rgba(11,99,255,0.12) !important;}
+
+/* Sections/card override */
+.section, .card, .panel, .content-box { background:var(--card) !important; padding:18px !important; border-radius:var(--radius) !important; box-shadow:0 12px 36px rgba(9,30,66,0.04) !important; border:1px solid var(--border) !important; margin-bottom:18px !important; color:var(--muted) !important;}
+
+/* Headings and text */
+h1,h2,h3,h4 { color:var(--heading) !important; margin:0 0 10px 0 !important; font-weight:700 !important; }
+p, li { color:var(--muted) !important; line-height:1.6 !important; }
+
+/* Gallery force grid and hover */
+.gallery-grid, .gallery, .photos, .image-grid { display:grid !important; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)) !important; gap:12px !important; }
+.gallery-grid img, .gallery img, .photos img, .image-grid img { border-radius:12px !important; border:1px solid rgba(6,16,33,0.04) !important; box-shadow:0 10px 26px rgba(9,30,66,0.04) !important; transition:transform .35s cubic-bezier(.2,.9,.3,1), filter .25s ease !important; display:block !important; max-width:100% !important; height:auto !important; }
+.gallery-grid img:hover, .gallery img:hover, .photos img:hover, .image-grid img:hover { transform:translateY(-8px) scale(1.04) !important; filter:brightness(1.04) saturate(1.05) !important;}
+
+/* Buttons */
+.btn, button, .button, a.button { display:inline-block !important; padding:10px 16px !important; border-radius:10px !important; font-weight:700 !important; text-decoration:none !important; border:1px solid transparent !important; background:linear-gradient(90deg,var(--primary),var(--accent)) !important; color:white !important; box-shadow:0 10px 30px rgba(11,99,255,0.12) !important;}
+
+/* Global links (NOT buttons) */
+a:not(.btn-back):not(.btn-play):not(.action-btn) {
+  color: var(--primary);
+}
+a:visited:not(.btn-back):not(.btn-play):not(.action-btn) {
+  color: var(--primary);
+}
+
+
+/* Force background for body sections that try to set a dark/dim background */
+body *[style*="background"] { background:transparent !important; }
+body *[style*="background-color"] { background-color:transparent !important; }
+
+/* Ensure AOS reveals visible */
+[data-aos] { opacity:1 !important; transform:none !important; transition:all .6s cubic-bezier(.2,.9,.3,1) !important; }
+
+/* Footer */
+.footer, .site-footer { font-size:13px !important; color:var(--muted) !important; text-align:center !important; padding:18px !important; margin-top:12px !important; background:transparent !important; border-top:none !important;}
+
+/* Responsive tweaks */
+@media (max-width:700px){
+  body{padding:14px !important}
+  .header img{height:64px !important}
+  h1{font-size:22px !important}
+}
+
+</style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        <h1>Signature Classification Project</h1>
+    </div>
+
+    <!-- Content Section -->
+    <div class="content">
+        <!-- What is Signature Classification -->
+        <div class="section">
+            <img src="assets/sign1.jpg" alt="Signature Classification">
+            <div>
+                <h2>What is Signature Classification?</h2>
+                <p>
+                    Signature classification is a project where we teach a computer program to identify different people's
+                    signatures. The computer learns to recognize unique features like the shape, size, and style of each
+                    signature. This technology can be helpful in verifying signatures for banks, schools, and other organizations.
+                </p>
+                <p>
+                    By training a model with examples of signatures, it becomes smart enough to predict the owner of a new
+                    signature that it has not seen before.
+                </p>
+            </div>
+        </div>
+
+        <!-- How It Works -->
+        <div class="section">
+            <div>
+                <h2>How Does It Work?</h2>
+                <p>
+                    This project uses a computer program called a machine learning model. Specifically, it uses a pre-built model
+                    called <strong>MobileNetV3</strong> to analyze the features of the signature. Here’s what happens step by step:
+                </p>
+                <ul>
+                    <li><strong>Training:</strong> The computer is shown many signature examples to learn their features.</li>
+                    <li><strong>Retraining:</strong> New classes (types) of signatures can be added to the model, and it can be retrained to include these new signatures.</li>
+                    <li><strong>Inference:</strong> The trained model is used to predict who owns a new signature by comparing its features to the ones it already knows.</li>
+                </ul>
+            </div>
+            <img src="assets/sign2.jpg" alt="Training Process">
+        </div>
+
+        <!-- How to Train the Model -->
+        <div class="section">
+            <img src="assets/sign3.jpg" alt="Model Training">
+            <div>
+                <h2>Training the Model</h2>
+                <p>
+                    During training, the computer learns to recognize each signature by analyzing the patterns, curves,
+                    and shapes in the images. The model is trained using many images of signatures, grouped into classes.
+                </p>
+                <p>
+                    Each group (class) represents a person. The computer uses these groups to understand what makes one
+                    signature different from another.
+                </p>
+            </div>
+        </div>
+
+        <!-- Features of the Project -->
+        <div>
+            <h2>Features of the Project</h2>
+            <ul>
+                <li>Trains from scratch with a simple dataset of signature images.</li>
+                <li>Allows adding new classes (people) and retraining the model.</li>
+                <li>Uses advanced image processing to prepare the signatures for training.</li>
+                <li>Can predict who owns a new signature with high accuracy.</li>
+            </ul>
+        </div>
+
+        <!-- Back to Projects Button -->
+        <div class="button-container">
+            <a href="projects.html">Back to Projects</a>
+        </div>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

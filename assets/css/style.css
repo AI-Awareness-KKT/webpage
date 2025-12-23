@@ -1,0 +1,245 @@
+/* =======================================
+   GLOBAL VARIABLES
+======================================= */
+:root{
+  --bg:#eef6ff;
+  --card:#ffffff;
+  --muted:#334155;
+  --primary:#0b63ff;
+  --accent:#06b6d4;
+  --heading:#071130;
+  --border:rgba(7,17,48,0.06);
+  --radius:14px;
+}
+
+/* =======================================
+   RESET
+======================================= */
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html,body{
+  width:100%;
+  min-height:100%;
+  font-family:'Inter',system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  color:var(--muted);
+  background:linear-gradient(180deg,var(--bg),#ffffff 60%);
+  -webkit-font-smoothing:antialiased;
+}
+
+/* =======================================
+   HEADER / LOGO
+======================================= */
+.site-header,
+.logo-container{
+  background:linear-gradient(to right,#003973,#e5e5be);
+  padding:20px 0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.site-header img,
+.logo-container img{
+  height:110px;
+  width:auto;
+  border-radius:12px;
+  box-shadow:0 12px 30px rgba(0,0,0,.18);
+  transition:transform .3s ease;
+}
+
+.site-header img:hover,
+.logo-container img:hover{
+  transform:scale(1.05);
+}
+
+/* =======================================
+   NAVBAR (GLOBAL)
+======================================= */
+.taskbar{
+  background:#ffffff;
+  display:flex;
+  justify-content:center;
+  gap:26px;
+  padding:16px 0;
+  box-shadow:0 6px 20px rgba(0,0,0,.08);
+  position:sticky;
+  top:0;
+  z-index:999;
+}
+
+.taskbar a{
+  text-decoration:none;
+  font-weight:700;
+  color:var(--primary);
+  padding:10px 18px;
+  border-radius:999px;
+  transition:all .25s cubic-bezier(.2,.9,.3,1);
+}
+
+.taskbar a:hover{
+  background:linear-gradient(90deg,var(--primary),var(--accent));
+  color:#ffffff;
+  transform:translateY(-3px) scale(1.03);
+  box-shadow:0 14px 32px rgba(11,99,255,.35);
+}
+
+/* =======================================
+   CONTENT WRAPPER
+======================================= */
+.content{
+  max-width:1150px;
+  margin:50px auto;
+  padding:40px;
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:0 14px 40px rgba(0,0,0,.08);
+  text-align:center;
+}
+
+/* =======================================
+   HEADINGS & TEXT
+======================================= */
+h1,h2,h3,h4{
+  color:var(--heading);
+  font-weight:700;
+  margin-bottom:14px;
+}
+
+p{
+  line-height:1.6;
+  margin-bottom:18px;
+}
+
+/* =======================================
+   BUTTONS (LESSONS / CTA)
+======================================= */
+.lesson-box,
+.btn,
+.button,
+a.button{
+  display:block;
+  margin:22px auto;
+  padding:18px 34px;
+  max-width:620px;
+  background:linear-gradient(90deg,var(--primary),var(--accent));
+  color:#ffffff !important;
+  text-decoration:none;
+  font-weight:700;
+  font-size:20px;
+  border-radius:14px;
+  box-shadow:0 12px 30px rgba(11,99,255,.28);
+  transition:all .28s cubic-bezier(.2,.9,.3,1);
+}
+
+.lesson-box:hover,
+.btn:hover,
+.button:hover,
+a.button:hover{
+  transform:translateY(-6px) scale(1.02);
+  box-shadow:0 22px 48px rgba(11,99,255,.38);
+}
+
+/* =======================================
+   GALLERY SPECIFIC FIXES
+======================================= */
+body.gallery-page{
+  background:#f3f6fb;
+}
+
+body.gallery-page .content{
+  background:transparent;
+  box-shadow:none;
+  padding:0;
+}
+
+body.gallery-page .slideshow{
+  margin:0 auto;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 18px 48px rgba(0,0,0,.22);
+}
+
+body.gallery-page .slideshow img{
+  height:420px;
+  object-fit:cover;
+}
+
+/* Thumbnails */
+body.gallery-page .thumbnails{
+  display:flex;
+  gap:12px;
+  overflow-x:auto;
+  padding:16px 6px;
+  margin:12px auto 50px;
+  max-width:900px;
+}
+
+body.gallery-page .thumbnails img{
+  width:150px;
+  height:90px;
+  border-radius:12px;
+  opacity:.7;
+  transition:.25s;
+}
+
+body.gallery-page .thumbnails img:hover,
+body.gallery-page .thumbnails img.active{
+  opacity:1;
+  transform:scale(1.06);
+  border:2px solid var(--primary);
+}
+
+/* =======================================
+   RESOURCE PAGE FIXES
+======================================= */
+body.resource-page{
+  background:linear-gradient(to bottom right,#f0f4f9,#e0e8f3);
+}
+
+body.resource-page .content{
+  background:#ffffff;
+}
+
+/* =======================================
+   LINKS (NON BUTTONS)
+======================================= */
+a:not(.lesson-box):not(.btn):not(.button){
+  color:var(--primary);
+}
+
+a:visited:not(.lesson-box):not(.btn):not(.button){
+  color:var(--primary);
+}
+
+/* =======================================
+   RESPONSIVE
+======================================= */
+@media(max-width:768px){
+  .taskbar{
+    flex-wrap:wrap;
+    gap:12px;
+  }
+
+  .lesson-box{
+    font-size:18px;
+    padding:16px 22px;
+  }
+
+  body.gallery-page .slideshow img{
+    height:260px;
+  }
+
+  body.gallery-page .thumbnails img{
+    width:110px;
+    height:70px;
+  }
+
+  .site-header img,
+  .logo-container img{
+    height:80px;
+  }
+}

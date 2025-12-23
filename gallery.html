@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ===== RESET ===== */
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:'Inter',sans-serif;
+  background:#f3f6fb;
+  color:#1f2937;
+}
+
+/* ===== HEADER ===== */
+.site-header{
+  background:linear-gradient(90deg,#003973,#e5e5be);
+  padding:18px 0;
+  display:flex;
+  justify-content:center;
+}
+.site-header img{
+  height:90px;
+  background:#fff;
+  padding:10px 14px;
+  border-radius:14px;
+  box-shadow:0 12px 30px rgba(0,0,0,.2);
+}
+
+/* ===== NAVBAR ===== */
+.taskbar{
+  background:#fff;
+  display:flex;
+  justify-content:center;
+  gap:26px;
+  padding:16px;
+  box-shadow:0 4px 14px rgba(0,0,0,.08);
+}
+.taskbar a{
+  text-decoration:none;
+  font-weight:700;
+  color:#0b63ff;
+  padding:8px 18px;
+  border-radius:999px;
+  transition:.25s;
+}
+.taskbar a:hover{
+  background:linear-gradient(90deg,#0b63ff,#06b6d4);
+  color:#fff;
+  transform:translateY(-2px);
+}
+
+/* ===== PAGE ===== */
+.content{
+  max-width:1100px;
+  margin:40px auto;
+  text-align:center;
+}
+.school-title{
+  margin:50px 0 16px;
+  font-weight:700;
+}
+
+/* ===== SLIDESHOW ===== */
+.slideshow{
+  position:relative;
+  max-width:900px;
+  margin:0 auto;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 18px 40px rgba(0,0,0,.18);
+}
+.slideshow img{
+  width:100%;
+  height:420px;
+  object-fit:cover;
+  display:none;
+}
+.slideshow img.active{
+  display:block;
+}
+
+/* ARROWS */
+.prev,.next{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,.6);
+  color:#fff;
+  border:none;
+  border-radius:50%;
+  padding:12px 16px;
+  font-size:22px;
+  cursor:pointer;
+}
+.prev{left:14px}
+.next{right:14px}
+
+/* ===== THUMBNAILS ===== */
+.thumbnails{
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+  padding:14px 6px;
+  max-width:900px;
+  margin:14px auto 40px;
+}
+.thumbnails img{
+  width:150px;
+  height:90px;
+  object-fit:cover;
+  border-radius:10px;
+  opacity:.7;
+  cursor:pointer;
+  transition:.2s;
+}
+.thumbnails img.active,
+.thumbnails img:hover{
+  opacity:1;
+  transform:scale(1.05);
+  border:2px solid #0b63ff;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .slideshow img{height:260px}
+  .thumbnails img{width:110px;height:70px}
+}
+</style>
+</head>
+
+
+<body class="gallery-page">
+<!-- HEADER -->
+<header class="site-header">
+  <a href="index.html">
+    <img src="assets/images/symbol.jpg" alt="Logo">
+  </a>
+</header>
+
+
+<!-- NAV -->
+<div class="taskbar">
+  <a href="resource.html">Resources</a>
+  <a href="projects.html">Projects</a>
+  <a href="activities.html">Activities</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="aboutus.html">About Us</a>
+</div>
+
+<div class="content">
+
+<!-- SCHOOL TEMPLATE (REPEAT) -->
+<script>
+function initGallery(id){
+  let index = 0;
+  const box = document.getElementById(id);
+  const slides = box.querySelectorAll('.slide');
+  const thumbs = box.querySelectorAll('.thumb');
+
+  function show(n){
+    if(n<0) n=slides.length-1;
+    if(n>=slides.length) n=0;
+    slides.forEach((s,i)=>s.classList.toggle('active',i===n));
+    thumbs.forEach((t,i)=>t.classList.toggle('active',i===n));
+    index=n;
+  }
+
+  box.querySelector('.prev').onclick=()=>show(index-1);
+  box.querySelector('.next').onclick=()=>show(index+1);
+  thumbs.forEach((t,i)=>t.onclick=()=>show(i));
+  show(0);
+}
+</script>
+
+<!-- ===== SCHOOL 1 ===== -->
+<div class="school-title">SCHOOL 1 – Karaparamba Govt. Higher Secondary School, Kozhikode – 16/01/2025</div>
+<div id="school1">
+  <div class="slideshow">
+    <img class="slide" src="assets/school1/1.jpg">
+    <img class="slide" src="assets/school1/2.jpg">
+    <img class="slide" src="assets/school1/3.jpg">
+    <img class="slide" src="assets/school1/4.jpg">
+    <img class="slide" src="assets/school1/5.jpg">
+    <img class="slide" src="assets/school1/6.jpg">
+    <img class="slide" src="assets/school1/7.jpg">
+    <img class="slide" src="assets/school1/8.jpg">
+    <img class="slide" src="assets/school1/9.jpg">
+    <button class="prev">❮</button>
+    <button class="next">❯</button>
+  </div>
+  <div class="thumbnails">
+    <img class="thumb" src="assets/school1/1.jpg">
+    <img class="thumb" src="assets/school1/2.jpg">
+    <img class="thumb" src="assets/school1/3.jpg">
+    <img class="thumb" src="assets/school1/4.jpg">
+    <img class="thumb" src="assets/school1/5.jpg">
+    <img class="thumb" src="assets/school1/6.jpg">
+    <img class="thumb" src="assets/school1/7.jpg">
+    <img class="thumb" src="assets/school1/8.jpg">
+    <img class="thumb" src="assets/school1/9.jpg">
+  </div>
+</div>
+
+<!-- ===== SCHOOL 2 ===== -->
+<div class="school-title">SCHOOL 2 – Govt. Higher Secondary School for Girls, Nadakkavu – 17/02/2025</div>
+<div id="school2">
+  <div class="slideshow">
+    <img class="slide" src="assets/school2/1.jpg">
+    <img class="slide" src="assets/school2/2.jpg">
+    <img class="slide" src="assets/school2/3.jpg">
+    <img class="slide" src="assets/school2/4.jpg">
+    <img class="slide" src="assets/school2/5.jpg">
+    <img class="slide" src="assets/school2/6.jpg">
+    <img class="slide" src="assets/school2/8.jpg">
+    <img class="slide" src="assets/school2/9.jpg">
+    <button class="prev">❮</button>
+    <button class="next">❯</button>
+  </div>
+  <div class="thumbnails">
+    <img class="thumb" src="assets/school2/1.jpg">
+    <img class="thumb" src="assets/school2/2.jpg">
+    <img class="thumb" src="assets/school2/3.jpg">
+    <img class="thumb" src="assets/school2/4.jpg">
+    <img class="thumb" src="assets/school2/5.jpg">
+    <img class="thumb" src="assets/school2/6.jpg">
+    <img class="thumb" src="assets/school2/8.jpg">
+    <img class="thumb" src="assets/school2/9.jpg">
+  </div>
+</div>
+
+<!-- ===== SCHOOL 3 ===== -->
+<div class="school-title">SCHOOL 3 – GD School – 20/02/2025</div>
+<div id="school3">
+  <div class="slideshow">
+    <img class="slide" src="assets/school3/1.jpg">
+    <img class="slide" src="assets/school3/2.jpg">
+    <img class="slide" src="assets/school3/3.jpg">
+    <img class="slide" src="assets/school3/4.jpg">
+    <img class="slide" src="assets/school3/5.jpg">
+    <img class="slide" src="assets/school3/6.jpg">
+    <img class="slide" src="assets/school3/7.jpg">
+    <img class="slide" src="assets/school3/8.jpg">
+    <img class="slide" src="assets/school3/9.jpg">
+    <button class="prev">❮</button>
+    <button class="next">❯</button>
+  </div>
+  <div class="thumbnails">
+    <img class="thumb" src="assets/school3/1.jpg">
+    <img class="thumb" src="assets/school3/2.jpg">
+    <img class="thumb" src="assets/school3/3.jpg">
+    <img class="thumb" src="assets/school3/4.jpg">
+    <img class="thumb" src="assets/school3/5.jpg">
+    <img class="thumb" src="assets/school3/6.jpg">
+    <img class="thumb" src="assets/school3/7.jpg">
+    <img class="thumb" src="assets/school3/8.jpg">
+    <img class="thumb" src="assets/school3/9.jpg">
+  </div>
+</div>
+
+<!-- ===== SCHOOL 4 ===== -->
+<div class="school-title">SCHOOL 4 – Kovai Vidhya Mandir, Coimbatore – 21/02/2025</div>
+<div id="school4">
+  <div class="slideshow">
+    <img class="slide" src="assets/school4/1.jpg">
+    <img class="slide" src="assets/school4/2.jpg">
+    <img class="slide" src="assets/school4/3.jpg">
+    <img class="slide" src="assets/school4/4.jpg">
+    <img class="slide" src="assets/school4/5.jpg">
+    <img class="slide" src="assets/school4/6.jpg">
+    <img class="slide" src="assets/school4/7.jpg">
+    <img class="slide" src="assets/school4/8.jpg">
+    <img class="slide" src="assets/school4/9.jpg">
+    <button class="prev">❮</button>
+    <button class="next">❯</button>
+  </div>
+  <div class="thumbnails">
+    <img class="thumb" src="assets/school4/1.jpg">
+    <img class="thumb" src="assets/school4/2.jpg">
+    <img class="thumb" src="assets/school4/3.jpg">
+    <img class="thumb" src="assets/school4/4.jpg">
+    <img class="thumb" src="assets/school4/5.jpg">
+    <img class="thumb" src="assets/school4/6.jpg">
+    <img class="thumb" src="assets/school4/7.jpg">
+    <img class="thumb" src="assets/school4/8.jpg">
+    <img class="thumb" src="assets/school4/9.jpg">
+  </div>
+</div>
+
+<!-- ===== SCHOOL 5 ===== -->
+<div class="school-title">SCHOOL 5 - Thirumala Public School, Mysuru - 11/09/2025</div>
+<div id="school5">
+  <div class="slideshow">
+    <img class="slide" src="assets/school5/1.jpg">
+    <img class="slide" src="assets/school5/2.jpg">
+    <img class="slide" src="assets/school5/3.jpg">
+    <img class="slide" src="assets/school5/4.jpg">
+    <img class="slide" src="assets/school5/5.jpg">
+    <img class="slide" src="assets/school5/6.jpg">
+    <img class="slide" src="assets/school5/7.jpg">
+    <img class="slide" src="assets/school5/8.jpg">
+    <img class="slide" src="assets/school5/9.jpg">
+    <button class="prev">❮</button>
+    <button class="next">❯</button>
+  </div>
+  <div class="thumbnails">
+    <img class="thumb" src="assets/school5/1.jpg">
+    <img class="thumb" src="assets/school5/2.jpg">
+    <img class="thumb" src="assets/school5/3.jpg">
+    <img class="thumb" src="assets/school5/4.jpg">
+    <img class="thumb" src="assets/school5/5.jpg">
+    <img class="thumb" src="assets/school5/6.jpg">
+    <img class="thumb" src="assets/school5/7.jpg">
+    <img class="thumb" src="assets/school5/8.jpg">
+    <img class="thumb" src="assets/school5/9.jpg">
+  </div>
+</div>
+
+<!-- ===== SCHOOL 6 ===== -->
+<div class="school-title">SCHOOL 6 - Government High School Kumbarakoppalu - 12/09/2025</div>
+<div id="school6">
+  <div class="slideshow">
+    <img class="slide" src="assets/school6/1.jpg">ment High School Kumbarakoppalu - 12/09/2025
+    <img class="slide" src="assets/school6/2.jpg">
+    <img class="slide" src="assets/school6/3.jpg">
+    <img class="slide" src="assets/school6/4.jpg">
+    <img class="slide" src="assets/school6/5.jpg">
+    <img class="slide" src="assets/school6/6.jpg">
+    <img class="slide" src="assets/school6/7.jpg">
+    <img class="slide" src="assets/school6/8.jpg">
+    <img class="slide" src="assets/school6/9.jpg">
+    <button class="prev">❮</button>
+    <button class="next">❯</button>
+  </div>
+  <div class="thumbnails">
+    <img class="thumb" src="assets/school6/1.jpg">
+    <img class="thumb" src="assets/school6/2.jpg">
+    <img class="thumb" src="assets/school6/3.jpg">
+    <img class="thumb" src="assets/school6/4.jpg">
+    <img class="thumb" src="assets/school6/5.jpg">
+    <img class="thumb" src="assets/school6/6.jpg">
+    <img class="thumb" src="assets/school6/7.jpg">
+    <img class="thumb" src="assets/school6/8.jpg">
+    <img class="thumb" src="assets/school6/9.jpg">
+  </div>
+</div>
+
+<!-- ===== SCHOOL 7 ===== -->
+<div class="school-title">SCHOOL 7 - Govt Girls Higher Secondary School, Parangipettai, Cuddalore - 23/10/2025</div>
+<div id="school7">
+  <div class="slideshow">
+    <img class="slide" src="assets/school7/1.jpg">
+    <img class="slide" src="assets/school7/2.jpg">
+    <img class="slide" src="assets/school7/3.jpg">
+    <img class="slide" src="assets/school7/4.jpg">
+    <img class="slide" src="assets/school7/5.jpg">
+    <img class="slide" src="assets/school7/6.jpg">
+    <img class="slide" src="assets/school7/7.jpg">
+    <img class="slide" src="assets/school7/8.jpg">
+    <img class="slide" src="assets/school7/9.jpg">
+    <button class="prev">❮</button>
+    <button class="next">❯</button>
+  </div>
+  <div class="thumbnails">
+    <img class="thumb" src="assets/school7/1.jpg">
+    <img class="thumb" src="assets/school7/2.jpg">
+    <img class="thumb" src="assets/school7/3.jpg">
+    <img class="thumb" src="assets/school7/4.jpg">
+    <img class="thumb" src="assets/school7/5.jpg">
+    <img class="thumb" src="assets/school7/6.jpg">
+    <img class="thumb" src="assets/school7/7.jpg">
+    <img class="thumb" src="assets/school7/8.jpg">
+    <img class="thumb" src="assets/school7/9.jpg">
+  </div>
+</div>
+
+<!-- ===== SCHOOL 8 ===== -->
+<div class="school-title">SCHOOL 8 - Govt Boys Higher Secondary School, Parangipettai, Cuddalore - 23/10/2025</div>
+<div id="school8">
+  <div class="slideshow">
+    <img class="slide" src="assets/school8/1.jpg">
+    <img class="slide" src="assets/school8/2.jpg">
+    <img class="slide" src="assets/school8/3.jpg">
+    <img class="slide" src="assets/school8/4.jpg">
+    <img class="slide" src="assets/school8/5.jpg">
+    <img class="slide" src="assets/school8/6.jpg">
+    <img class="slide" src="assets/school8/7.jpg">
+    <img class="slide" src="assets/school8/8.jpg">
+    <img class="slide" src="assets/school8/9.jpg">
+    <button class="prev">❮</button>
+    <button class="next">❯</button>
+  </div>
+  <div class="thumbnails">
+    <img class="thumb" src="assets/school8/1.jpg">
+    <img class="thumb" src="assets/school8/2.jpg">
+    <img class="thumb" src="assets/school8/3.jpg">
+    <img class="thumb" src="assets/school8/4.jpg">
+    <img class="thumb" src="assets/school8/5.jpg">
+    <img class="thumb" src="assets/school8/6.jpg">
+    <img class="thumb" src="assets/school8/7.jpg">
+    <img class="thumb" src="assets/school8/8.jpg">
+    <img class="thumb" src="assets/school8/9.jpg">
+  </div>
+</div>
+
+<!-- ===== SCHOOL 9 ===== -->
+<div class="school-title">SCHOOL 9 - Kamaraj International School, Cuddalore - 24/10/2025</div>
+<div id="school9">
+  <div class="slideshow">
+    <img class="slide" src="assets/school9/1.jpg">
+    <img class="slide" src="assets/school9/2.jpg">
+    <img class="slide" src="assets/school9/3.jpg">
+    <img class="slide" src="assets/school9/4.jpg">
+    <img class="slide" src="assets/school9/5.jpg">
+    <img class="slide" src="assets/school9/6.jpg">
+    <img class="slide" src="assets/school9/7.jpg">
+    <img class="slide" src="assets/school9/8.jpg">
+    <img class="slide" src="assets/school9/9.jpg">
+    <button class="prev">❮</button>
+    <button class="next">❯</button>
+  </div>
+  <div class="thumbnails">
+    <img class="thumb" src="assets/school9/1.jpg">
+    <img class="thumb" src="assets/school9/2.jpg">
+    <img class="thumb" src="assets/school9/3.jpg">
+    <img class="thumb" src="assets/school9/4.jpg">
+    <img class="thumb" src="assets/school9/5.jpg">
+    <img class="thumb" src="assets/school9/6.jpg">
+    <img class="thumb" src="assets/school9/7.jpg">
+    <img class="thumb" src="assets/school9/8.jpg">
+    <img class="thumb" src="assets/school9/9.jpg">
+  </div>
+</div>
+
+</div>
+
+<script>
+initGallery('school1');
+initGallery('school2');
+initGallery('school3');
+initGallery('school4');
+initGallery('school5');
+initGallery('school6');
+initGallery('school7');
+initGallery('school8');
+initGallery('school9');
+</script>
+
+</body>
+
+</html>
