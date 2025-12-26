@@ -79,6 +79,11 @@
         .button-container a:hover {
             background-color: #003060;
         }
+        /* FORCE header title color to white */
+.header h1 {
+  color: #ffffff !important;
+}
+
     </style>
   
 <style>
@@ -158,10 +163,35 @@ body *[style*="background-color"] { background-color:transparent !important; }
   .header img{height:64px !important}
   h1{font-size:22px !important}
 }
+/* ===== FIX HEADER TITLE TO MATCH FIRST IMAGE ===== */
+.header {
+  flex-direction: column !important;
+  padding: 32px 12px !important;
+}
+
+.header h1 {
+  color: #ffffff !important;
+  font-size: 42px !important;
+  font-weight: 800 !important;
+  margin-bottom: 6px !important;
+}
+
+.header p {
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-size: 18px !important;
+  margin: 0 !important;
+  max-width: 900px;
+}
+
 
 </style>
 </head>
 <body>
+    <div class="logo-container">
+    <a href="projects.html">
+      <img src="assets/images/symbol.jpg" alt="Logo" />
+    </a>
+  </div>
 
     <div class="header">
         <h1>Rover</h1>
