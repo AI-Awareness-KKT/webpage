@@ -14,6 +14,9 @@
 
 
 <body class="gallery-page">
+  <div class="top-lang-bar">
+  <div id="google_translate_element"></div>
+</div>
 <!-- HEADER -->
 <header class="site-header">
   <a href="index.html">
@@ -22,233 +25,37 @@
 </header>
 
 
+
 <!-- NAV -->
 <div class="taskbar">
   <a href="resource.html">Resources</a>
   <a href="projects.html">Projects</a>
   <a href="activities.html">Activities</a>
   <a href="gallery.html">Gallery</a>
+  <a href="student-corner.html">Student Corner</a>
   <a href="aboutus.html">About Us</a>
 </div>
 
-<div class="content">
+<div class="content gallery-layout">
 
-<!-- SCHOOL TEMPLATE (REPEAT) -->
-<script>
-function initGallery(id){
-  let index = 0;
-  const box = document.getElementById(id);
-  const slides = box.querySelectorAll('.slide');
-  const thumbs = box.querySelectorAll('.thumb');
+  <!-- LEFT: RANDOM IMAGES -->
+  <div class="gallery-left">
+    <h2>Gallery Highlights</h2>
+    <div class="gallery-masonry" id="randomGallery"></div>
+  </div>
 
-  function show(n){
-    if(n<0) n=slides.length-1;
-    if(n>=slides.length) n=0;
-    slides.forEach((s,i)=>s.classList.toggle('active',i===n));
-    thumbs.forEach((t,i)=>t.classList.toggle('active',i===n));
-    index=n;
-  }
-
-  box.querySelector('.prev').onclick=()=>show(index-1);
-  box.querySelector('.next').onclick=()=>show(index+1);
-  thumbs.forEach((t,i)=>t.onclick=()=>show(i));
-  show(0);
-}
-</script>
-
-<!-- ===== SCHOOL 1 ===== -->
-<section class="school-block">
-    <div class="school-heading">
-      SCHOOL 1 – Karaparamba Govt. Higher Secondary School, Kozhikode – 16/01/2025
-    </div>
-
-    <div class="gallery-masonry">
-      <div class="gallery-item"><img src="assets/school1/1.jpg"></div>
-      <div class="gallery-item"><img src="assets/school1/2.jpg"></div>
-      <div class="gallery-item"><img src="assets/school1/3.jpg"></div>
-      <div class="gallery-item"><img src="assets/school1/4.jpg"></div>
-      <div class="gallery-item"><img src="assets/school1/5.jpg"></div>
-      <div class="gallery-item"><img src="assets/school1/6.jpg"></div>
-      <div class="gallery-item"><img src="assets/school1/7.jpg"></div>
-      <div class="gallery-item"><img src="assets/school1/8.jpg"></div>
-      <div class="gallery-item"><img src="assets/school1/9.jpg"></div>
-    </div>
-  </section>
-
-<!-- ===== SCHOOL 2 ===== -->
-<section class="school-block">
-    <div class="school-heading">
-      SCHOOL 2 – Govt. Higher Secondary School for Girls, Nadakkavu – 17/02/2025
-    </div>
-
-    <div class="gallery-masonry">
-      <div class="gallery-item"><img src="assets/school2/1.jpg"></div>
-      <div class="gallery-item"><img src="assets/school2/2.jpg"></div>
-      <div class="gallery-item"><img src="assets/school2/3.jpg"></div>
-      <div class="gallery-item"><img src="assets/school2/4.jpg"></div>
-      <div class="gallery-item"><img src="assets/school2/5.jpg"></div>
-      <div class="gallery-item"><img src="assets/school2/6.jpg"></div>
-      <div class="gallery-item"><img src="assets/school2/8.jpg"></div>
-      <div class="gallery-item"><img src="assets/school2/9.jpg"></div>
-    </div>
-  </section>
-
-
-<!-- ===== SCHOOL 3 ===== -->
-<section class="school-block">
-    <div class="school-heading">
-      SCHOOL 3 – GD School – 20/02/2025
-    </div>
-
-    <div class="gallery-masonry">
-      <div class="gallery-item"><img src="assets/school3/1.jpg"></div>
-      <div class="gallery-item"><img src="assets/school3/2.jpg"></div>
-      <div class="gallery-item"><img src="assets/school3/3.jpg"></div>
-      <div class="gallery-item"><img src="assets/school3/4.jpg"></div>
-      <div class="gallery-item"><img src="assets/school3/5.jpg"></div>
-      <div class="gallery-item"><img src="assets/school3/6.jpg"></div>
-      <div class="gallery-item"><img src="assets/school3/7.jpg"></div>
-      <div class="gallery-item"><img src="assets/school3/8.jpg"></div>
-      <div class="gallery-item"><img src="assets/school3/9.jpg"></div>
-    </div>
-  </section>
-
-
-<!-- ===== SCHOOL 4 ===== -->
-<section class="school-block">
-    <div class="school-heading">
-      SCHOOL 4 – Kovai Vidhya Mandir, Coimbatore – 21/02/2025
-    </div>
-
-    <div class="gallery-masonry">
-      <div class="gallery-item"><img src="assets/school4/1.jpg"></div>
-      <div class="gallery-item"><img src="assets/school4/2.jpg"></div>
-      <div class="gallery-item"><img src="assets/school4/3.jpg"></div>
-      <div class="gallery-item"><img src="assets/school4/4.jpg"></div>
-      <div class="gallery-item"><img src="assets/school4/5.jpg"></div>
-      <div class="gallery-item"><img src="assets/school4/6.jpg"></div>
-      <div class="gallery-item"><img src="assets/school4/7.jpg"></div>
-      <div class="gallery-item"><img src="assets/school4/8.jpg"></div>
-      <div class="gallery-item"><img src="assets/school4/9.jpg"></div>
-    </div>
-  </section>
-
-
-<!-- ===== SCHOOL 5 ===== -->
-<section class="school-block">
-    <div class="school-heading">
-      SCHOOL 5 - Thirumala Public School, Mysuru - 11/09/2025
-    </div>
-
-    <div class="gallery-masonry">
-      <div class="gallery-item"><img src="assets/school5/1.jpg"></div>
-      <div class="gallery-item"><img src="assets/school5/2.jpg"></div>
-      <div class="gallery-item"><img src="assets/school5/3.jpg"></div>
-      <div class="gallery-item"><img src="assets/school5/4.jpg"></div>
-      <div class="gallery-item"><img src="assets/school5/5.jpg"></div>
-      <div class="gallery-item"><img src="assets/school5/6.jpg"></div>
-      <div class="gallery-item"><img src="assets/school5/7.jpg"></div>
-      <div class="gallery-item"><img src="assets/school5/8.jpg"></div>
-      <div class="gallery-item"><img src="assets/school5/9.jpg"></div>
-    </div>
-  </section>
-
-
-<!-- ===== SCHOOL 6 ===== -->
-<section class="school-block">
-    <div class="school-heading">
-      SCHOOL 6 - Government High School Kumbarakoppalu - 12/09/2025
-    </div>
-
-    <div class="gallery-masonry">
-      <div class="gallery-item"><img src="assets/school6/1.jpg"></div>
-      <div class="gallery-item"><img src="assets/school6/2.jpg"></div>
-      <div class="gallery-item"><img src="assets/school6/3.jpg"></div>
-      <div class="gallery-item"><img src="assets/school6/4.jpg"></div>
-      <div class="gallery-item"><img src="assets/school6/5.jpg"></div>
-      <div class="gallery-item"><img src="assets/school6/6.jpg"></div>
-      <div class="gallery-item"><img src="assets/school6/7.jpg"></div>
-      <div class="gallery-item"><img src="assets/school6/8.jpg"></div>
-      <div class="gallery-item"><img src="assets/school6/9.jpg"></div>
-    </div>
-  </section>
-
-
-<!-- ===== SCHOOL 7 ===== -->
-<section class="school-block">
-    <div class="school-heading">
-      SCHOOL 7 - Govt Girls Higher Secondary School, Parangipettai, Cuddalore - 23/10/2025
-    </div>
-
-    <div class="gallery-masonry">
-      <div class="gallery-item"><img src="assets/school7/1.jpg"></div>
-      <div class="gallery-item"><img src="assets/school7/2.jpg"></div>
-      <div class="gallery-item"><img src="assets/school7/3.jpg"></div>
-      <div class="gallery-item"><img src="assets/school7/4.jpg"></div>
-      <div class="gallery-item"><img src="assets/school7/5.jpg"></div>
-      <div class="gallery-item"><img src="assets/school7/6.jpg"></div>
-      <div class="gallery-item"><img src="assets/school7/7.jpg"></div>
-      <div class="gallery-item"><img src="assets/school7/8.jpg"></div>
-      <div class="gallery-item"><img src="assets/school7/9.jpg"></div>
-    </div>
-  </section>
-
-<!-- ===== SCHOOL 8 ===== -->
-<section class="school-block">
-    <div class="school-heading">
-      SCHOOL 8 - Govt Boys Higher Secondary School, Parangipettai, Cuddalore - 23/10/2025
-    </div>
-
-    <div class="gallery-masonry">
-      <div class="gallery-item"><img src="assets/school8/1.jpg"></div>
-      <div class="gallery-item"><img src="assets/school8/2.jpg"></div>
-      <div class="gallery-item"><img src="assets/school8/3.jpg"></div>
-      <div class="gallery-item"><img src="assets/school8/4.jpg"></div>
-      <div class="gallery-item"><img src="assets/school8/5.jpg"></div>
-      <div class="gallery-item"><img src="assets/school8/6.jpg"></div>
-      <div class="gallery-item"><img src="assets/school8/7.jpg"></div>
-      <div class="gallery-item"><img src="assets/school8/8.jpg"></div>
-    </div>
-  </section>
-
-
-<!-- ===== SCHOOL 9 ===== -->
-<section class="school-block">
-    <div class="school-heading">
-      SCHOOL 9 - Kamaraj International School, Cuddalore - 24/10/2025
-    </div>
-
-    <div class="gallery-masonry">
-      <div class="gallery-item"><img src="assets/school9/1.jpg"></div>
-      <div class="gallery-item"><img src="assets/school9/2.jpg"></div>
-      <div class="gallery-item"><img src="assets/school9/3.jpg"></div>
-      <div class="gallery-item"><img src="assets/school9/4.jpg"></div>
-      <div class="gallery-item"><img src="assets/school9/5.jpg"></div>
-      <div class="gallery-item"><img src="assets/school9/6.jpg"></div>
-      <div class="gallery-item"><img src="assets/school9/7.jpg"></div>
-      <div class="gallery-item"><img src="assets/school9/8.jpg"></div>
-      <div class="gallery-item"><img src="assets/school9/9.jpg"></div>
-    </div>
-  </section>
-
-
-<div class="lightbox" id="lightbox">
-  <img id="lightbox-img" src="">
-</div>
+  <!-- RIGHT: SCHOOL LIST -->
+  <div class="gallery-right">
+    <h3>Schools Covered</h3>
+    <table class="school-table" id="schoolTable"></table>
+  </div>
 
 </div>
 
-<script>
-initGallery('school1');
-initGallery('school2');
-initGallery('school3');
-initGallery('school4');
-initGallery('school5');
-initGallery('school6');
-initGallery('school7');
-initGallery('school8');
-initGallery('school9');
-</script>
+<script src="assets/js/gallery-data.js"></script>
+<script src="assets/js/gallery-main.js"></script>
+
+
 <script>
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
@@ -265,6 +72,23 @@ lightbox.addEventListener('click', ()=>{
 });
 </script>
 
-</body>
+<div class="lightbox" id="lightbox">
+  <img id="lightbox-img">
+</div>
+<script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement(
+    {
+      pageLanguage: 'en',
+      includedLanguages: 'en,hi,kn,ta,ml',
+      autoDisplay: false
+    },
+    'google_translate_element'
+  );
+}
+</script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 
 </html>

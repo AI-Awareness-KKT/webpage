@@ -181,6 +181,38 @@
         padding-top: 10px;
       }
     }
+
+    .india-map-wrapper {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.india-map-img {
+  max-width: 420px;
+  width: 100%;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.india-map-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+}
+
+.map-caption {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #475569;
+}
+.info-card{
+  background-color: #f9fbff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  padding: 24px;
+  margin-top: 40px;
+}
+
   </style>
   
 <style>
@@ -251,6 +283,10 @@ body *[style*="background-color"] { background-color:transparent !important; }
 </style>
 </head>
 <body>
+<div class="top-lang-bar">
+  <div id="google_translate_element"></div>
+</div>
+
 
   <!-- Logo -->
   <div class="logo-container">
@@ -258,6 +294,7 @@ body *[style*="background-color"] { background-color:transparent !important; }
       <img src="assets/images/symbol.jpg" alt="Logo" />
     </a>
   </div>
+  
 
   <!-- Taskbar -->
   <div class="taskbar">
@@ -265,20 +302,57 @@ body *[style*="background-color"] { background-color:transparent !important; }
     <a href="projects.html">Projects</a>
     <a href="activities.html">Activities</a>
     <a href="gallery.html">Gallery</a>
+    <a href="student-corner.html">Student Corner</a>
     <a href="aboutus.html">About Us</a>
   </div>
+  
 
   <!-- Content -->
   <div class="content" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-offset="200">
-    <h1 data-aos="fade-up" data-aos-anchor-placement="top-bottom">About Us</h1>
-    <p data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-      The National Council for Science & Technology Communication (NCSTC), under the Department of Science & Technology (DST), Government of India, collaborates with the National Institute of Technology Karnataka (NITK) to conduct a children-centric outreach program titled “Creating Awareness in Artificial Intelligence.” This initiative introduces secondary school children in Karnataka, Kerala, and Tamil Nadu to the fundamentals of AI through interactive sessions, real-world applications like object detection and sentiment analysis, and hands-on experiments. The program aims to make learning AI fun and engaging while preparing students for the future.    </p>
+    <div class="info-card" data-aos="fade-up">
+  <h1>About Us</h1>
+  <p>
+    The National Council for Science & Technology Communication (NCSTC), under the Department of Science & Technology (DST), Government of India, collaborates with the National Institute of Technology Karnataka (NITK) to conduct a children-centric outreach program titled “Creating Awareness in Artificial Intelligence.”
+  </p>
+</div>
 
-    <h2 data-aos="fade-up" data-aos-anchor-placement="top-bottom">Our Vision</h2>
-    <p data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-      "Our vision is to create a future where young minds are empowered with the knowledge and skills to thrive in a technology-driven world. We aim to demystify Artificial Intelligence (AI) and make it accessible to students, fostering curiosity, creativity, and innovation in the field of AI."    </p>
 
-    <h2 data-aos="fade-up" data-aos-anchor-placement="top-bottom">Meet the Team</h2>
+<div class="info-card" data-aos="fade-up">
+  <h2>Our National Outreach Impact</h2>
+
+  <p>
+    Through the AI Awareness Project, we have successfully conducted outreach programs across multiple regions in India, directly engaging with school students and educators.
+  </p>
+
+  <p>
+    Our initiative has reached <strong>many schools</strong> and impacted <strong>thousands of students</strong>, introducing them to Artificial Intelligence through interactive sessions, hands-on experiments, and real-world demonstrations.
+  </p>
+
+  <p>
+    The program is currently implemented across <strong>Karnataka, Tamil Nadu, and Kerala</strong>, fostering early AI literacy and technological curiosity among young learners.
+  </p>
+
+  <div class="india-map-wrapper">
+    <a href="india-coverage.html">
+      <img src="assets/images/india.png" class="india-map-img" alt="India Map">
+      <p class="map-caption">Click on the map to explore state-wise outreach</p>
+    </a>
+  </div>
+</div>
+
+
+
+    <div class="info-card" data-aos="fade-up">
+  <h2>Our Vision</h2>
+  <p>
+    Our vision is to create a future where young minds are empowered with the knowledge and skills to thrive in a technology-driven world. We aim to demystify Artificial Intelligence (AI) and make it accessible to students, fostering curiosity, creativity, and innovation in the field of AI.
+  </p>
+</div>
+
+
+    
+<h2 class="team-heading" data-aos="fade-up">Meet the Team</h2>
+
     <div class="team-section">
       <div class="team-member" data-aos="zoom-in-up" data-aos-anchor-placement="top-bottom">
         <img src="assets/images/and.jpg" alt="Dr. Anand Kumar M"/>
@@ -337,6 +411,35 @@ body *[style*="background-color"] { background-color:transparent !important; }
       </div>
     </div>
 
+   <div class="team-member" data-aos="zoom-in-up" data-aos-anchor-placement="top-bottom">
+  <img src="assets/images/vikas.jpeg" alt="Vikas T" class="profile-vikas"/>
+  <div class="team-member-details">
+    <h3>Vikas T</h3>
+    <p><strong>Project Intern, NITK</strong> 
+       <span style="color:#666;">(27/10/2025 – 27/01/2026)</span>
+    </p>
+    <p>
+      Worked on the AI Awareness Project with a focus on developing and deploying
+      project demonstrations aimed at creating awareness in Artificial Intelligence
+      through hands-on activities. Contributed to both static projects and
+      model-based projects showcased as part of the initiative.
+    </p>
+    <p>
+      Primarily involved in the design and development of the project website,
+      including structuring pages, designing the user interface, integrating project
+      content, and ensuring a responsive and consistent user experience across the
+      platform.
+    </p>
+    <p>Email: <a href="mailto:vikivikas0101@gmail.com">vikivikas0101@gmail.com</a></p>
+    <p>LinkedIn: 
+      <a href="https://www.linkedin.com/in/vikas-t-21529124a" target="_blank">
+        Vikas T
+      </a>
+    </p>
+  </div>
+</div>
+
+
     <h2 class="section" data-aos="fade-up" data-aos-anchor-placement="top-bottom">Our Supporters</h2>
     <div class="partners-section">
       <div class="partner" data-aos="zoom-in-up" data-aos-anchor-placement="top-bottom">
@@ -363,17 +466,21 @@ body *[style*="background-color"] { background-color:transparent !important; }
     </div>
   </div>
 
-  <!-- AOS Script -->
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
-    AOS.init({
-      duration: 1000,
-      once: false,
-      mirror: true,
-      offset: 200
-    });
-  </script>
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script src="assets/js/site.js"></script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement(
+    {
+      pageLanguage: 'en',
+      includedLanguages: 'en,hi,kn,ta,ml',
+      autoDisplay: false
+    },
+    'google_translate_element'
+  );
+}
+</script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
 </body>
 </html>

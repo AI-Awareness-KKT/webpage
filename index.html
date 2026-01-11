@@ -93,15 +93,16 @@
   }
 
   /* ================= IMPACT ================= */
-  .impact-summary {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    background: linear-gradient(to right, #dbefff, #ffffff);
-    padding: 50px 20px;
-    flex-wrap: wrap;
-    border-bottom: 2px solid #c0d0e0;
-  }
+  .impact-summary{
+  display:flex;
+  justify-content:center;
+  gap:32px;
+  flex-wrap:wrap;
+  padding: 20px 16px;
+  background: transparent;
+  border-bottom: none;
+}
+
 
   .impact-card {
     background: rgba(255,255,255,0.8);
@@ -203,7 +204,9 @@
   
 </head>
 <body>
-
+<div class="top-lang-bar">
+  <div id="google_translate_element"></div>
+</div>
 <!-- BEGIN: SINGLE MANDATORY MODERN POPUP (added by assistant) -->
 <style>
 /* Scoped styles for the visitor modal to avoid clashes */
@@ -344,25 +347,38 @@
   </div>
 
   <!-- Taskbar -->
-  <div class="taskbar">
-    <a href="resource.html">Resources</a>
-    <a href="projects.html">Projects</a>
-    <a href="activities.html">Activities</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="aboutus.html">About Us</a>
-  </div>
+<div class="taskbar">
+  <a href="resource.html">Resources</a>
+  <a href="projects.html">Projects</a>
+  <a href="activities.html">Activities</a>
+  <a href="gallery.html">Gallery</a>
+   <a href="student-corner.html">Student Corner</a>
+  <a href="aboutus.html">About Us</a>
+</div>
 
-  <!-- Impact Summary -->
-  <div class="impact-summary" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-offset="200">
-    <div class="impact-card">
+<!-- FLOATING STATS PANEL -->
+<div id="stats-panel">
+
+  <a href="india-coverage.html" class="stats-link">
+    <div class="stats-card">
       <div class="impact-number">9</div>
       <div class="impact-label">Schools Covered</div>
     </div>
-    <div class="impact-card">
+  </a>
+
+  <a href="india-coverage.html" class="stats-link">
+    <div class="stats-card">
       <div class="impact-number">1061</div>
       <div class="impact-label">Students Reached</div>
     </div>
-  </div>
+  </a>
+
+</div>
+
+
+<!-- PANEL TOGGLE ARROW -->
+<div id="stats-toggle">&#10094;</div>
+
 
   <!-- Sections -->
   <div class="content" data-aos="fade-right" data-aos-anchor-placement="top-bottom" data-aos-offset="200">
@@ -451,5 +467,47 @@
   </script>
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script src="assets/js/site.js"></script>
+<script>
+  const panel = document.getElementById('stats-panel');
+  const toggle = document.getElementById('stats-toggle');
+  let timer;
+
+  function showPanel(){
+    panel.classList.add('active');
+    toggle.style.display = 'none';
+
+    clearTimeout(timer);
+    timer = setTimeout(hidePanel, 7000); // 7 seconds
+  }
+
+  function hidePanel(){
+    panel.classList.remove('active');
+    toggle.style.display = 'flex';
+  }
+
+  // auto popup on page load
+  window.addEventListener('load', () => {
+    setTimeout(showPanel, 800); // slight delay after load
+  });
+
+  // manual reopen
+  toggle.addEventListener('click', showPanel);
+</script>
+<script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement(
+    {
+      pageLanguage: 'en',
+      includedLanguages: 'en,hi,kn,ta,ml',
+      autoDisplay: false
+    },
+    'google_translate_element'
+  );
+}
+</script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
 </body>
 </html>

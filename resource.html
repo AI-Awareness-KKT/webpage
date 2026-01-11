@@ -131,6 +131,9 @@
 </head>
 
 <body class="resource-page">
+  <div class="top-lang-bar">
+  <div id="google_translate_element"></div>
+</div>
 
   <!-- Logo -->
   <div class="logo-container">
@@ -145,6 +148,7 @@
     <a href="projects.html">Projects</a>
     <a href="activities.html">Activities</a>
     <a href="gallery.html">Gallery</a>
+    <a href="student-corner.html">Student Corner</a>
     <a href="aboutus.html">About Us</a>
   </div>
 
@@ -166,6 +170,21 @@
   <script>
     AOS.init({ duration: 400, once: true });
   </script>
+<script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement(
+    {
+      pageLanguage: 'en',
+      includedLanguages: 'en,hi,kn,ta,ml',
+      autoDisplay: false
+    },
+    'google_translate_element'
+  );
+}
+</script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 
 </body>
 </html>

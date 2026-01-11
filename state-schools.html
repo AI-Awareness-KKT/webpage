@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Schools Covered</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="assets/css/style.css">
+
+<style>
+body{
+  background:#eef2f7;
+  font-family:Inter,sans-serif;
+  margin:0;
+}
+.school-container{
+  max-width:900px;
+  margin:40px auto;
+  background:#fff;
+  padding:30px;
+  border-radius:16px;
+  box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+.school-list a{
+  display:block;
+  padding:14px 18px;
+  margin-bottom:12px;
+  background:#f1f5f9;
+  border-radius:10px;
+  text-decoration:none;
+  color:#003366;
+  font-weight:600;
+}
+.school-list a:hover{
+  background:#003b73;
+  color:#fff;
+}
+</style>
+</head>
+
+
+<body>
+
+  <div class="top-lang-bar">
+  <div id="google_translate_element"></div>
+</div>
+<div class="logo-container">
+  <a href="index.html"><img src="assets/images/symbol.jpg"></a>
+</div>
+
+<div class="taskbar">
+  <a href="resource.html">Resources</a>
+  <a href="projects.html">Projects</a>
+  <a href="activities.html">Activities</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="student-corner.html">Student Corner</a>
+  <a href="aboutus.html">About Us</a>
+</div>
+
+<div class="school-container">
+  <h1 id="title"></h1>
+  <div class="school-list" id="list"></div>
+
+  <!-- BACK BUTTON -->
+  <div class="back-btn-container">
+    <a href="india-coverage.html" class="back-btn">← Back to States</a>
+  </div>
+</div>
+
+
+<script>
+const mapping = {
+  karnataka: [
+    { id: "school5", name: "Thirumala Public School, Mysuru" },
+    { id: "school6", name: "Government High School Kumbarakoppalu" }
+  ],
+
+  tamilnadu: [
+    { id: "school4", name: "Kovai Vidhya Mandir, Coimbatore" },
+    { id: "school7", name: "Govt Girls Higher Secondary School, Parangipettai" },
+    { id: "school8", name: "Govt Boys Higher Secondary School, Parangipettai" },
+    { id: "school9", name: "Kamaraj International School, Cuddalore" },
+    { id: "school3", name: "GD Matriculation Higher Secondary School, Coimbatore" }
+  ],
+
+  kerala: [
+    { id: "school1", name: "Karaparamba Govt. Higher Secondary School, Kozhikode" },
+    { id: "school2", name: "Govt. Higher Secondary School for Girls, Nadakkavu" }
+  ]
+};
+
+const state = new URLSearchParams(window.location.search).get("state");
+
+document.getElementById("title").innerText =
+  state.toUpperCase() + " – Schools Covered";
+
+const list = document.getElementById("list");
+
+mapping[state].forEach(school => {
+  const a = document.createElement("a");
+  a.href = `school.html?id=${school.id}`;
+  a.innerText = school.name;
+  list.appendChild(a);
+});
+</script>
+<script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement(
+    {
+      pageLanguage: 'en',
+      includedLanguages: 'en,hi,kn,ta,ml',
+      autoDisplay: false
+    },
+    'google_translate_element'
+  );
+}
+</script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+
+</body>
+</html>
