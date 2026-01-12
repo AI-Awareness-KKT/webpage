@@ -82,7 +82,7 @@
 
 </div>
 
-<script src="assets/js/student-corner.js"></script>
+
 <script>
 function googleTranslateElementInit() {
   new google.translate.TranslateElement(
@@ -97,18 +97,27 @@ function googleTranslateElementInit() {
 </script>
 
 <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<!-- SUPABASE SDK (MUST COME FIRST) -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 
 <script>
   const SUPABASE_URL = "https://iyyyckczryvbnrfsnjrf.supabase.co";
-  const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml5eXlja2N6cnl2Ym5yZnNuanJmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgyMDU0NzAsImV4cCI6MjA4Mzc4MTQ3MH0._9V_r04KYq_bEsQrv6QhFbtaJ1LibAbe75oqgu3Lj6E";
+  const SUPABASE_ANON_KEY =
+    "sb_publishable_nK2w4C5szDVAnKInSRCV4w_CR2A5s8b";
 
+  // IMPORTANT: expose globally
   window.supabase = supabase.createClient(
     SUPABASE_URL,
-    SUPABASE_KEY
+    SUPABASE_ANON_KEY
   );
+
+  console.log("Supabase initialized:", window.supabase);
 </script>
+
+<!-- YOUR JS MUST COME AFTER SUPABASE -->
+<script src="assets/js/student-corner.js"></script>
+
+
 
 </body>
 </html>
