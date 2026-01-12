@@ -1,25 +1,20 @@
-/* =====================================
-   STUDENT CORNER – COMMENTS + ADMIN REPLY
-===================================== */
-
 let isAdmin = false;
 
 /* ---------- ADMIN LOGIN ---------- */
-function enableAdminMode(){
+function enableAdminMode() {
   const password = prompt("Enter admin password");
-
-  if(password === "admin123"){
+  if (password === "admin123") {
     isAdmin = true;
     alert("Admin mode enabled");
-    renderComments("doubts");
-    renderComments("projects");
+    loadComments("doubts");
+    loadComments("projects");
   } else {
     alert("Invalid password");
   }
 }
 
 /* ---------- POST COMMENT ---------- */
-function postComment(section){
+async function postComment(section) {
   const textarea =
     document.querySelector(`#${section}-comments`)
       .previousElementSibling.querySelector("textarea");
@@ -27,79 +22,84 @@ function postComment(section){
   const text = textarea.value.trim();
   if (!text) return;
 
-  const comments = JSON.parse(localStorage.getItem(section) || "[]");
+  await supabase
+    .from(section)
+    .insert({ text, reply: "" });
 
-  comments.unshift({
-    text,
-    reply: "",
-    time: new Date().toLocaleString()
-  });
-
-  localStorage.setItem(section, JSON.stringify(comments));
   textarea.value = "";
-  renderComments(section);
+  loadComments(section);
 }
 
 /* ---------- DELETE COMMENT ---------- */
-function deleteComment(section, index){
-  if(!confirm("Delete this comment?")) return;
+async function deleteComment(section, id) {
+  if (!confirm("Delete this comment?")) return;
 
-  const comments = JSON.parse(localStorage.getItem(section));
-  comments.splice(index, 1);
+  await supabase
+    .from(section)
+    .delete()
+    .eq("id", id);
 
-  localStorage.setItem(section, JSON.stringify(comments));
-  renderComments(section);
+  loadComments(section);
 }
 
 /* ---------- SAVE ADMIN REPLY ---------- */
-function saveReply(section, index){
-  const input = document.getElementById(`reply-${section}-${index}`);
-  const text = input.value.trim();
-  if(!text) return;
+async function saveReply(section, id) {
+  const input = document.getElementById(`reply-${id}`);
+  const reply = input.value.trim();
+  if (!reply) return;
 
-  const comments = JSON.parse(localStorage.getItem(section));
-  comments[index].reply = text;
+  await supabase
+    .from(section)
+    .update({ reply })
+    .eq("id", id);
 
-  localStorage.setItem(section, JSON.stringify(comments));
-  renderComments(section);
+  loadComments(section);
 }
 
-/* ---------- RENDER COMMENTS ---------- */
-function renderComments(section){
+/* ---------- LOAD COMMENTS ---------- */
+async function loadComments(section) {
   const container = document.getElementById(`${section}-comments`);
-  const comments = JSON.parse(localStorage.getItem(section) || "[]");
-
   container.innerHTML = "";
 
-  comments.forEach((item, index) => {
+  const { data, error } = await supabase
+    .from(section)
+    .select("*")
+    .order("created_at", { ascending: false });
+
+  if (error) {
+    console.error(error);
+    return;
+  }
+
+  data.forEach(item => {
     container.innerHTML += `
       <div class="comment">
         <div class="author">
           Student
           <button class="delete-btn"
-            onclick="deleteComment('${section}', ${index})">
+            onclick="deleteComment('${section}', '${item.id}')">
             Delete
           </button>
         </div>
 
         <div>${item.text}</div>
-        <small>${item.time}</small>
+        <small>${new Date(item.created_at).toLocaleString()}</small>
 
         ${
           item.reply
-          ? `<div class="reply">
-               <strong>Admin</strong>
-               <div>${item.reply}</div>
-             </div>`
-          : isAdmin
-          ? `<div class="reply">
-               <textarea id="reply-${section}-${index}"
-                 placeholder="Admin reply..."></textarea>
-               <button onclick="saveReply('${section}', ${index})">
-                 Reply
-               </button>
-             </div>`
-          : ""
+            ? `<div class="reply">
+                 <strong>Admin</strong>
+                 <div>${item.reply}</div>
+               </div>`
+            : isAdmin
+            ? `<div class="reply">
+                 <textarea id="reply-${item.id}"
+                   placeholder="Admin reply..."></textarea>
+                 <button onclick="saveReply('${section}', '${item.id}')">
+                   Reply
+                 </button>
+               </div>`
+            : ""
         }
       </div>
     `;
@@ -107,5 +107,5 @@ function renderComments(section){
 }
 
 /* ---------- INITIAL LOAD ---------- */
-renderComments("doubts");
-renderComments("projects");
+loadComments("doubts");
+loadComments("projects");

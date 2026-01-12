@@ -273,12 +273,41 @@ body *[style*="background-color"] { background-color:transparent !important; }
 /* Footer */
 .footer, .site-footer { font-size:13px !important; color:var(--muted) !important; text-align:center !important; padding:18px !important; margin-top:12px !important; background:transparent !important; border-top:none !important;}
 
-/* Responsive tweaks */
-@media (max-width:700px){
-  body{padding:14px !important}
-  .header img{height:64px !important}
-  h1{font-size:22px !important}
+/* ===============================
+   INDIA MAP – FINAL FIX
+================================ */
+
+/* Center container */
+.india-map-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
 }
+
+/* Link wrapper */
+.india-map-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Image centering */
+.india-map-img {
+  display: block;
+  margin: 0 auto;
+  max-width: 420px;
+}
+
+/* Caption */
+.map-caption {
+  margin-top: 14px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 16px;
+  color: #1e293b;
+}
+
 
 </style>
 </head>
@@ -332,12 +361,13 @@ body *[style*="background-color"] { background-color:transparent !important; }
     The program is currently implemented across <strong>Karnataka, Tamil Nadu, and Kerala</strong>, fostering early AI literacy and technological curiosity among young learners.
   </p>
 
-  <div class="india-map-wrapper">
-    <a href="india-coverage.html">
-      <img src="assets/images/india.png" class="india-map-img" alt="India Map">
-      <p class="map-caption">Click on the map to explore state-wise outreach</p>
-    </a>
-  </div>
+  <div class="india-map-section">
+  <a href="india-coverage.html" class="india-map-link">
+    <img src="assets/images/india.png" class="india-map-img" alt="India Map">
+    <div class="map-caption">Click on the map to explore state-wise outreach</div>
+  </a>
+</div>
+
 </div>
 
 
@@ -460,11 +490,35 @@ body *[style*="background-color"] { background-color:transparent !important; }
     </div>
 
     <h2 class="section" data-aos="fade-right" data-aos-anchor-placement="top-bottom">Contact Us</h2>
-    <div class="contact-info" data-aos="fade-right" data-aos-anchor-placement="top-bottom">
-      <p>Email: <a href="mailto:ca.ai.kkt@gmail.com">ca.ai.kkt@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/ai-awareness-program-csd-nitk-79942833b/" target="_blank">AI Awareness Program</a></p>
-    </div>
-  </div>
+<div class="contact-info" data-aos="fade-right" data-aos-anchor-placement="top-bottom">
+  
+  <p>
+    <strong>Email:</strong>
+    <a href="mailto:ca.ai.kkt@gmail.com">ca.ai.kkt@gmail.com</a>
+  </p>
+
+  <p>
+    <strong>LinkedIn:</strong>
+    <a href="https://www.linkedin.com/in/ai-awareness-program-csd-nitk-79942833b/" target="_blank">
+      AI Awareness Program
+    </a>
+  </p>
+
+  <p>
+    <strong>Address:</strong>
+    NH 66, Srinivasnagar,
+    Surathkal, Mangaluru,
+    Karnataka – 575025
+  </p>
+
+  <p>
+    <a href="https://maps.app.goo.gl/ngDSmHxqaW25qvXQ9" target="_blank">
+      View on Google Maps
+    </a>
+  </p>
+
+</div>
+
 
   <script>
 function googleTranslateElementInit() {
