@@ -17,25 +17,54 @@ function enableAdminMode() {
 /* ---------- POST COMMENT ---------- */
 async function postComment(section) {
   const textarea =
-    document.querySelector(`#${section}-comments`)
-      .previousElementSibling.querySelector("textarea");
+    document.querySelector(`#${section}-comments`)?.previousElementSibling
+      ?.querySelector("textarea") ||
+    document.querySelector("textarea");
+
+  if (!textarea) return;
 
   const text = textarea.value.trim();
   if (!text) return;
 
+  // 🔐 REQUIRE NAME FROM HOME PAGE
+  const authorName = localStorage.getItem("student_name");
+  if (!authorName) {
+    alert("Please enter your name on the home page first.");
+    return;
+  }
+
+  // ⏳ Prevent multiple clicks
+  textarea.disabled = true;
+
   const { error } = await window.supabase
     .from(section)
-    .insert({ text });
+    .insert({
+      text: text,
+      author_name: authorName
+    });
+
+  textarea.disabled = false;
 
   if (error) {
     console.error("Insert error:", error);
-    alert("Failed to post comment");
+    alert("Failed to submit. Please try again.");
     return;
   }
 
   textarea.value = "";
+
+  // 🔴 KEY LOGIC
+  if (section === "projects") {
+    alert(
+      "Your idea has been submitted successfully.\nWe will reply to you shortly."
+    );
+    return; // DO NOT LOAD COMMENTS
+  }
+
   loadComments(section);
 }
+
+
 
 /* ---------- DELETE COMMENT ---------- */
 async function deleteComment(section, id) {
@@ -90,12 +119,13 @@ async function loadComments(section) {
     container.innerHTML += `
       <div class="comment">
         <div class="author">
-  Student
+  ${item.author_name || "Student"}
   <button class="delete-btn"
     onclick="deleteComment('${section}', '${item.id}')">
     Delete
   </button>
 </div>
+
 
 
         <div>${item.text}</div>
@@ -119,5 +149,5 @@ async function loadComments(section) {
 /* ---------- INITIAL LOAD ---------- */
 document.addEventListener("DOMContentLoaded", () => {
   loadComments("doubts");
-  loadComments("projects");
+  
 });
