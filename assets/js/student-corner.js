@@ -120,11 +120,16 @@ async function loadComments(section) {
       <div class="comment">
         <div class="author">
   ${item.author_name || "Student"}
-  <button class="delete-btn"
-    onclick="deleteComment('${section}', '${item.id}')">
-    Delete
-  </button>
+  ${
+    isAdmin
+      ? `<button class="delete-btn"
+           onclick="deleteComment('${section}', '${item.id}')">
+           Delete
+         </button>`
+      : ""
+  }
 </div>
+
 
 
 
