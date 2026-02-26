@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <title>Applications of AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, #f0f4f9, #e0e8f3);
+            color: #2d2d2d;
+        }
+        .header {
+            background: linear-gradient(to right, #003973, #e5e5be);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 36px;
+            font-weight: 700;
+        }
+        .content {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section {
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 60px;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+        .section:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        .section img {
+            width: 35%;
+            max-height: 250px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .section div {
+            flex: 1;
+        }
+        .section h2 {
+            font-size: 28px;
+            color: #004080;
+            margin-bottom: 15px;
+        }
+        .section p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        .back-button {
+            text-align: center;
+            margin-top: 30px;
+        }
+       .back-button a {
+    display: inline-block;
+    text-decoration: none;
+    padding: 14px 34px;
+    font-size: 22px;
+    font-weight: 600;
+    background-color: #004080;
+    color: #ffffff !important;
+    border-radius: 12px;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+    transition: background-color 0.3s, transform 0.25s;
+}
+
+.back-button a:hover {
+    background-color: #002f60;
+    transform: translateY(-2px);
+}
+
+
+        .back-button a:hover {
+            background-color: #002f60;
+        }
+    </style>
+  
+<style>
+
+:root{
+  --bg:#eef6ff !important;
+  --card:#ffffff !important;
+  --muted:#334155 !important;
+  --primary:#0b63ff !important;
+  --accent:#06b6d4 !important;
+  --heading:#071130 !important;
+  --border:rgba(7,17,48,0.06) !important;
+  --radius:14px !important;
+}
+
+/* Reset and force base styles */
+*{box-sizing:border-box !important}
+html,body{height:100% !important;margin:0 !important;padding:0 !important}
+body{
+  padding:28px !important;
+  background: linear-gradient(180deg,var(--bg), #ffffff 60%) !important;
+  color:var(--muted) !important;
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial !important;
+  -webkit-font-smoothing:antialiased !important;
+  line-height:1.6 !important;
+}
+
+/* Container */
+.container{max-width:1150px !important;margin:0 auto !important;padding:12px !important;background:transparent !important}
+
+/* Header & logo centering across pages */
+.header, .site-header, header, .logo-area { display:flex !important; align-items:center !important; justify-content:center !important; gap:16px !important; margin-bottom:18px !important; }
+.header img, .logo-area img, header img { height:84px !important; width:auto !important; border-radius:12px !important; box-shadow:0 10px 30px rgba(11,99,255,0.08) !important; border:1px solid rgba(11,99,255,0.06) !important;}
+
+/* Navigation (taskbar) across pages */
+.taskbar, nav, .navbar { display:flex !important; gap:10px !important; flex-wrap:wrap !important; justify-content:center !important; margin-bottom:22px !important; }
+.taskbar a, nav a, .navbar a { text-decoration:none !important; color:var(--primary) !important; padding:9px 16px !important; border-radius:999px !important; font-weight:700 !important; border:1px solid transparent !important; background:transparent !important; box-shadow:0 4px 14px rgba(11,99,255,0.04) !important; transition:all .22s cubic-bezier(.2,.9,.3,1) !important; }
+.taskbar a:hover, nav a:hover, .navbar a:hover { background:linear-gradient(90deg,var(--primary),var(--accent)) !important; color:white !important; transform:translateY(-4px) scale(1.02) !important; box-shadow:0 18px 40px rgba(11,99,255,0.12) !important;}
+
+/* Sections/card override */
+.section, .card, .panel, .content-box { background:var(--card) !important; padding:18px !important; border-radius:var(--radius) !important; box-shadow:0 12px 36px rgba(9,30,66,0.04) !important; border:1px solid var(--border) !important; margin-bottom:18px !important; color:var(--muted) !important;}
+
+/* Headings and text */
+h1,h2,h3,h4 { color:var(--heading) !important; margin:0 0 10px 0 !important; font-weight:700 !important; }
+p, li { color:var(--muted) !important; line-height:1.6 !important; }
+
+/* Gallery force grid and hover */
+.gallery-grid, .gallery, .photos, .image-grid { display:grid !important; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)) !important; gap:12px !important; }
+.gallery-grid img, .gallery img, .photos img, .image-grid img { border-radius:12px !important; border:1px solid rgba(6,16,33,0.04) !important; box-shadow:0 10px 26px rgba(9,30,66,0.04) !important; transition:transform .35s cubic-bezier(.2,.9,.3,1), filter .25s ease !important; display:block !important; max-width:100% !important; height:auto !important; }
+.gallery-grid img:hover, .gallery img:hover, .photos img:hover, .image-grid img:hover { transform:translateY(-8px) scale(1.04) !important; filter:brightness(1.04) saturate(1.05) !important;}
+
+/* Buttons */
+.btn, button, .button, a.button { display:inline-block !important; padding:10px 16px !important; border-radius:10px !important; font-weight:700 !important; text-decoration:none !important; border:1px solid transparent !important; background:linear-gradient(90deg,var(--primary),var(--accent)) !important; color:white !important; box-shadow:0 10px 30px rgba(11,99,255,0.12) !important;}
+
+/* Global links (NOT buttons) */
+a:not(.btn-back):not(.btn-play):not(.action-btn) {
+  color: var(--primary);
+}
+a:visited:not(.btn-back):not(.btn-play):not(.action-btn) {
+  color: var(--primary);
+}
+
+
+/* Force background for body sections that try to set a dark/dim background */
+body *[style*="background"] { background:transparent !important; }
+body *[style*="background-color"] { background-color:transparent !important; }
+
+/* Ensure AOS reveals visible */
+[data-aos] { opacity:1 !important; transform:none !important; transition:all .6s cubic-bezier(.2,.9,.3,1) !important; }
+
+/* Footer */
+.footer, .site-footer { font-size:13px !important; color:var(--muted) !important; text-align:center !important; padding:18px !important; margin-top:12px !important; background:transparent !important; border-top:none !important;}
+
+/* Responsive tweaks */
+@media (max-width:700px){
+  body{padding:14px !important}
+  .header img{height:64px !important}
+  h1{font-size:22px !important}
+}
+
+</style>
+</head>
+<body>
+    <div class="top-lang-bar">
+  <div id="google_translate_element"></div>
+</div>
+    <div class="header" data-aos="fade-down">
+        <h1>Applications of AI</h1>
+    </div>
+
+    <div class="content">
+        <div class="section" data-aos="fade-right">
+            <div>
+                <h2>Healthcare</h2>
+                <p>Artificial Intelligence is revolutionizing healthcare by enhancing diagnostics, improving patient care, and streamlining administrative tasks...</p>
+                <p>AI systems like IBM Watson Health assist doctors in identifying effective treatment plans...</p>
+                <p><strong>Examples:</strong> AI in drug discovery (e.g., Atomwise), wearable health devices (e.g., Fitbit)...</p>
+            </div>
+            <img src="assets/images/l2a.jpg" alt="AI in Healthcare">
+        </div>
+
+        <div class="section" data-aos="fade-left">
+            <div>
+                <h2>Education</h2>
+                <p>AI is creating personalized learning experiences for students by adapting content and pace to individual needs...</p>
+                <p>Administrative tasks such as grading and attendance tracking are automated...</p>
+                <p><strong>Examples:</strong> AI chatbots for student queries, VR classrooms, and plagiarism detection tools...</p>
+            </div>
+            <img src="assets/images/l2b.jpg" alt="AI in Education">
+        </div>
+
+        <div class="section" data-aos="fade-up">
+            <div>
+                <h2>Transportation</h2>
+                <p>AI has brought significant advancements in transportation, particularly with self-driving cars...</p>
+                <p>AI-powered systems optimize logistics and route planning...</p>
+                <p><strong>Examples:</strong> Ride-sharing algorithms, AI-enabled traffic lights, and drones...</p>
+            </div>
+            <img src="assets/images/l2c.jpg" alt="AI in Transportation">
+        </div>
+
+        <div class="section" data-aos="fade-right">
+            <div>
+                <h2>Agriculture</h2>
+                <p>AI is revolutionizing agriculture by enabling precision farming and resource optimization...</p>
+                <p>AI-powered tools predict weather patterns and help farmers make informed decisions...</p>
+                <p><strong>Examples:</strong> AI-driven crop monitoring, weed detection, and autonomous tractors...</p>
+            </div>
+            <img src="assets/images/l2d.jpg" alt="AI in Agriculture">
+        </div>
+
+        <div class="section" data-aos="zoom-in">
+            <div>
+                <h2>Entertainment</h2>
+                <p>AI enhances the entertainment industry by personalizing user experiences...</p>
+                <p>In gaming, AI creates adaptive experiences by learning player behavior...</p>
+                <p><strong>Examples:</strong> AI chatbots in gaming, deepfake technology, and content curation...</p>
+            </div>
+            <img src="assets/images/l2e.jpg" alt="AI in Entertainment">
+        </div>
+
+        <div class="back-button" data-aos="fade-up">
+            <a href="resource.html">Back to Resources</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="assets/js/site.js"></script>
+<script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement(
+    {
+      pageLanguage: 'en',
+      includedLanguages: 'en,hi,kn,ta,ml',
+      autoDisplay: false
+    },
+    'google_translate_element'
+  );
+}
+</script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <title>Balloon Pop Using Computer Vision</title>
+
+    <!-- ORIGINAL PAGE STYLES (UNCHANGED) -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        .header {
+            background-color: #004080;
+            color: white;
+            text-align: center;
+            padding: 20px 10px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+        .content {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            gap: 20px;
+        }    
+
+        /* RESTORE SECTION BOXES (cards) */
+        .section {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 14px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+        }
+        .section img {
+            width: 40%;
+            max-height: 320px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        .section p, .section ul {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+            flex: 1;
+        }
+        .section h2 {
+            font-size: 30px;
+            color: #004080;
+            margin-bottom: 10px;
+        }
+        .content ul {
+            margin-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        /* BUTTON AREA (ENHANCED, DESIGN-MATCHED) */
+        .button-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .button-container a {
+            display: inline-block;
+            text-decoration: none;
+            padding: 12px 25px;
+            font-size: 20px;
+            background-color: #004080;
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+            margin: 0 12px; /* 👈 GUARANTEED GAP */
+        }
+        .button-container a:hover {
+            background-color: #003060;
+        }
+
+        /* Mobile safety */
+        @media (max-width: 768px) {
+            .section {
+                flex-direction: column;
+            }
+            .section img {
+                width: 100%;
+            }
+            .button-container a {
+                display: block;
+                margin: 10px auto;
+                width: fit-content;
+            }
+        }
+        /* FORCE header title color to white */
+.header h1 {
+  color: #ffffff !important;
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="top-lang-bar">
+  <div id="google_translate_element"></div>
+</div>
+
+<!-- Logo (same as Projects page, but redirects to Projects) -->
+<div class="logo-container">
+    <a href="projects.html">
+      <img src="assets/images/symbol.jpg" alt="Logo" />
+    </a>
+  </div>
+
+
+<!-- Header Section -->
+<div class="header">
+    <h1>Balloon Pop Using Computer Vision</h1>
+</div>
+
+<!-- Content Section -->
+<div class="content">
+
+    <!-- How the Game Works -->
+    <div class="section">
+        <img src="assets/images/b1.jpg" alt="Hand Tracking">
+        <div>
+            <h2>How the Game Works?</h2>
+            <p>
+                The game generates colorful balloons that float up the screen. Your task is to pop the balloons by pointing at them
+                with your finger. The computer detects your finger's position using hand tracking and checks if it’s near a balloon.
+                If it is, the balloon pops, and your score increases.
+            </p>
+            <p>
+                Some balloons move faster than others, so you'll need quick reflexes to pop them before they float away. The game
+                keeps track of your score and ends if too many balloons escape.
+            </p>
+        </div>
+    </div>
+
+    <!-- Hand Tracking -->
+    <div class="section">
+        <div>
+            <h2>How Does Hand Tracking Work</h2>
+            <p>
+                Hand tracking uses a technology called <strong>Computer Vision</strong>, which allows computers to "see" and understand images.
+                With tools like <strong>MediaPipe</strong>, the computer identifies important points on your hand, such as your fingertips.
+                These points help the computer understand your hand's position and movements in real-time.
+            </p>
+            <p>
+                In this game, the program looks for your <strong>index finger</strong>. When your finger comes close to a balloon,
+                the computer detects it and pops the balloon!
+            </p>
+        </div>
+        <img src="assets/images/b2.jpg" alt="Balloon Game">
+    </div>
+
+    <!-- ML & CV -->
+    <div class="section">
+        <img src="assets/images/b3.jpg" alt="Machine Learning and Computer Vision">
+        <div>
+            <h2>The Role of Machine Learning and Computer Vision</h2>
+            <p>
+                <strong>Computer Vision</strong> helps the game detect your hand and track its movements. This is how the game knows where your
+                finger is and whether it’s near a balloon. By analyzing the camera feed in real time, the game interacts with your hand gestures.
+            </p>
+            <p>
+                <strong>Machine Learning</strong> teaches the computer how to recognize patterns in hand movements. It allows the program to
+                accurately detect the hand and understand gestures like pointing with your finger. Without machine learning, the game wouldn't
+                be able to "understand" your actions.
+            </p>
+        </div>
+    </div>
+
+    <!-- Features -->
+    <div>
+        <h2>Features of the Game</h2>
+        <ul>
+            <li>Tracks hand movements in real-time using computer vision.</li>
+            <li>Fun and colorful balloons with dynamic movement.</li>
+            <li>Engages players with interactive gameplay.</li>
+            <li>Tracks your score to challenge your reflexes.</li>
+        </ul>
+    </div>
+
+    <!-- BUTTONS -->
+    <div class="button-container">
+        <a href="projects.html">Back to Projects</a>
+        <a href="https://ai-awareness-kkt.github.io/balloon_popping_game/"
+           target="_blank"
+           rel="noopener noreferrer">
+           ▶ Play Game
+        </a>
+    </div>
+
+</div>
+<script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement(
+    {
+      pageLanguage: 'en',
+      includedLanguages: 'en,hi,kn,ta,ml',
+      autoDisplay: false
+    },
+    'google_translate_element'
+  );
+}
+</script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="assets/css/style.css">
+
+<title>Gallery</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+
+</head>
+
+
+<body class="gallery-page">
+  <div class="top-lang-bar">
+  <div id="google_translate_element"></div>
+</div>
+<!-- HEADER -->
+<header class="site-header">
+  <a href="index.html">
+    <img src="assets/images/symbol.jpg" alt="Logo">
+  </a>
+</header>
+
+
+
+<!-- NAV -->
+<div class="taskbar">
+  <a href="resource.html">Resources</a>
+  <a href="projects.html">Projects</a>
+  <a href="activities.html">Activities</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="student-corner.html">Student Corner</a>
+  <a href="aboutus.html">About Us</a>
+</div>
+
+<div class="content gallery-layout">
+
+  <!-- LEFT: RANDOM IMAGES -->
+  <div class="gallery-left">
+    <h2>Gallery Highlights</h2>
+    <div class="gallery-masonry" id="randomGallery"></div>
+  </div>
+
+  <!-- RIGHT: SCHOOL LIST -->
+  <div class="gallery-right">
+    <h3>Schools Covered</h3>
+    <table class="school-table" id="schoolTable"></table>
+  </div>
+
+</div>
+
+<script src="assets/js/gallery-data.js"></script>
+<script src="assets/js/gallery-main.js"></script>
+
+
+<script>
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+
+document.querySelectorAll('.gallery-item img').forEach(img=>{
+  img.addEventListener('click', ()=>{
+    lightboxImg.src = img.src;
+    lightbox.classList.add('active');
+  });
+});
+
+lightbox.addEventListener('click', ()=>{
+  lightbox.classList.remove('active');
+});
+</script>
+
+<div class="lightbox" id="lightbox">
+  <img id="lightbox-img">
+</div>
+<script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement(
+    {
+      pageLanguage: 'en',
+      includedLanguages: 'en,hi,kn,ta,ml',
+      autoDisplay: false
+    },
+    'google_translate_element'
+  );
+}
+</script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+</html>
