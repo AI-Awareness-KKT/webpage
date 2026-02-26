@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Game Control Using Hand Gestures</title>
+
+    <!-- ✅ GLOBAL SITE STYLES (CRITICAL) -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- PAGE-SPECIFIC STYLES ONLY -->
+    <style>
+        body {
+            background-color: #f4f4f9;
+        }
+
+        .header {
+            background-color: #004080;
+            color: white;
+            text-align: center;
+            padding: 20px 10px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 36px;
+            color: #ffffff;
+        }
+
+        .section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 14px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .section img {
+            width: 40%;
+            max-height: 320px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .section h2 {
+            font-size: 30px;
+            color: #004080;
+            margin-bottom: 10px;
+        }
+
+        .section p,
+        .section ul {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+            flex: 1;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .button-container a {
+            display: inline-block;
+            text-decoration: none;
+            padding: 12px 25px;
+            font-size: 20px;
+            background-color: #004080;
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+            margin: 0 12px;
+        }
+
+        .button-container a:hover {
+            background-color: #003060;
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                flex-direction: column;
+            }
+
+            .section img {
+                width: 100%;
+            }
+
+            .button-container a {
+                display: block;
+                margin: 10px auto;
+                width: fit-content;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-lang-bar">
+  <div id="google_translate_element"></div>
+</div>
+
+<!-- ✅ LOGO BAR (SAME AS PROJECTS & BALLOON PAGE) -->
+<div class="logo-container">
+    <a href="projects.html">
+        <img src="assets/images/symbol.jpg" alt="AI Awareness Project Logo" />
+    </a>
+</div>
+
+<!-- HEADER -->
+<div class="header">
+    <h1>Game Control Using Hand Gestures</h1>
+</div>
+
+<!-- MAIN CONTENT WRAPPER (FROM GLOBAL CSS) -->
+<div class="content">
+
+    <!-- HOW IT WORKS -->
+    <div class="section">
+        <img src="assets/images/game1.gif" alt="Hand Gesture Control">
+        <div>
+            <h2>How Does the Game Control Work?</h2>
+            <p>
+                The Game Control project allows users to control games using hand gestures instead of
+                traditional keyboard or mouse input. The system tracks the position of the index finger
+                in real time and converts movements into directional controls.
+            </p>
+            <p>
+                By moving the finger up, down, left, or right, the system simulates arrow key presses,
+                enabling hands-free game interaction.
+            </p>
+        </div>
+    </div>
+
+    <!-- COMPUTER VISION -->
+    <div class="section">
+        <div>
+            <h2>Role of Computer Vision</h2>
+            <p>
+                Computer Vision processes the webcam feed and detects hand landmarks using real-time
+                image analysis. The system identifies the index finger tip and tracks its position
+                relative to the screen center.
+            </p>
+            <p>
+                Control zones are defined on the screen to determine directional movement, enabling
+                accurate gesture-based input.
+            </p>
+        </div>
+        <img src="assets/images/game2.png" alt="Computer Vision Hand Tracking">
+    </div>
+
+    <!-- MACHINE LEARNING -->
+    <div class="section">
+        <img src="assets/images/game3.png" alt="Machine Learning Gesture Recognition">
+        <div>
+            <h2>Role of Machine Learning</h2>
+            <p>
+                Machine Learning models help in detecting and tracking hand landmarks reliably.
+                Pre-trained models such as MediaPipe Hands are used to recognize hand structure and
+                finger positions.
+            </p>
+            <p>
+                This enables smooth and accurate gesture recognition even with small hand movements.
+            </p>
+        </div>
+    </div>
+
+    <!-- FEATURES -->
+    <div>
+        <h2>Key Features</h2>
+        <ul>
+            <li>Real-time hand gesture detection</li>
+            <li>Index finger-based directional control</li>
+            <li>Virtual arrow key simulation</li>
+            <li>Smooth gesture filtering for stability</li>
+            <li>Hands-free and interactive gameplay</li>
+        </ul>
+    </div>
+
+    <!-- BUTTONS -->
+    <div class="button-container">
+        <a href="projects.html">Back to Projects</a>
+        <a href="https://ai-awareness-kkt.github.io/game_control/"
+           target="_blank"
+           rel="noopener noreferrer">
+            ▶ Play Game
+        </a>
+    </div>
+
+</div>
+<script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement(
+    {
+      pageLanguage: 'en',
+      includedLanguages: 'en,hi,kn,ta,ml',
+      autoDisplay: false
+    },
+    'google_translate_element'
+  );
+}
+</script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+</body>
+</html>

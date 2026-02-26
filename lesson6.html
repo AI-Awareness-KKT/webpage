@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <title>Lesson 6: Deep Learning</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, #f0f4f9, #e0e8f3);
+            color: #2d2d2d;
+            line-height: 1.8;
+        }
+        .header {
+            background: linear-gradient(to right, #003973, #e5e5be);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 36px;
+            font-weight: 700;
+        }
+        .content {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section {
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 60px;
+            padding: 30px;
+        }
+        .section h2 {
+            font-size: 28px;
+            color: #004080;
+            margin-bottom: 20px;
+        }
+        .section h3 {
+            font-size: 22px;
+            color: #004080;
+            margin-top: 25px;
+        }
+        .section p, .section ul {
+            font-size: 18px;
+        }
+        .section ul {
+            padding-left: 20px;
+        }
+        .section img {
+            display: block;
+            margin: 30px auto;
+            max-width: 80%;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .button-container a {
+    display: inline-block;
+    text-decoration: none;
+    padding: 12px 25px;
+    font-size: 20px;
+    background-color: #004080;
+    color: #ffffff !important;   /* ✅ THIS FIXES IT */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+    margin: 0 12px;
+}
+
+        .button-container a:hover {
+            background-color: #002f60;
+        }
+    </style>
+  
+<style>
+
+:root{
+  --bg:#eef6ff !important;
+  --card:#ffffff !important;
+  --muted:#334155 !important;
+  --primary:#0b63ff !important;
+  --accent:#06b6d4 !important;
+  --heading:#071130 !important;
+  --border:rgba(7,17,48,0.06) !important;
+  --radius:14px !important;
+}
+
+/* Reset and force base styles */
+*{box-sizing:border-box !important}
+html,body{height:100% !important;margin:0 !important;padding:0 !important}
+body{
+  padding:28px !important;
+  background: linear-gradient(180deg,var(--bg), #ffffff 60%) !important;
+  color:var(--muted) !important;
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial !important;
+  -webkit-font-smoothing:antialiased !important;
+  line-height:1.6 !important;
+}
+
+/* Container */
+.container{max-width:1150px !important;margin:0 auto !important;padding:12px !important;background:transparent !important}
+
+/* Header & logo centering across pages */
+.header, .site-header, header, .logo-area { display:flex !important; align-items:center !important; justify-content:center !important; gap:16px !important; margin-bottom:18px !important; }
+.header img, .logo-area img, header img { height:84px !important; width:auto !important; border-radius:12px !important; box-shadow:0 10px 30px rgba(11,99,255,0.08) !important; border:1px solid rgba(11,99,255,0.06) !important;}
+
+/* Navigation (taskbar) across pages */
+.taskbar, nav, .navbar { display:flex !important; gap:10px !important; flex-wrap:wrap !important; justify-content:center !important; margin-bottom:22px !important; }
+.taskbar a, nav a, .navbar a { text-decoration:none !important; color:var(--primary) !important; padding:9px 16px !important; border-radius:999px !important; font-weight:700 !important; border:1px solid transparent !important; background:transparent !important; box-shadow:0 4px 14px rgba(11,99,255,0.04) !important; transition:all .22s cubic-bezier(.2,.9,.3,1) !important; }
+.taskbar a:hover, nav a:hover, .navbar a:hover { background:linear-gradient(90deg,var(--primary),var(--accent)) !important; color:white !important; transform:translateY(-4px) scale(1.02) !important; box-shadow:0 18px 40px rgba(11,99,255,0.12) !important;}
+
+/* Sections/card override */
+.section, .card, .panel, .content-box { background:var(--card) !important; padding:18px !important; border-radius:var(--radius) !important; box-shadow:0 12px 36px rgba(9,30,66,0.04) !important; border:1px solid var(--border) !important; margin-bottom:18px !important; color:var(--muted) !important;}
+
+/* Headings and text */
+h1,h2,h3,h4 { color:var(--heading) !important; margin:0 0 10px 0 !important; font-weight:700 !important; }
+p, li { color:var(--muted) !important; line-height:1.6 !important; }
+
+/* Gallery force grid and hover */
+.gallery-grid, .gallery, .photos, .image-grid { display:grid !important; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)) !important; gap:12px !important; }
+.gallery-grid img, .gallery img, .photos img, .image-grid img { border-radius:12px !important; border:1px solid rgba(6,16,33,0.04) !important; box-shadow:0 10px 26px rgba(9,30,66,0.04) !important; transition:transform .35s cubic-bezier(.2,.9,.3,1), filter .25s ease !important; display:block !important; max-width:100% !important; height:auto !important; }
+.gallery-grid img:hover, .gallery img:hover, .photos img:hover, .image-grid img:hover { transform:translateY(-8px) scale(1.04) !important; filter:brightness(1.04) saturate(1.05) !important;}
+
+/* Buttons */
+.btn, button, .button, a.button { display:inline-block !important; padding:10px 16px !important; border-radius:10px !important; font-weight:700 !important; text-decoration:none !important; border:1px solid transparent !important; background:linear-gradient(90deg,var(--primary),var(--accent)) !important; color:white !important; box-shadow:0 10px 30px rgba(11,99,255,0.12) !important;}
+
+/* Global links (NOT buttons) */
+a:not(.btn-back):not(.btn-play):not(.action-btn) {
+  color: var(--primary);
+}
+a:visited:not(.btn-back):not(.btn-play):not(.action-btn) {
+  color: var(--primary);
+}
+
+
+/* Force background for body sections that try to set a dark/dim background */
+body *[style*="background"] { background:transparent !important; }
+body *[style*="background-color"] { background-color:transparent !important; }
+
+/* Ensure AOS reveals visible */
+[data-aos] { opacity:1 !important; transform:none !important; transition:all .6s cubic-bezier(.2,.9,.3,1) !important; }
+
+/* Footer */
+.footer, .site-footer { font-size:13px !important; color:var(--muted) !important; text-align:center !important; padding:18px !important; margin-top:12px !important; background:transparent !important; border-top:none !important;}
+
+/* Responsive tweaks */
+@media (max-width:700px){
+  body{padding:14px !important}
+  .header img{height:64px !important}
+  h1{font-size:22px !important}
+}
+
+</style>
+</head>
+<body>
+    <div class="top-lang-bar">
+  <div id="google_translate_element"></div>
+</div>
+    <div class="header" data-aos="fade-down">
+        <h1>Lesson 6: Deep Learning</h1>
+    </div>
+
+    <div class="content">
+        <div class="section" data-aos="fade-up">
+            <h2>What is Deep Learning?</h2>
+            <p>Deep Learning is a branch of Artificial Intelligence (AI) and Machine Learning (ML) that focuses on using large, complex neural networks to analyze data, identify patterns, and make decisions. It mimics how the human brain processes information by using layers of interconnected nodes to create models that can learn from data.</p>
+            <p>Deep Learning is used in tasks such as image recognition, natural language processing, and speech recognition, achieving remarkable accuracy compared to traditional machine learning techniques.</p>
+            <img src="assets/images/l6a.jpg" alt="Deep Learning Overview">
+        </div>
+
+        <div class="section" data-aos="fade-left">
+            <h2>How is Deep Learning Different from Machine Learning?</h2>
+            <p>While both Deep Learning and Machine Learning are subsets of AI, they differ in how they process data:</p>
+            <ul>
+                <li><strong>Machine Learning:</strong> Relies on structured data and requires feature extraction, where humans specify the important aspects of data for the algorithm to learn.</li>
+                <li><strong>Deep Learning:</strong> Automatically extracts features from raw data using neural networks, eliminating the need for manual intervention.</li>
+            </ul>
+            <p>Deep Learning excels in tasks with large amounts of unstructured data, like images and text, but requires more computational power and training data than traditional ML techniques.</p>
+            <img src="assets/images/l6b.jpg" alt="Deep Learning vs Machine Learning">
+        </div>
+
+        <div class="section" data-aos="fade-right">
+            <h2>Basic Components of Deep Learning</h2>
+
+            <h3>1. Neural Networks</h3>
+            <p>Neural networks are the foundation of deep learning. They consist of layers of interconnected nodes (neurons) that process data. Each layer transforms the data and passes it to the next layer, gradually learning more complex patterns.</p>
+
+            <h3>2. Nodes</h3>
+            <p>A node (or neuron) is a unit in the neural network that receives input, processes it using a mathematical function, and generates output. Nodes are organized into layers, and each connection between nodes has a weight that adjusts during training.</p>
+
+            <h3>3. Layers</h3>
+            <p>Layers are the building blocks of neural networks. There are three types of layers:</p>
+            <ul>
+                <li><strong>Input Layer:</strong> Takes raw data as input (e.g., an image or text).</li>
+                <li><strong>Hidden Layers:</strong> Perform computations and learn patterns. A deep network has multiple hidden layers.</li>
+                <li><strong>Output Layer:</strong> Produces the final result, such as classifying an image as "cat" or "dog."</li>
+            </ul>
+            <img src="assets/images/l6c.jpg" alt="Components of Deep Learning">
+        </div>
+
+        <div class="button-container" data-aos="zoom-in">
+            <a href="resource.html">Back to Resources</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="assets/js/site.js"></script>
+<script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement(
+    {
+      pageLanguage: 'en',
+      includedLanguages: 'en,hi,kn,ta,ml',
+      autoDisplay: false
+    },
+    'google_translate_element'
+  );
+}
+</script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+</body>
+</html>

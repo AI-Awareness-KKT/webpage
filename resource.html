@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <title>Resources Page</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <!-- AOS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+
+  <style>
+    /* ===== BASE ===== */
+    html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to bottom right, #f0f4f9, #e0e8f3);
+  color: #334155;
+}
+
+
+    /* ===== LOGO ===== */
+    .logo-container {
+      background: linear-gradient(to right, #003973, #e5e5be);
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .logo-container img {
+      max-height: 120px;
+    }
+
+   /* ===== TASKBAR ===== */
+.taskbar {
+  background: white;
+  border-bottom: 2px solid #d0e0f0;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  padding: 16px 0;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+/* NAV LINKS */
+.taskbar a {
+  text-decoration: none;
+  font-weight: 700;
+  color: #004080;
+  padding: 10px 18px;
+  border-radius: 999px;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(11,99,255,0.04);
+}
+
+/* HOVER ANIMATION */
+.taskbar a:hover {
+  background: linear-gradient(90deg, #0b63ff, #06b6d4);
+  color: white;
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 18px 40px rgba(11,99,255,0.18);
+}
+
+
+    /* ===== CONTENT ===== */
+    .content {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 40px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 36px;
+      color: #003366;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    /* ===== LESSON BOXES (FIXED) ===== */
+    .lesson-box {
+      display: block;
+      margin: 20px auto;
+      padding: 18px 30px;
+      max-width: 600px;
+      background: linear-gradient(to right, #004080, #0059b3);
+      color: #ffffff !important;          /* 🔒 HARD FIX */
+      border-radius: 12px;
+      font-size: 20px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+      transition: all 0.3s ease;
+    }
+
+    .lesson-box:hover {
+      background: linear-gradient(to right, #003060, #004a99);
+      transform: translateY(-5px);
+    }
+
+    /* ===== GLOBAL LINKS (NON-BUTTONS ONLY) ===== */
+    a:not(.lesson-box) {
+      color: #0b63ff;
+    }
+
+    a:visited:not(.lesson-box) {
+      color: #0b63ff;
+    }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 600px) {
+      .lesson-box {
+        font-size: 18px;
+        padding: 16px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body class="resource-page">
+  <div class="top-lang-bar">
+  <div id="google_translate_element"></div>
+</div>
+
+  <!-- Logo -->
+  <div class="logo-container">
+    <a href="index.html">
+      <img src="assets/images/symbol.jpg" alt="Logo">
+    </a>
+  </div>
+
+  <!-- Taskbar -->
+  <div class="taskbar">
+    <a href="resource.html">Resources</a>
+    <a href="projects.html">Projects</a>
+    <a href="activities.html">Activities</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="student-corner.html">Student Corner</a>
+    <a href="aboutus.html">About Us</a>
+  </div>
+
+  <!-- Content -->
+  <div class="content" data-aos="fade-up">
+    <h1>Basics Course – 1</h1>
+    <p>Learn about Artificial Intelligence step by step with our curated lessons.</p>
+
+    <a href="lesson1.html" class="lesson-box">Lesson 1: What is AI?</a>
+    <a href="lesson2.html" class="lesson-box">Lesson 2: Applications of AI</a>
+    <a href="lesson3.html" class="lesson-box">Lesson 3: Machine Learning</a>
+    <a href="lesson4.html" class="lesson-box">Lesson 4: Types of Machine Learning</a>
+    <a href="lesson5.html" class="lesson-box">Lesson 5: Computer Vision</a>
+    <a href="lesson6.html" class="lesson-box">Lesson 6: Deep Learning</a>
+  </div>
+
+  <!-- AOS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 400, once: true });
+  </script>
+<script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement(
+    {
+      pageLanguage: 'en',
+      includedLanguages: 'en,hi,kn,ta,ml',
+      autoDisplay: false
+    },
+    'google_translate_element'
+  );
+}
+</script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+</body>
+</html>

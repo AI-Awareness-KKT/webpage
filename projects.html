@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <title>Projects Page</title>
+
+  <!-- Google Fonts + AOS -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+
+  <style>
+    html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to bottom right, #f0f4f9, #e0e8f3);
+  color: #334155;
+}
+
+    .logo-container {
+      background: linear-gradient(to right, #003973, #e5e5be);
+      text-align: center;
+      padding: 20px 0;
+    }
+    .logo-container img {
+      max-height: 120px;
+      transition: transform 0.3s ease;
+    }
+    .logo-container img:hover {
+      transform: scale(1.05);
+    }
+    .taskbar {
+      background-color: white;
+      border-bottom: 2px solid #d0e0f0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      display: flex;
+      justify-content: center;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    .taskbar a {
+      color: #004080;
+      text-decoration: none;
+      margin: 0 25px;
+      font-size: 18px;
+      font-weight: 600;
+      position: relative;
+    }
+    .taskbar a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      left: 0;
+      bottom: -5px;
+      background-color: #004080;
+      transition: width 0.3s ease;
+    }
+    .taskbar a:hover::after {
+      width: 100%;
+    }
+    .projects-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      padding: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .project-item {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+      text-align: center;
+      position: relative;
+    }
+    .project-item img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .project-item h3 {
+      margin: 16px 12px;
+      font-size: 20px;
+      color: #004080;
+      transition: color 0.3s ease;
+    }
+    .project-item a {
+      text-decoration: none;
+      display: block;
+      transition: all 0.3s ease;
+    }
+
+    /* Hover Effects */
+    .project-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      background-color: #f9fcff;
+    }
+    .project-item:hover img {
+      transform: scale(1.05);
+    }
+    .project-item:hover h3 {
+      color: #e63946;
+    }
+  </style>
+  
+<style>
+
+:root{
+  --bg:#eef6ff !important;
+  --card:#ffffff !important;
+  --muted:#334155 !important;
+  --primary:#0b63ff !important;
+  --accent:#06b6d4 !important;
+  --heading:#071130 !important;
+  --border:rgba(7,17,48,0.06) !important;
+  --radius:14px !important;
+}
+
+/* Reset and force base styles */
+*{box-sizing:border-box !important}
+html,body{height:100% !important;margin:0 !important;padding:0 !important}
+
+/* Container */
+.container{max-width:1150px !important;margin:0 auto !important;padding:12px !important;background:transparent !important}
+
+/* Header & logo centering across pages */
+.header, .site-header, header, .logo-area { display:flex !important; align-items:center !important; justify-content:center !important; gap:16px !important; margin-bottom:18px !important; }
+.header img, .logo-area img, header img { height:84px !important; width:auto !important; border-radius:12px !important; box-shadow:0 10px 30px rgba(11,99,255,0.08) !important; border:1px solid rgba(11,99,255,0.06) !important;}
+
+/* Navigation (taskbar) across pages */
+.taskbar, nav, .navbar { display:flex !important; gap:10px !important; flex-wrap:wrap !important; justify-content:center !important; margin-bottom:22px !important; }
+.taskbar a, nav a, .navbar a { text-decoration:none !important; color:var(--primary) !important; padding:9px 16px !important; border-radius:999px !important; font-weight:700 !important; border:1px solid transparent !important; background:transparent !important; box-shadow:0 4px 14px rgba(11,99,255,0.04) !important; transition:all .22s cubic-bezier(.2,.9,.3,1) !important; }
+.taskbar a:hover, nav a:hover, .navbar a:hover { background:linear-gradient(90deg,var(--primary),var(--accent)) !important; color:white !important; transform:translateY(-4px) scale(1.02) !important; box-shadow:0 18px 40px rgba(11,99,255,0.12) !important;}
+
+/* Sections/card override */
+.section, .card, .panel, .content-box { background:var(--card) !important; padding:18px !important; border-radius:var(--radius) !important; box-shadow:0 12px 36px rgba(9,30,66,0.04) !important; border:1px solid var(--border) !important; margin-bottom:18px !important; color:var(--muted) !important;}
+
+/* Headings and text */
+h1,h2,h3,h4 { color:var(--heading) !important; margin:0 0 10px 0 !important; font-weight:700 !important; }
+p, li { color:var(--muted) !important; line-height:1.6 !important; }
+
+/* Gallery force grid and hover */
+.gallery-grid, .gallery, .photos, .image-grid { display:grid !important; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)) !important; gap:12px !important; }
+.gallery-grid img, .gallery img, .photos img, .image-grid img { border-radius:12px !important; border:1px solid rgba(6,16,33,0.04) !important; box-shadow:0 10px 26px rgba(9,30,66,0.04) !important; transition:transform .35s cubic-bezier(.2,.9,.3,1), filter .25s ease !important; display:block !important; max-width:100% !important; height:auto !important; }
+.gallery-grid img:hover, .gallery img:hover, .photos img:hover, .image-grid img:hover { transform:translateY(-8px) scale(1.04) !important; filter:brightness(1.04) saturate(1.05) !important;}
+
+/* Buttons */
+.btn, button, .button, a.button { display:inline-block !important; padding:10px 16px !important; border-radius:10px !important; font-weight:700 !important; text-decoration:none !important; border:1px solid transparent !important; background:linear-gradient(90deg,var(--primary),var(--accent)) !important; color:white !important; box-shadow:0 10px 30px rgba(11,99,255,0.12) !important;}
+
+/* Global links (NOT buttons) */
+a:not(.btn-back):not(.btn-play):not(.action-btn) {
+  color: var(--primary);
+}
+a:visited:not(.btn-back):not(.btn-play):not(.action-btn) {
+  color: var(--primary);
+}
+
+
+/* Force background for body sections that try to set a dark/dim background */
+body *[style*="background"] { background:transparent !important; }
+body *[style*="background-color"] { background-color:transparent !important; }
+
+/* Ensure AOS reveals visible */
+[data-aos] { opacity:1 !important; transform:none !important; transition:all .6s cubic-bezier(.2,.9,.3,1) !important; }
+
+/* Footer */
+.footer, .site-footer { font-size:13px !important; color:var(--muted) !important; text-align:center !important; padding:18px !important; margin-top:12px !important; background:transparent !important; border-top:none !important;}
+
+/* Responsive tweaks */
+@media (max-width:700px){
+  body{padding:14px !important}
+  .header img{height:64px !important}
+  h1{font-size:22px !important}
+}
+
+</style>
+</head>
+<body>
+  <div class="top-lang-bar">
+  <div id="google_translate_element"></div>
+</div>
+  <div class="logo-container">
+    <a href="index.html">
+      <img src="assets/images/symbol.jpg" alt="Logo" />
+    </a>
+  </div>
+
+  <div class="taskbar">
+    <a href="resource.html">Resources</a>
+    <a href="projects.html">Projects</a>
+    <a href="activities.html">Activities</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="student-corner.html">Student Corner</a>
+    <a href="aboutus.html">About Us</a>
+  </div>
+
+  <div class="projects-container">
+
+
+    <div class="project-item" data-aos="fade-up">
+      <a href="balloon.html">
+        <img src="assets/images/balloon.jpg" alt="Balloon Pop Project" />
+        <h3>Balloon Pop Using Computer Vision</h3>
+      </a>
+    </div>
+
+    <div class="project-item" data-aos="zoom-out" data-aos-delay="450">
+      <a href="rover.html">
+        <img src="assets/images/rover.jpg" alt="Rover" />
+        <h3>Rover</h3>
+      </a>
+    </div>
+
+    <div class="project-item" data-aos="fade-down" data-aos-delay="50">
+      <a href="number.html">
+        <img src="assets/images/number.png" alt="Number Identification Project" />
+        <h3>Number Identification</h3>
+      </a>
+    </div>
+    <div class="project-item" data-aos="zoom-in-up" data-aos-delay="100">
+      <a href="person.html">
+        <img src="assets/images/person.webp" alt="Person Recognition Project" />
+        <h3>Person Recognition</h3>
+      </a>
+    </div>
+
+    <div class="project-item" data-aos="fade-left" data-aos-delay="250">
+      <a href="volume.html">
+        <img src="assets/images/volume.jpg" alt="Volume Control Project" />
+        <h3>Volume Control Using Computer Vision</h3>
+      </a>
+    </div>
+
+
+    <div class="project-item" data-aos="zoom-in-down" data-aos-delay="350">
+      <a href="word.html">
+        <img src="assets/images/word.jpg" alt="Word Analyzer Project" />
+        <h3>Word Analyzer for English Language Using Word2Vec</h3>
+      </a>
+    </div>
+
+     <div class="project-item" data-aos="zoom-out" data-aos-delay="450">
+      <a href="aircanvas.html">
+        <img src="assets/images/air.jpg" alt="Air Canvas Project" />
+        <h3>Air Canvas</h3>
+      </a>
+    </div>
+
+    <div class="project-item" data-aos="fade-right" data-aos-delay="300">
+      <a href="multi.html">
+        <img src="assets/images/multi.jpg" alt="Multilingual Detection Project" />
+        <h3>Multilingual Audio-Enhanced Visual Detection System</h3>
+      </a>
+    </div>
+
+    <div class="project-item" data-aos="flip-right" data-aos-delay="200">
+      <a href="trash.html">
+        <img src="assets/images/trash.webp" alt="Trash Identification Project" />
+        <h3>Trash Identification</h3>
+      </a>
+    </div>
+
+    <div class="project-item" data-aos="zoom-out-up" data-aos-delay="400">
+      <a href="guess.html">
+        <img src="assets/images/guess.jpg" alt="Guess the Word Project" />
+        <h3>Guess the Word</h3>
+      </a>
+    </div>
+
+
+
+    <div class="project-item" data-aos="fade-up" data-aos-delay="500">
+      <a href="invisible_cloak.html">
+        <img src="assets/images/invisible_cloak.jpg" alt="Invisible Cloak Project" />
+        <h3>Invisible Cloak</h3>
+      </a>
+    </div>
+
+    <div class="project-item" data-aos="zoom-in" data-aos-delay="550">
+      <a href="game_control.html">
+        <img src="assets/images/game_control.jpg" alt="Game Control Project" />
+        <h3>Game Control Using Hand Gestures</h3>
+      </a>
+    </div>
+
+
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,
+      easing: 'ease-in-out',
+      anchorPlacement: 'top-bottom'
+    });
+  </script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="assets/js/site.js"></script>
+<script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement(
+    {
+      pageLanguage: 'en',
+      includedLanguages: 'en,hi,kn,ta,ml',
+      autoDisplay: false
+    },
+    'google_translate_element'
+  );
+}
+</script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+</body>
+</html>
