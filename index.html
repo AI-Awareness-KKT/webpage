@@ -210,7 +210,7 @@
 <!-- BEGIN: SINGLE MANDATORY MODERN POPUP (added by assistant) -->
 <style>
 /* Scoped styles for the visitor modal to avoid clashes */
-#visitor-modal-wrap{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.72);z-index:1000000;backdrop-filter:none !important;}
+#visitor-modal-wrap{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.72);z-index:1000000;backdrop-filter:none !important;}
 #visitor-modal-card{width:420px;max-width:92%;background:#fff !important;color:#000 !important;border-radius:12px;padding:20px 22px;box-shadow:0 12px 40px rgba(0,0,0,0.45);border:1px solid rgba(0,0,0,0.12);font-family:Arial,Helvetica,sans-serif;}
 @media (max-width:480px){#visitor-modal-card{width:90%;padding:16px;}}
 #visitor-modal-card h3{margin:0 0 12px 0;font-size:20px;font-weight:800;text-align:center;color:#071133;}
@@ -300,12 +300,6 @@
       <div class="impact-label">Students Reached</div>
     </div>
   </a>
-
-  <!-- Website Visitors (NEW) -->
-  <div class="stats-card">
-    <div class="impact-number" id="visitorCount">—</div>
-    <div class="impact-label">Website Visitors</div>
-  </div>
 
 </div>
 
@@ -508,23 +502,7 @@ function googleTranslateElementInit() {
   });
 </script>
 
-<script>
-async function loadVisitorCount() {
-  const { count, error } = await supabaseClient
-    .from("visitors")
-    .select("*", { count: "exact", head: true });
 
-  if (error) {
-    console.error("Visitor count error:", error);
-    document.getElementById("visitorCount").innerText = "—";
-    return;
-  }
-
-  document.getElementById("visitorCount").innerText = count;
-}
-
-loadVisitorCount();
-</script>
 
 
 
