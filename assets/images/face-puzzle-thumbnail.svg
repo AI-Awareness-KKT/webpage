@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" role="img" aria-labelledby="title description">
+  <title id="title">Face Gesture Puzzle</title>
+  <desc id="description">An illustrated shuffled three by three puzzle with nine numbered tiles.</desc>
+  <defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#e4f1ff"/><stop offset="1" stop-color="#cfe4f3"/></linearGradient></defs>
+  <rect width="800" height="800" fill="url(#bg)"/>
+  <text x="72" y="102" fill="#235b8d" font-family="Arial,sans-serif" font-weight="700" font-size="21" letter-spacing="5">FACE / SHUFFLE</text>
+  <rect x="158" y="157" width="484" height="484" rx="30" fill="#fff"/>
+  <g fill="#124b78">
+    <rect x="176" y="175" width="140" height="140" rx="12"/><rect x="330" y="175" width="140" height="140" rx="12"/>
+    <rect x="484" y="175" width="140" height="140" rx="12"/><rect x="176" y="329" width="140" height="140" rx="12"/>
+    <rect x="484" y="329" width="140" height="140" rx="12"/><rect x="176" y="483" width="140" height="140" rx="12"/>
+    <rect x="330" y="483" width="140" height="140" rx="12"/><rect x="484" y="483" width="140" height="140" rx="12"/>
+  </g>
+  <rect x="330" y="329" width="140" height="140" rx="12" fill="#9ae8cc"/>
+  <g fill="#fff" font-family="Arial,sans-serif" font-weight="700" font-size="52" text-anchor="middle">
+    <text x="246" y="264">3</text><text x="400" y="264">1</text><text x="554" y="264">2</text>
+    <text x="246" y="418">4</text><text x="554" y="418">5</text>
+    <text x="246" y="572">7</text><text x="400" y="572">9</text><text x="554" y="572">8</text>
+  </g>
+  <text x="400" y="418" fill="#124b78" font-family="Arial,sans-serif" font-weight="700" font-size="52" text-anchor="middle">6</text>
+  <circle cx="459" cy="458" r="22" fill="none" stroke="#fff" stroke-width="6"/>
+  <circle cx="459" cy="458" r="29" fill="none" stroke="#124b78" stroke-width="2"/>
+  <text x="400" y="713" fill="#124b78" font-family="Arial,sans-serif" font-weight="700" font-size="29" text-anchor="middle">Pinch. Move. Solve.</text>
+</svg>
