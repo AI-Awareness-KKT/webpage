@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420">
+<rect width="640" height="420" rx="22" fill="#e5eff9"/>
+<rect x="22" y="24" width="596" height="372" rx="18" fill="#12263e"/>
+<text x="52" y="66" fill="#d8ebff" font-family="Arial,sans-serif" font-size="20" font-weight="bold">HAND CONTROL</text>
+<path d="M52 100h270v250H52z" fill="#253e5d"/>
+<path d="M142 100v250m90-250v250" stroke="#a4c4e4" stroke-width="3" stroke-dasharray="12 12"/>
+<rect x="163" y="290" width="48" height="36" rx="8" fill="#7df1c9"/>
+<rect x="65" y="210" width="63" height="22" rx="4" fill="#ffd878"/>
+<rect x="245" y="140" width="63" height="22" rx="4" fill="#ffa3a3"/>
+<circle cx="472" cy="228" r="108" fill="none" stroke="#9cccf5" stroke-width="2"/>
+<circle cx="472" cy="228" r="33" fill="none" stroke="#7df1c9" stroke-width="3"/>
+<g fill="#c7e5ff" font-family="Arial,sans-serif" font-size="14" text-anchor="middle"><text x="472" y="144">UP</text><text x="472" y="324">DOWN</text><text x="391" y="233">LEFT</text><text x="550" y="233">RIGHT</text><text x="472" y="233">HOLD</text></g>
+<path d="m437 285 2-35 9 6-1-76q0-12 9-12t9 12v48-62q0-12 9-12t9 12v65-49q0-11 9-11t9 11v51-32q0-11 9-11t9 11v55q0 38-30 38h-20q-21 0-31-14z" fill="#f4c6a3" stroke="#c49170" stroke-width="2" opacity=".92"/>
+<circle cx="474" cy="158" r="7" fill="#ffd878" stroke="#fff" stroke-width="2"/>
+</svg>

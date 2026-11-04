@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000" role="img" aria-labelledby="title description">
+   <title id="title">Laser Escape</title><desc id="description">Green means clear. Red means contact.</desc>
+   <rect width="1000" height="1000" fill="#0b111b"/>
+   <rect x="0" y="0" width="1000" height="7" fill="#36e382"/>
+   <text x="48" y="64" fill="#a8b4c7" font-family="Arial,sans-serif" font-size="17" letter-spacing="3">READ THE FIELD / CONTROL TIME</text>
+   <rect x="778" y="33" width="174" height="47" rx="8" fill="#182333" stroke="#36e382" stroke-opacity=".45"/>
+   <text x="865" y="64" fill="#36e382" font-family="Arial,sans-serif" font-size="21" font-weight="700" text-anchor="middle">20 GATES</text>
+   <svg x="0" y="122" width="1000" height="620" viewBox="0 0 1000 620"><defs><linearGradient id="sky" x2="0" y2="1"><stop stop-color="#1a2032"/><stop offset="1" stop-color="#0d1521"/></linearGradient><radialGradient id="field"><stop stop-color="#294f47"/><stop offset="1" stop-color="#0c2629"/></radialGradient><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M50 0H0V50" fill="none" stroke="#34435b" stroke-opacity=".28"/></pattern><pattern id="net" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#b9d9da" stroke-opacity=".16"/></pattern><pattern id="blocks" width="64" height="64" patternUnits="userSpaceOnUse"><rect x="5" y="5" width="54" height="54" rx="5" fill="#b7a0ff" fill-opacity=".09" stroke="#b7a0ff" stroke-opacity=".25"/></pattern><filter id="glow"><feGaussianBlur stdDeviation="4"/></filter></defs><defs><linearGradient id="avatar-fabric"><stop stop-color="#111b17"/><stop offset=".4" stop-color="#34463a"/><stop offset=".72" stop-color="#1b2921"/><stop offset="1" stop-color="#0b1510"/></linearGradient><radialGradient id="avatar-face" cx=".35" cy=".3"><stop stop-color="#81907e"/><stop offset=".65" stop-color="#4d5e4b"/><stop offset="1" stop-color="#253623"/></radialGradient></defs><defs>
+    <linearGradient id="wall-left"><stop stop-color="#161616"/><stop offset=".55" stop-color="#303030"/><stop offset="1" stop-color="#1c1c1c"/></linearGradient>
+    <linearGradient id="wall-right"><stop stop-color="#202020"/><stop offset=".45" stop-color="#333333"/><stop offset="1" stop-color="#151515"/></linearGradient>
+    <linearGradient id="construct-floor" x2="0" y2="1"><stop stop-color="#303030"/><stop offset="1" stop-color="#0e0e0e"/></linearGradient>
+    <linearGradient id="vault-steel"><stop stop-color="#242424"/><stop offset=".5" stop-color="#3f3f3f"/><stop offset="1" stop-color="#222222"/></linearGradient>
+    <radialGradient id="construct-vignette"><stop offset=".3" stop-color="#060606" stop-opacity="0"/><stop offset="1" stop-color="#060606" stop-opacity=".65"/></radialGradient>
+    <linearGradient id="laser-metal" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#969696"/><stop offset=".25" stop-color="#505050"/><stop offset=".6" stop-color="#282828"/><stop offset="1" stop-color="#6c6c6c"/></linearGradient>
+    <filter id="laser-bloom" x="-100%" y="-150%" width="300%" height="400%"><feGaussianBlur stdDeviation="7"/></filter>
+    <filter id="floor-soft"><feGaussianBlur stdDeviation="9"/></filter>
+  </defs>
+  <rect width="1000" height="620" data-neutral-background="" fill="#000000"/>
+    <path d="M0 0 300 95V370L0 620Z" fill="url(#wall-left)"/><path d="M1000 0 700 95V370L1000 620Z" fill="url(#wall-right)"/>
+    <path d="M0 0H1000L700 95H300Z" fill="#0d0d0d"/><path d="M0 620 300 370H700L1000 620Z" fill="url(#construct-floor)"/>
+    <rect x="300" y="95" width="400" height="275" fill="#131313" stroke="#3d3d3d" stroke-width="2"/>
+    <rect x="389" y="144" width="222" height="226" rx="2" fill="#0e0e0e" stroke="#5c5c5c" stroke-width="4"/>
+    <rect x="404" y="158" width="192" height="212" fill="#090909"/>
+    <g transform="translate(0 0)"><path d="M404 158H500V370H404Z" fill="url(#vault-steel)" stroke="#535353"/>
+      <path d="M418 173H484V351H418Z" fill="none" stroke="#707070" stroke-opacity=".25"/></g>
+    <g transform="translate(0 0)"><path d="M500 158H596V370H500Z" fill="url(#vault-steel)" stroke="#535353"/>
+      <path d="M516 173H582V351H516Z" fill="none" stroke="#707070" stroke-opacity=".25"/></g>
+    <rect x="467" y="132" width="15" height="3" fill="#4d4d4d"/><rect x="491" y="132" width="15" height="3" fill="#4d4d4d"/><rect x="515" y="132" width="15" height="3" fill="#4d4d4d"/>
+    <text x="500" y="120" fill="#7c7c7c" font-family="Space Grotesk, monospace" font-size="9" text-anchor="middle" >VAULT / 20</text>
+    <g><path d="M310 378.2V142.6H690V378.2" fill="none" stroke="#626262" stroke-opacity="0.16" stroke-width="1"/><path d="M235 436.70000000000005V108.1H765V436.70000000000005" fill="none" stroke="#626262" stroke-opacity="0.2" stroke-width="1.4"/><path d="M140 510.8V64.4H860V510.8" fill="none" stroke="#626262" stroke-opacity="0.24" stroke-width="1.8"/><path d="M20.000000000000018 604.4V9.200000000000008H980V604.4" fill="none" stroke="#626262" stroke-opacity="0.28" stroke-width="2.2"/><path d="M300 370L0 620" stroke="#747474" stroke-opacity=".15"/><path d="M366.66666666666663 370L166.66666666666666 620" stroke="#747474" stroke-opacity=".15"/><path d="M433.3333333333333 370L333.3333333333333 620" stroke="#747474" stroke-opacity=".15"/><path d="M500 370L500 620" stroke="#747474" stroke-opacity=".15"/><path d="M566.6666666666666 370L666.6666666666666 620" stroke="#747474" stroke-opacity=".15"/><path d="M633.3333333333334 370L833.3333333333334 620" stroke="#747474" stroke-opacity=".15"/><path d="M700 370L1000 620" stroke="#747474" stroke-opacity=".15"/><path d="M0 390H1000" stroke="#6f6f6f" stroke-opacity=".13"/><path d="M0 425H1000" stroke="#6f6f6f" stroke-opacity=".13"/><path d="M0 479H1000" stroke="#6f6f6f" stroke-opacity=".13"/><path d="M0 558H1000" stroke="#6f6f6f" stroke-opacity=".13"/></g>
+    <path d="M70 620 326 370M930 620 674 370" stroke="#8f8f8f" stroke-width="3" opacity=".25"/>
+    <path d="M20 560 310 355M980 560 690 355" stroke="#3f3f3f" stroke-width="13"/>
+    <path d="M0 70 300 120M1000 70 700 120" stroke="#9d9d9d" stroke-width="3" opacity=".18"/>
+    <text x="58" y="78" fill="#616161" font-family="Space Grotesk, monospace" font-size="10" text-anchor="start" letter-spacing="3">CONSTRUCT</text>
+    <text x="942" y="78" fill="#616161" font-family="Space Grotesk, monospace" font-size="10" text-anchor="end" letter-spacing="2">SECURITY FIELD</text>
+    <rect width="1000" height="620" fill="url(#construct-vignette)" pointer-events="none"/>
+  <g data-avatar-space="" transform="translate(100 118) scale(0.8)">
+  <ellipse cx="500" cy="591" rx="100" ry="15" fill="#060606" opacity=".8" filter="url(#floor-soft)"/>
+  
+  <g data-avatar="player" opacity="1">
+    <path d="M450 365.79999999999995L440 465" fill="none" stroke="#a4afb7" stroke-width="40" stroke-linecap="round"/>
+      <path d="M450 365.79999999999995L440 465" fill="none" stroke="url(#avatar-fabric)" stroke-width="38" stroke-linecap="round"/><path d="M550 365.79999999999995L560 465" fill="none" stroke="#a4afb7" stroke-width="40" stroke-linecap="round"/>
+      <path d="M550 365.79999999999995L560 465" fill="none" stroke="url(#avatar-fabric)" stroke-width="38" stroke-linecap="round"/><path d="M440 465L430 576.6" fill="none" stroke="#a4afb7" stroke-width="32" stroke-linecap="round"/>
+      <path d="M440 465L430 576.6" fill="none" stroke="url(#avatar-fabric)" stroke-width="30" stroke-linecap="round"/><path d="M560 465L570 576.6" fill="none" stroke="#a4afb7" stroke-width="32" stroke-linecap="round"/>
+      <path d="M560 465L570 576.6" fill="none" stroke="url(#avatar-fabric)" stroke-width="30" stroke-linecap="round"/>
+    <ellipse data-avatar-joint="la" cx="434" cy="583.6" rx="24" ry="10" fill="#172026" stroke="#a4afb7" stroke-width="2"/><ellipse data-avatar-joint="ra" cx="574" cy="583.6" rx="24" ry="10" fill="#172026" stroke="#a4afb7" stroke-width="2"/>
+    <path d="M500 135.6L500 198.4" stroke="url(#avatar-fabric)" stroke-width="21" stroke-linecap="round"/>
+    <path d="M420 198.4L380 285.2" fill="none" stroke="#a4afb7" stroke-width="27" stroke-linecap="round"/>
+      <path d="M420 198.4L380 285.2" fill="none" stroke="url(#avatar-fabric)" stroke-width="25" stroke-linecap="round"/><path d="M580 198.4L620 285.2" fill="none" stroke="#a4afb7" stroke-width="27" stroke-linecap="round"/>
+      <path d="M580 198.4L620 285.2" fill="none" stroke="url(#avatar-fabric)" stroke-width="25" stroke-linecap="round"/><path d="M380 285.2L360 365.79999999999995" fill="none" stroke="#a4afb7" stroke-width="23" stroke-linecap="round"/>
+      <path d="M380 285.2L360 365.79999999999995" fill="none" stroke="url(#avatar-fabric)" stroke-width="21" stroke-linecap="round"/><path d="M620 285.2L640 365.79999999999995" fill="none" stroke="#a4afb7" stroke-width="23" stroke-linecap="round"/>
+      <path d="M620 285.2L640 365.79999999999995" fill="none" stroke="url(#avatar-fabric)" stroke-width="21" stroke-linecap="round"/>
+    <path d="M420 194.4C420 176.4 483 150.6 488 142.6
+      L512 142.6C517 150.6 580 176.4 580 194.4
+      L560 375.79999999999995Q500 383.79999999999995 440 375.79999999999995Z"
+      fill="url(#avatar-fabric)" stroke="#a4afb7" stroke-width="2"/>
+    <path d="M425 208.4L500 363.79999999999995M450 357.79999999999995L550 357.79999999999995" fill="none" stroke="#ccd4d8" stroke-opacity=".45" stroke-width="5"/>
+    <ellipse data-avatar-joint="lw" cx="360" cy="367.79999999999995" rx="9" ry="12" fill="url(#avatar-face)" stroke="#a4afb7" stroke-width="2"/><ellipse data-avatar-joint="rw" cx="640" cy="367.79999999999995" rx="9" ry="12" fill="url(#avatar-face)" stroke="#a4afb7" stroke-width="2"/>
+    <ellipse data-avatar-head="" cx="500" cy="111.6" rx="23" ry="29" fill="url(#avatar-face)" stroke="#a4afb7" stroke-width="2"/>
+    <path d="M481 107.6Q500 102.6 519 107.6" fill="none" stroke="#202932" stroke-width="7" stroke-linecap="round"/>
+  </g>
+  
+  <g data-laser-beam="" data-laser-id="0" data-active="true" data-contact="true" transform="translate(483.3094594627871 107.90013337953785) rotate(40.77017051631649)">
+    <defs><linearGradient id="laser-energy-0" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#ff4055" stop-opacity="0"/><stop offset=".28" stop-color="#ff4055" stop-opacity=".12"/>
+      <stop offset=".44" stop-color="#ff4055" stop-opacity=".85"/><stop offset=".5" stop-color="#ffe0e5"/>
+      <stop offset=".56" stop-color="#ff4055" stop-opacity=".85"/><stop offset=".72" stop-color="#ff4055" stop-opacity=".12"/>
+      <stop offset="1" stop-color="#ff4055" stop-opacity="0"/>
+    </linearGradient></defs>
+    <rect data-laser-halo="" y="-13" width="379.7702473867728" height="26" rx="13" fill="#ff4055" opacity="0.23763806194522435" filter="url(#laser-bloom)"/>
+    <rect data-laser-volume="" y="-12" width="379.7702473867728" height="24" fill="url(#laser-energy-0)" opacity="0.7426189435788261"/>
+    <rect data-laser-core="" y="-2" width="379.7702473867728" height="4" rx="2" fill="#ffe0e5" opacity="0.95"/>
+    <ellipse cx="159.88993562091196" cy="1.90515238854319" rx="10" ry="2.5" fill="#fffbe9" opacity="0.25"/><ellipse cx="241.83249746760515" cy="-1.8159345212328115" rx="12" ry="2.5" fill="#fffbe9" opacity="0.35"/><ellipse cx="323.77505931429835" cy="0.7729650190397619" rx="14" ry="2.5" fill="#fffbe9" opacity="0.45"/><ellipse cx="77.94737377421878" cy="0.6759754264865352" rx="16" ry="2.5" fill="#fffbe9" opacity="0.55"/>
+    <g data-laser-emitter="" transform="translate(0 0) rotate(0)">
+    <rect x="-39" y="-15" width="13" height="30" rx="5" fill="#111823" stroke="#5c6c80" stroke-width="1.5"/>
+    <rect x="-30" y="-21" width="24" height="42" rx="7" fill="url(#laser-metal)" stroke="#708199" stroke-width="1.5"/>
+    <path d="M-25-12h13m-13 6h13m-13 6h13m-13 6h13m-13 6h13" stroke="#101821" stroke-width="2"/>
+    <rect x="-10" y="-14" width="11" height="28" rx="4" fill="#17202e" stroke="#93a8bd" stroke-width="1.5"/>
+    <circle cx="-18" cy="-16" r="2" fill="#ff4055"/>
+    <ellipse rx="4" ry="12" fill="#ff4055"/>
+    <ellipse rx="2" ry="8" fill="#fff8df" opacity="0.95"/>
+    <ellipse rx="20" ry="30" fill="#ff4055" opacity="0.20793330420207132" filter="url(#laser-bloom)"/>
+    <path d="M-1-27 1-6 17 0 1 5-1 27-3 5-17 0-3-6Z" fill="#fff5df" opacity="0.37130947178941304"/>
+  </g><g data-laser-emitter="" transform="translate(379.7702473867728 0) rotate(180)">
+    <rect x="-39" y="-15" width="13" height="30" rx="5" fill="#111823" stroke="#5c6c80" stroke-width="1.5"/>
+    <rect x="-30" y="-21" width="24" height="42" rx="7" fill="url(#laser-metal)" stroke="#708199" stroke-width="1.5"/>
+    <path d="M-25-12h13m-13 6h13m-13 6h13m-13 6h13m-13 6h13" stroke="#101821" stroke-width="2"/>
+    <rect x="-10" y="-14" width="11" height="28" rx="4" fill="#17202e" stroke="#93a8bd" stroke-width="1.5"/>
+    <circle cx="-18" cy="-16" r="2" fill="#ff4055"/>
+    <ellipse rx="4" ry="12" fill="#ff4055"/>
+    <ellipse rx="2" ry="8" fill="#fff8df" opacity="0.95"/>
+    <ellipse rx="20" ry="30" fill="#ff4055" opacity="0.20793330420207132" filter="url(#laser-bloom)"/>
+    <path d="M-1-27 1-6 17 0 1 5-1 27-3 5-17 0-3-6Z" fill="#fff5df" opacity="0.37130947178941304"/>
+  </g>
+  </g><g data-laser-beam="" data-laser-id="1" data-active="true" data-contact="false" transform="translate(708.8016475687784 115.1817932193095) rotate(48.90427140634006)">
+    <defs><linearGradient id="laser-energy-1" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#36e382" stop-opacity="0"/><stop offset=".28" stop-color="#36e382" stop-opacity=".12"/>
+      <stop offset=".44" stop-color="#36e382" stop-opacity=".85"/><stop offset=".5" stop-color="#dfffea"/>
+      <stop offset=".56" stop-color="#36e382" stop-opacity=".85"/><stop offset=".72" stop-color="#36e382" stop-opacity=".12"/>
+      <stop offset="1" stop-color="#36e382" stop-opacity="0"/>
+    </linearGradient></defs>
+    <rect data-laser-halo="" y="-13" width="329.0816350547913" height="26" rx="13" fill="#36e382" opacity="0.30975234520752737" filter="url(#laser-bloom)"/>
+    <rect data-laser-volume="" y="-12" width="329.0816350547913" height="24" fill="url(#laser-energy-1)" opacity="0.967976078773523"/>
+    <rect data-laser-core="" y="-2" width="329.0816350547913" height="4" rx="2" fill="#dfffea" opacity="0.95"/>
+    <ellipse cx="174.70233610417336" cy="1.90515238854319" rx="10" ry="2.5" fill="#fffbe9" opacity="0.25"/><ellipse cx="243.9727448678712" cy="-1.8159345212328115" rx="12" ry="2.5" fill="#fffbe9" opacity="0.35"/><ellipse cx="36.16151857677767" cy="0.7729650190397619" rx="14" ry="2.5" fill="#fffbe9" opacity="0.45"/><ellipse cx="105.43192734047555" cy="0.6759754264865352" rx="16" ry="2.5" fill="#fffbe9" opacity="0.55"/>
+    <g data-laser-emitter="" transform="translate(0 0) rotate(0)">
+    <rect x="-39" y="-15" width="13" height="30" rx="5" fill="#111823" stroke="#5c6c80" stroke-width="1.5"/>
+    <rect x="-30" y="-21" width="24" height="42" rx="7" fill="url(#laser-metal)" stroke="#708199" stroke-width="1.5"/>
+    <path d="M-25-12h13m-13 6h13m-13 6h13m-13 6h13m-13 6h13" stroke="#101821" stroke-width="2"/>
+    <rect x="-10" y="-14" width="11" height="28" rx="4" fill="#17202e" stroke="#93a8bd" stroke-width="1.5"/>
+    <circle cx="-18" cy="-16" r="2" fill="#36e382"/>
+    <ellipse rx="4" ry="12" fill="#36e382"/>
+    <ellipse rx="2" ry="8" fill="#fff8df" opacity="0.95"/>
+    <ellipse rx="20" ry="30" fill="#36e382" opacity="0.2710333020565865" filter="url(#laser-bloom)"/>
+    <path d="M-1-27 1-6 17 0 1 5-1 27-3 5-17 0-3-6Z" fill="#fff5df" opacity="0.4839880393867615"/>
+  </g><g data-laser-emitter="" transform="translate(329.0816350547913 0) rotate(180)">
+    <rect x="-39" y="-15" width="13" height="30" rx="5" fill="#111823" stroke="#5c6c80" stroke-width="1.5"/>
+    <rect x="-30" y="-21" width="24" height="42" rx="7" fill="url(#laser-metal)" stroke="#708199" stroke-width="1.5"/>
+    <path d="M-25-12h13m-13 6h13m-13 6h13m-13 6h13m-13 6h13" stroke="#101821" stroke-width="2"/>
+    <rect x="-10" y="-14" width="11" height="28" rx="4" fill="#17202e" stroke="#93a8bd" stroke-width="1.5"/>
+    <circle cx="-18" cy="-16" r="2" fill="#36e382"/>
+    <ellipse rx="4" ry="12" fill="#36e382"/>
+    <ellipse rx="2" ry="8" fill="#fff8df" opacity="0.95"/>
+    <ellipse rx="20" ry="30" fill="#36e382" opacity="0.2710333020565865" filter="url(#laser-bloom)"/>
+    <path d="M-1-27 1-6 17 0 1 5-1 27-3 5-17 0-3-6Z" fill="#fff5df" opacity="0.4839880393867615"/>
+  </g>
+  </g><g data-laser-beam="" data-laser-id="2" data-active="true" data-contact="true" transform="translate(136.1982043168496 83.34170665452282) rotate(0)">
+    <defs><linearGradient id="laser-energy-2" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#ff4055" stop-opacity="0"/><stop offset=".28" stop-color="#ff4055" stop-opacity=".12"/>
+      <stop offset=".44" stop-color="#ff4055" stop-opacity=".85"/><stop offset=".5" stop-color="#ffe0e5"/>
+      <stop offset=".56" stop-color="#ff4055" stop-opacity=".85"/><stop offset=".72" stop-color="#ff4055" stop-opacity=".12"/>
+      <stop offset="1" stop-color="#ff4055" stop-opacity="0"/>
+    </linearGradient></defs>
+    <rect data-laser-halo="" y="-13" width="821.0719864770683" height="26" rx="13" fill="#ff4055" opacity="0.24410260740991546" filter="url(#laser-bloom)"/>
+    <rect data-laser-volume="" y="-12" width="821.0719864770683" height="24" fill="url(#laser-energy-2)" opacity="0.7628206481559858"/>
+    <rect data-laser-core="" y="-2" width="821.0719864770683" height="4" rx="2" fill="#ffe0e5" opacity="0.95"/>
+    <ellipse cx="53.83751606435286" cy="1.90515238854319" rx="10" ry="2.5" fill="#fffbe9" opacity="0.25"/><ellipse cx="246.10551268361993" cy="-1.8159345212328115" rx="12" ry="2.5" fill="#fffbe9" opacity="0.35"/><ellipse cx="438.37350930288704" cy="0.7729650190397619" rx="14" ry="2.5" fill="#fffbe9" opacity="0.45"/><ellipse cx="630.6415059221541" cy="0.6759754264865352" rx="16" ry="2.5" fill="#fffbe9" opacity="0.55"/>
+    <g data-laser-emitter="" transform="translate(0 0) rotate(0)">
+    <rect x="-39" y="-15" width="13" height="30" rx="5" fill="#111823" stroke="#5c6c80" stroke-width="1.5"/>
+    <rect x="-30" y="-21" width="24" height="42" rx="7" fill="url(#laser-metal)" stroke="#708199" stroke-width="1.5"/>
+    <path d="M-25-12h13m-13 6h13m-13 6h13m-13 6h13m-13 6h13" stroke="#101821" stroke-width="2"/>
+    <rect x="-10" y="-14" width="11" height="28" rx="4" fill="#17202e" stroke="#93a8bd" stroke-width="1.5"/>
+    <circle cx="-18" cy="-16" r="2" fill="#ff4055"/>
+    <ellipse rx="4" ry="12" fill="#ff4055"/>
+    <ellipse rx="2" ry="8" fill="#fff8df" opacity="0.95"/>
+    <ellipse rx="20" ry="30" fill="#ff4055" opacity="0.21358978148367605" filter="url(#laser-bloom)"/>
+    <path d="M-1-27 1-6 17 0 1 5-1 27-3 5-17 0-3-6Z" fill="#fff5df" opacity="0.3814103240779929"/>
+  </g><g data-laser-emitter="" transform="translate(821.0719864770683 0) rotate(180)">
+    <rect x="-39" y="-15" width="13" height="30" rx="5" fill="#111823" stroke="#5c6c80" stroke-width="1.5"/>
+    <rect x="-30" y="-21" width="24" height="42" rx="7" fill="url(#laser-metal)" stroke="#708199" stroke-width="1.5"/>
+    <path d="M-25-12h13m-13 6h13m-13 6h13m-13 6h13m-13 6h13" stroke="#101821" stroke-width="2"/>
+    <rect x="-10" y="-14" width="11" height="28" rx="4" fill="#17202e" stroke="#93a8bd" stroke-width="1.5"/>
+    <circle cx="-18" cy="-16" r="2" fill="#ff4055"/>
+    <ellipse rx="4" ry="12" fill="#ff4055"/>
+    <ellipse rx="2" ry="8" fill="#fff8df" opacity="0.95"/>
+    <ellipse rx="20" ry="30" fill="#ff4055" opacity="0.21358978148367605" filter="url(#laser-bloom)"/>
+    <path d="M-1-27 1-6 17 0 1 5-1 27-3 5-17 0-3-6Z" fill="#fff5df" opacity="0.3814103240779929"/>
+  </g>
+  </g></g>
+  
+  <text x="500" y="607" fill="#ff4055" font-family="Space Grotesk, monospace" font-size="13" text-anchor="middle" letter-spacing="2">BODY CONTACT / 0.7s</text>
+  <g data-contact-legend=""><circle cx="745" cy="35" r="4" fill="#36e382"/><text x="758" y="39" fill="#36e382" font-family="Space Grotesk, monospace" font-size="10" text-anchor="start" >CLEAR</text><circle cx="837" cy="35" r="4" fill="#ff4055"/><text x="850" y="39" fill="#ff4055" font-family="Space Grotesk, monospace" font-size="10" text-anchor="start" >CONTACT</text></g></svg>
+   <path d="M48 783H952" stroke="#283448"/>
+   <text x="48" y="863" fill="#f1f5fb" font-family="Arial,sans-serif" font-size="52" font-weight="700">Laser Escape</text>
+   <text x="48" y="914" fill="#b6c3d6" font-family="Arial,sans-serif" font-size="25">Green means clear. Red means contact.</text>
+   <text x="48" y="966" fill="#36e382" font-family="Arial,sans-serif" font-size="15" letter-spacing="2">AI AWARENESS PROJECT</text>
+  </svg>

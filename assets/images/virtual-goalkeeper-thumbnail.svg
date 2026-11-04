@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000" role="img" aria-labelledby="title description">
+   <title id="title">Virtual Goalkeeper</title><desc id="description">Read the shot. Bring both hands together.</desc>
+   <rect width="1000" height="1000" fill="#0b111b"/>
+   <rect x="0" y="0" width="1000" height="7" fill="#9cdeaa"/>
+   <text x="48" y="64" fill="#a8b4c7" font-family="Arial,sans-serif" font-size="17" letter-spacing="3">YOUR BODY / YOUR CONTROLLER</text>
+   <rect x="778" y="33" width="174" height="47" rx="8" fill="#182333" stroke="#9cdeaa" stroke-opacity=".45"/>
+   <text x="865" y="64" fill="#9cdeaa" font-family="Arial,sans-serif" font-size="21" font-weight="700" text-anchor="middle">30 SHOTS</text>
+   <svg x="0" y="122" width="1000" height="620" viewBox="0 0 1000 620"><defs><linearGradient id="sky" x2="0" y2="1"><stop stop-color="#1a2032"/><stop offset="1" stop-color="#0d1521"/></linearGradient><radialGradient id="field"><stop stop-color="#294f47"/><stop offset="1" stop-color="#0c2629"/></radialGradient><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M50 0H0V50" fill="none" stroke="#34435b" stroke-opacity=".28"/></pattern><pattern id="net" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#b9d9da" stroke-opacity=".16"/></pattern><pattern id="blocks" width="64" height="64" patternUnits="userSpaceOnUse"><rect x="5" y="5" width="54" height="54" rx="5" fill="#b7a0ff" fill-opacity=".09" stroke="#b7a0ff" stroke-opacity=".25"/></pattern><filter id="glow"><feGaussianBlur stdDeviation="4"/></filter></defs><defs><linearGradient id="avatar-fabric"><stop stop-color="#19322e"/><stop offset=".4" stop-color="#577e6a"/><stop offset=".72" stop-color="#2c5144"/><stop offset="1" stop-color="#152e2a"/></linearGradient><radialGradient id="avatar-face" cx=".35" cy=".3"><stop stop-color="#e3d5da"/><stop offset=".65" stop-color="#b7a0b3"/><stop offset="1" stop-color="#7c6f92"/></radialGradient></defs><rect width="1000" height="620" fill="url(#field)"/><path d="M0 100H1000M0 580H1000" stroke="#94b8a0" stroke-opacity=".13" stroke-width="25"/><path d="M20 620 240 80H760L980 620" stroke="#5f9d83" fill="none" stroke-opacity=".2"/>
+  <rect x="120" y="85" width="760" height="465" fill="url(#net)" stroke="#e3ead4" stroke-width="7" rx="3"/><path d="M120 550H880M140 570H860" stroke="#d1dfbe" stroke-opacity=".4" fill="none"/>
+  <g data-avatar-space="" transform="translate(100 118) scale(0.8)"><ellipse data-save-target="" cx="700" cy="173.60000000000002" rx="105" ry="65.1" fill="#9cdeaa" fill-opacity="0.2000" stroke="#9cdeaa" stroke-dasharray="6 8" stroke-width="2"/><path d="M687 173.60000000000002h26m-13-13v26" stroke="#9cdeaa" opacity=".6"/>
+  <g data-avatar="player" opacity="1">
+    <path d="M450 365.79999999999995L440 465" fill="none" stroke="#a4afb7" stroke-width="40" stroke-linecap="round"/>
+      <path d="M450 365.79999999999995L440 465" fill="none" stroke="url(#avatar-fabric)" stroke-width="38" stroke-linecap="round"/><path d="M550 365.79999999999995L560 465" fill="none" stroke="#a4afb7" stroke-width="40" stroke-linecap="round"/>
+      <path d="M550 365.79999999999995L560 465" fill="none" stroke="url(#avatar-fabric)" stroke-width="38" stroke-linecap="round"/><path d="M440 465L430 576.6" fill="none" stroke="#a4afb7" stroke-width="32" stroke-linecap="round"/>
+      <path d="M440 465L430 576.6" fill="none" stroke="url(#avatar-fabric)" stroke-width="30" stroke-linecap="round"/><path d="M560 465L570 576.6" fill="none" stroke="#a4afb7" stroke-width="32" stroke-linecap="round"/>
+      <path d="M560 465L570 576.6" fill="none" stroke="url(#avatar-fabric)" stroke-width="30" stroke-linecap="round"/>
+    <ellipse data-avatar-joint="la" cx="434" cy="583.6" rx="24" ry="10" fill="#172026" stroke="#a4afb7" stroke-width="2"/><ellipse data-avatar-joint="ra" cx="574" cy="583.6" rx="24" ry="10" fill="#172026" stroke="#a4afb7" stroke-width="2"/>
+    <path d="M500 135.6L500 198.4" stroke="url(#avatar-fabric)" stroke-width="21" stroke-linecap="round"/>
+    <path d="M420 198.4L502.49999999999994 217.00000000000003" fill="none" stroke="#a4afb7" stroke-width="27" stroke-linecap="round"/>
+      <path d="M420 198.4L502.49999999999994 217.00000000000003" fill="none" stroke="url(#avatar-fabric)" stroke-width="25" stroke-linecap="round"/><path d="M580 198.4L697.5 217.00000000000003" fill="none" stroke="#a4afb7" stroke-width="27" stroke-linecap="round"/>
+      <path d="M580 198.4L697.5 217.00000000000003" fill="none" stroke="url(#avatar-fabric)" stroke-width="25" stroke-linecap="round"/><path d="M502.49999999999994 217.00000000000003L655 173.60000000000002" fill="none" stroke="#a4afb7" stroke-width="23" stroke-linecap="round"/>
+      <path d="M502.49999999999994 217.00000000000003L655 173.60000000000002" fill="none" stroke="url(#avatar-fabric)" stroke-width="21" stroke-linecap="round"/><path d="M697.5 217.00000000000003L745 173.60000000000002" fill="none" stroke="#a4afb7" stroke-width="23" stroke-linecap="round"/>
+      <path d="M697.5 217.00000000000003L745 173.60000000000002" fill="none" stroke="url(#avatar-fabric)" stroke-width="21" stroke-linecap="round"/>
+    <path d="M420 194.4C420 176.4 483 150.6 488 142.6
+      L512 142.6C517 150.6 580 176.4 580 194.4
+      L560 375.79999999999995Q500 383.79999999999995 440 375.79999999999995Z"
+      fill="url(#avatar-fabric)" stroke="#a4afb7" stroke-width="2"/>
+    <path d="M425 208.4L500 363.79999999999995M450 357.79999999999995L550 357.79999999999995" fill="none" stroke="#ccd4d8" stroke-opacity=".45" stroke-width="5"/>
+    <ellipse data-avatar-joint="lw" cx="655" cy="175.60000000000002" rx="9" ry="12" fill="url(#avatar-face)" stroke="#a4afb7" stroke-width="2"/><ellipse data-avatar-joint="rw" cx="745" cy="175.60000000000002" rx="9" ry="12" fill="url(#avatar-face)" stroke="#a4afb7" stroke-width="2"/>
+    <ellipse data-avatar-head="" cx="500" cy="111.6" rx="23" ry="29" fill="url(#avatar-face)" stroke="#a4afb7" stroke-width="2"/>
+    <path d="M481 107.6Q500 102.6 519 107.6" fill="none" stroke="#202932" stroke-width="7" stroke-linecap="round"/>
+  </g><g transform="translate(655 173.60000000000002)"><rect x="-24" y="-26" width="48" height="52" rx="14" fill="#f9e09d" stroke="#e9ffe8" stroke-width="3"/><path d="M-13-6h26M-13 3h26" stroke="#385346" stroke-width="2"/></g><g transform="translate(745 173.60000000000002)"><rect x="-24" y="-26" width="48" height="52" rx="14" fill="#f9e09d" stroke="#e9ffe8" stroke-width="3"/><path d="M-13-6h26M-13 3h26" stroke="#385346" stroke-width="2"/></g><g transform="translate(669.28 169.97504000000004) rotate(220.8)"><circle r="33.699200000000005" fill="#f1f1dd" stroke="#09271c" stroke-width="2"/><path d="M0 -16.849600000000002 16.175616 -5.054880000000001 10.109760000000001 14.153664000000001 -10.109760000000001 14.153664000000001 -16.175616 -5.054880000000001Z" fill="#23302e"/></g></g>
+  </svg>
+   <path d="M48 783H952" stroke="#283448"/>
+   <text x="48" y="863" fill="#f1f5fb" font-family="Arial,sans-serif" font-size="52" font-weight="700">Virtual Goalkeeper</text>
+   <text x="48" y="914" fill="#b6c3d6" font-family="Arial,sans-serif" font-size="25">Read the shot. Bring both hands together.</text>
+   <text x="48" y="966" fill="#9cdeaa" font-family="Arial,sans-serif" font-size="15" letter-spacing="2">AI AWARENESS PROJECT</text>
+  </svg>
