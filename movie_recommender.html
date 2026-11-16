@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <title>Movie Recommender Project</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        .header {
+            background-color: #004080;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+        .content {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            gap: 20px;
+        }
+        .section img {
+            width: 40%;
+            max-height: 320px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .section p, .section ul {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+            flex: 1;
+        }
+        .section h2 {
+            font-size: 28px;
+            color: #004080;
+            margin-bottom: 10px;
+        }
+        .content ul {
+            margin-left: 20px;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .button-container a {
+    display: inline-block;
+    text-decoration: none;
+    padding: 12px 25px;
+    font-size: 20px;
+    background-color: #004080;
+    color: #ffffff !important;   /* ✅ THIS FIXES IT */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+    margin: 0 12px;
+}
+
+        .button-container a:hover {
+            background-color: #003060;
+        }
+
+        /* FORCE header title color to white */
+.header h1 {
+  color: #ffffff !important;
+}
+
+    </style>
+  
+<style>
+
+:root{
+  --bg:#eef6ff !important;
+  --card:#ffffff !important;
+  --muted:#334155 !important;
+  --primary:#0b63ff !important;
+  --accent:#06b6d4 !important;
+  --heading:#071130 !important;
+  --border:rgba(7,17,48,0.06) !important;
+  --radius:14px !important;
+}
+
+/* Reset and force base styles */
+*{box-sizing:border-box !important}
+html,body{height:100% !important;margin:0 !important;padding:0 !important}
+body{
+  padding:28px !important;
+  background: linear-gradient(180deg,var(--bg), #ffffff 60%) !important;
+  color:var(--muted) !important;
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial !important;
+  -webkit-font-smoothing:antialiased !important;
+  line-height:1.6 !important;
+}
+
+/* Container */
+.container{max-width:1150px !important;margin:0 auto !important;padding:12px !important;background:transparent !important}
+
+/* Header & logo centering across pages */
+.header, .site-header, header, .logo-area { display:flex !important; align-items:center !important; justify-content:center !important; gap:16px !important; margin-bottom:18px !important; }
+.header img, .logo-area img, header img { height:84px !important; width:auto !important; border-radius:12px !important; box-shadow:0 10px 30px rgba(11,99,255,0.08) !important; border:1px solid rgba(11,99,255,0.06) !important;}
+
+/* Navigation (taskbar) across pages */
+.taskbar, nav, .navbar { display:flex !important; gap:10px !important; flex-wrap:wrap !important; justify-content:center !important; margin-bottom:22px !important; }
+.taskbar a, nav a, .navbar a { text-decoration:none !important; color:var(--primary) !important; padding:9px 16px !important; border-radius:999px !important; font-weight:700 !important; border:1px solid transparent !important; background:transparent !important; box-shadow:0 4px 14px rgba(11,99,255,0.04) !important; transition:all .22s cubic-bezier(.2,.9,.3,1) !important; }
+.taskbar a:hover, nav a:hover, .navbar a:hover { background:linear-gradient(90deg,var(--primary),var(--accent)) !important; color:white !important; transform:translateY(-4px) scale(1.02) !important; box-shadow:0 18px 40px rgba(11,99,255,0.12) !important;}
+
+/* Sections/card override */
+.section, .card, .panel, .content-box { background:var(--card) !important; padding:18px !important; border-radius:var(--radius) !important; box-shadow:0 12px 36px rgba(9,30,66,0.04) !important; border:1px solid var(--border) !important; margin-bottom:18px !important; color:var(--muted) !important;}
+
+/* Headings and text */
+h1,h2,h3,h4 { color:var(--heading) !important; margin:0 0 10px 0 !important; font-weight:700 !important; }
+p, li { color:var(--muted) !important; line-height:1.6 !important; }
+
+/* Gallery force grid and hover */
+.gallery-grid, .gallery, .photos, .image-grid { display:grid !important; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)) !important; gap:12px !important; }
+.gallery-grid img, .gallery img, .photos img, .image-grid img { border-radius:12px !important; border:1px solid rgba(6,16,33,0.04) !important; box-shadow:0 10px 26px rgba(9,30,66,0.04) !important; transition:transform .35s cubic-bezier(.2,.9,.3,1), filter .25s ease !important; display:block !important; max-width:100% !important; height:auto !important; }
+.gallery-grid img:hover, .gallery img:hover, .photos img:hover, .image-grid img:hover { transform:translateY(-8px) scale(1.04) !important; filter:brightness(1.04) saturate(1.05) !important;}
+
+/* Buttons */
+.btn, button, .button, a.button { display:inline-block !important; padding:10px 16px !important; border-radius:10px !important; font-weight:700 !important; text-decoration:none !important; border:1px solid transparent !important; background:linear-gradient(90deg,var(--primary),var(--accent)) !important; color:white !important; box-shadow:0 10px 30px rgba(11,99,255,0.12) !important;}
+
+/* Global links (NOT buttons) */
+a:not(.btn-back):not(.btn-play):not(.action-btn) {
+  color: var(--primary);
+}
+a:visited:not(.btn-back):not(.btn-play):not(.action-btn) {
+  color: var(--primary);
+}
+
+
+/* Force background for body sections that try to set a dark/dim background */
+body *[style*="background"] { background:transparent !important; }
+body *[style*="background-color"] { background-color:transparent !important; }
+
+/* Ensure AOS reveals visible */
+[data-aos] { opacity:1 !important; transform:none !important; transition:all .6s cubic-bezier(.2,.9,.3,1) !important; }
+
+/* Footer */
+.footer, .site-footer { font-size:13px !important; color:var(--muted) !important; text-align:center !important; padding:18px !important; margin-top:12px !important; background:transparent !important; border-top:none !important;}
+
+/* Responsive tweaks */
+@media (max-width:700px){
+  body{padding:14px !important}
+  .header img{height:64px !important}
+  h1{font-size:22px !important}
+}
+
+.tech-list { display:flex !important; flex-wrap:wrap !important; gap:10px !important; padding:0 !important; margin:0 !important; list-style:none !important; }
+.tech-list li { background:#e4f1ff !important; color:#124b78 !important; border-radius:999px !important; padding:6px 14px !important; font-weight:700 !important; font-size:15px !important; }
+</style>
+</head>
+<body>
+    <div class="top-lang-bar">
+  <div id="google_translate_element"></div>
+</div>
+    <div class="logo-container">
+    <a href="projects.html">
+      <img src="assets/images/symbol.jpg" alt="Logo" />
+    </a>
+  </div>
+
+    <!-- Header Section -->
+    <div class="header">
+        <h1>Movie Recommender Project</h1>
+    </div>
+
+    <!-- Content Section -->
+    <div class="content">
+        <!-- What it does -->
+        <div class="section">
+            <img src="assets/images/movie-recommender-thumbnail.svg" alt="A chosen movie linked to three similar movies with similarity scores">
+            <div>
+                <h2>What Does It Do?</h2>
+                <p>
+                    Loved a movie and want something like it? Type its name, choose how many suggestions you want,
+                    and the app lists movies with similar stories, genres, directors and actors.
+                </p>
+                <p>
+                    It searches the <strong>IMDb Top 1000</strong> movies and gives every suggestion a
+                    <strong>similarity score</strong> from 0 to 1. The higher the score, the more the two movies have in common.
+                </p>
+            </div>
+        </div>
+
+        <!-- TF-IDF -->
+        <div class="section">
+            <div>
+                <h2>How Does a Computer “Read” a Movie?</h2>
+                <p>
+                    A computer cannot watch a film, so we describe each movie with words: its story summary (overview),
+                    its genre, its director and its four main actors.
+                </p>
+                <ul>
+                    <li><strong>TF-IDF:</strong> This method turns those words into numbers. Words that are special to one movie
+                        (like “dream” or “heist”) get a high score, while common words (like “the” or “man”) get a low score.</li>
+                    <li><strong>Feature vector:</strong> Each movie becomes a long list of these scores — its “fingerprint”.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Cosine similarity -->
+        <div class="section">
+            <div>
+                <h2>How Does It Find Similar Movies?</h2>
+                <p>
+                    The app compares the fingerprint of your movie with every other movie using <strong>cosine similarity</strong>.
+                    Think of each fingerprint as an arrow: if two arrows point in nearly the same direction, the movies are alike.
+                </p>
+                <ul>
+                    <li><strong>Score close to 1:</strong> very similar (shared genre, director, actors or story words).</li>
+                    <li><strong>Score close to 0:</strong> almost nothing in common.</li>
+                    <li>If two movies tie, the one with the higher IMDb rating comes first.</li>
+                </ul>
+                <p>
+                    The score measures shared content — it does not predict whether you will enjoy the movie.
+                </p>
+            </div>
+        </div>
+
+        <!-- How It All Works Together -->
+        <div>
+            <h2>How Does It All Work Together?</h2>
+            <p>Here’s what happens step by step:</p>
+            <ul>
+                <li>You type a movie name (the box suggests titles as you type).</li>
+                <li>You choose how many recommendations you want (1 to 999).</li>
+                <li>The app finds your movie in its catalog of 1,000 films.</li>
+                <li>It calculates the similarity score between your movie and every other movie.</li>
+                <li>It shows the top matches with their year, genre, IMDb rating and score.</li>
+            </ul>
+        </div>
+
+        <!-- Features -->
+        <div>
+            <h2>Features of the Project</h2>
+            <ul>
+                <li>Content-based recommendations from 7 features per movie.</li>
+                <li>Title suggestions for misspelled or unknown names.</li>
+                <li>Asks you to pick the right version when two movies share a name.</li>
+                <li>Runs fully offline on the computer — no internet or API key needed.</li>
+            </ul>
+        </div>
+
+        <!-- Built with -->
+        <div>
+            <h2>Built With</h2>
+            <ul class="tech-list">
+                <li>Python</li>
+                <li>Flask</li>
+                <li>scikit-learn</li>
+                <li>pandas</li>
+                <li>NumPy</li>
+                <li>joblib</li>
+            </ul>
+        </div>
+
+        <!-- Buttons -->
+        <div class="button-container">
+            <a href="projects.html">Back to Projects</a>
+        </div>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="assets/js/site.js"></script>
+<script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement(
+    {
+      pageLanguage: 'en',
+      includedLanguages: 'en,hi,kn,ta,ml',
+      autoDisplay: false
+    },
+    'google_translate_element'
+  );
+}
+</script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+</body>
+</html>
