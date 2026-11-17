@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <title>Object Detector Project</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        .header {
+            background-color: #004080;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+        .content {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            gap: 20px;
+        }
+        .section img {
+            width: 40%;
+            max-height: 320px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .section p, .section ul {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+            flex: 1;
+        }
+        .section h2 {
+            font-size: 28px;
+            color: #004080;
+            margin-bottom: 10px;
+        }
+        .content ul {
+            margin-left: 20px;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .button-container a {
+    display: inline-block;
+    text-decoration: none;
+    padding: 12px 25px;
+    font-size: 20px;
+    background-color: #004080;
+    color: #ffffff !important;   /* ✅ THIS FIXES IT */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+    margin: 0 12px;
+}
+
+        .button-container a:hover {
+            background-color: #003060;
+        }
+
+        /* FORCE header title color to white */
+.header h1 {
+  color: #ffffff !important;
+}
+
+    </style>
+  
+<style>
+
+:root{
+  --bg:#eef6ff !important;
+  --card:#ffffff !important;
+  --muted:#334155 !important;
+  --primary:#0b63ff !important;
+  --accent:#06b6d4 !important;
+  --heading:#071130 !important;
+  --border:rgba(7,17,48,0.06) !important;
+  --radius:14px !important;
+}
+
+/* Reset and force base styles */
+*{box-sizing:border-box !important}
+html,body{height:100% !important;margin:0 !important;padding:0 !important}
+body{
+  padding:28px !important;
+  background: linear-gradient(180deg,var(--bg), #ffffff 60%) !important;
+  color:var(--muted) !important;
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial !important;
+  -webkit-font-smoothing:antialiased !important;
+  line-height:1.6 !important;
+}
+
+/* Container */
+.container{max-width:1150px !important;margin:0 auto !important;padding:12px !important;background:transparent !important}
+
+/* Header & logo centering across pages */
+.header, .site-header, header, .logo-area { display:flex !important; align-items:center !important; justify-content:center !important; gap:16px !important; margin-bottom:18px !important; }
+.header img, .logo-area img, header img { height:84px !important; width:auto !important; border-radius:12px !important; box-shadow:0 10px 30px rgba(11,99,255,0.08) !important; border:1px solid rgba(11,99,255,0.06) !important;}
+
+/* Navigation (taskbar) across pages */
+.taskbar, nav, .navbar { display:flex !important; gap:10px !important; flex-wrap:wrap !important; justify-content:center !important; margin-bottom:22px !important; }
+.taskbar a, nav a, .navbar a { text-decoration:none !important; color:var(--primary) !important; padding:9px 16px !important; border-radius:999px !important; font-weight:700 !important; border:1px solid transparent !important; background:transparent !important; box-shadow:0 4px 14px rgba(11,99,255,0.04) !important; transition:all .22s cubic-bezier(.2,.9,.3,1) !important; }
+.taskbar a:hover, nav a:hover, .navbar a:hover { background:linear-gradient(90deg,var(--primary),var(--accent)) !important; color:white !important; transform:translateY(-4px) scale(1.02) !important; box-shadow:0 18px 40px rgba(11,99,255,0.12) !important;}
+
+/* Sections/card override */
+.section, .card, .panel, .content-box { background:var(--card) !important; padding:18px !important; border-radius:var(--radius) !important; box-shadow:0 12px 36px rgba(9,30,66,0.04) !important; border:1px solid var(--border) !important; margin-bottom:18px !important; color:var(--muted) !important;}
+
+/* Headings and text */
+h1,h2,h3,h4 { color:var(--heading) !important; margin:0 0 10px 0 !important; font-weight:700 !important; }
+p, li { color:var(--muted) !important; line-height:1.6 !important; }
+
+/* Gallery force grid and hover */
+.gallery-grid, .gallery, .photos, .image-grid { display:grid !important; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)) !important; gap:12px !important; }
+.gallery-grid img, .gallery img, .photos img, .image-grid img { border-radius:12px !important; border:1px solid rgba(6,16,33,0.04) !important; box-shadow:0 10px 26px rgba(9,30,66,0.04) !important; transition:transform .35s cubic-bezier(.2,.9,.3,1), filter .25s ease !important; display:block !important; max-width:100% !important; height:auto !important; }
+.gallery-grid img:hover, .gallery img:hover, .photos img:hover, .image-grid img:hover { transform:translateY(-8px) scale(1.04) !important; filter:brightness(1.04) saturate(1.05) !important;}
+
+/* Buttons */
+.btn, button, .button, a.button { display:inline-block !important; padding:10px 16px !important; border-radius:10px !important; font-weight:700 !important; text-decoration:none !important; border:1px solid transparent !important; background:linear-gradient(90deg,var(--primary),var(--accent)) !important; color:white !important; box-shadow:0 10px 30px rgba(11,99,255,0.12) !important;}
+
+/* Global links (NOT buttons) */
+a:not(.btn-back):not(.btn-play):not(.action-btn) {
+  color: var(--primary);
+}
+a:visited:not(.btn-back):not(.btn-play):not(.action-btn) {
+  color: var(--primary);
+}
+
+
+/* Force background for body sections that try to set a dark/dim background */
+body *[style*="background"] { background:transparent !important; }
+body *[style*="background-color"] { background-color:transparent !important; }
+
+/* Ensure AOS reveals visible */
+[data-aos] { opacity:1 !important; transform:none !important; transition:all .6s cubic-bezier(.2,.9,.3,1) !important; }
+
+/* Footer */
+.footer, .site-footer { font-size:13px !important; color:var(--muted) !important; text-align:center !important; padding:18px !important; margin-top:12px !important; background:transparent !important; border-top:none !important;}
+
+/* Responsive tweaks */
+@media (max-width:700px){
+  body{padding:14px !important}
+  .header img{height:64px !important}
+  h1{font-size:22px !important}
+}
+
+.tech-list { display:flex !important; flex-wrap:wrap !important; gap:10px !important; padding:0 !important; margin:0 !important; list-style:none !important; }
+.tech-list li { background:#e4f1ff !important; color:#124b78 !important; border-radius:999px !important; padding:6px 14px !important; font-weight:700 !important; font-size:15px !important; }
+</style>
+</head>
+<body>
+    <div class="top-lang-bar">
+  <div id="google_translate_element"></div>
+</div>
+    <div class="logo-container">
+    <a href="projects.html">
+      <img src="assets/images/symbol.jpg" alt="Logo" />
+    </a>
+  </div>
+
+    <!-- Header Section -->
+    <div class="header">
+        <h1>Object Detector Project</h1>
+    </div>
+
+    <!-- Content Section -->
+    <div class="content">
+        <!-- What it does -->
+        <div class="section">
+            <img src="assets/images/object-detector-thumbnail.svg" alt="A printer, monitor, CPU and chair in a lab, each outlined and labelled by the app">
+            <div>
+                <h2>What Does It Do?</h2>
+                <p>
+                    Upload a photo and the app finds the objects in it. It draws a box and an exact outline around each one,
+                    writes its name, and counts how many of each it found.
+                </p>
+                <p>
+                    You can type what you are looking for, like <strong>“charger, bottle, monitor”</strong>, or let it
+                    <strong>detect everything</strong> it recognises. Every object gets a <strong>confidence score</strong>
+                    from 0 to 1. The higher the score, the surer the AI is.
+                </p>
+            </div>
+        </div>
+
+        <!-- How it sees -->
+        <div class="section">
+            <div>
+                <h2>How Does a Computer “See” Objects?</h2>
+                <p>
+                    To a computer, a photo is just millions of coloured dots (pixels). The AI model scans the whole photo in
+                    one go and answers two questions for every part of it:
+                </p>
+                <ul>
+                    <li><strong>Where is it?</strong> It draws a <em>bounding box</em> around the object, and an exact outline
+                        called a <em>segmentation mask</em> that colours in the object's shape.</li>
+                    <li><strong>What is it?</strong> It turns each part of the photo into a list of numbers, a kind of
+                        “fingerprint” of what that part looks like.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- How it names things -->
+        <div class="section">
+            <div>
+                <h2>How Does It Know What Things Are Called?</h2>
+                <p>
+                    The words are turned into fingerprints too. A picture of a printer and the word “printer” end up with
+                    very similar fingerprints, so the AI can match parts of the photo to words.
+                    How close the match is becomes the <strong>confidence score</strong>.
+                </p>
+                <ul>
+                    <li><strong>Find specific objects:</strong> you type the words, so it only chooses between a few options.
+                        This is the most accurate mode.</li>
+                    <li><strong>Detect everything:</strong> it checks against its own list of 4,585 object names. There's
+                        nothing to type, but with so many names to choose from it makes more mistakes.</li>
+                </ul>
+                <p>
+                    The score shows how sure the AI is, not whether it is right. A side-on monitor or an unusual object can
+                    get a low score or the wrong name.
+                </p>
+            </div>
+        </div>
+
+        <!-- How It All Works Together -->
+        <div>
+            <h2>How Does It All Work Together?</h2>
+            <p>Here’s what happens step by step:</p>
+            <ul>
+                <li>You upload a photo (drag it in or click to choose).</li>
+                <li>You type the objects to find, or choose “Detect everything”.</li>
+                <li>You set the minimum confidence with a slider.</li>
+                <li>The AI model finds the objects and scores each match.</li>
+                <li>The app shows the photo with boxes, outlines and labels, plus a count of each object and a table of every detection.</li>
+            </ul>
+        </div>
+
+        <!-- Features -->
+        <div>
+            <h2>Features of the Project</h2>
+            <ul>
+                <li>Finds any object you can describe in words, not just a fixed list.</li>
+                <li>Finds and counts every one, e.g. all the chargers on a desk.</li>
+                <li>Boxes, labels, confidence scores and exact outlines for each object.</li>
+                <li>Adjustable confidence threshold and a downloadable result image.</li>
+                <li>Runs fully on the computer: photos are never uploaded or saved.</li>
+            </ul>
+        </div>
+
+        <!-- Real-world uses -->
+        <div>
+            <h2>Where Is Object Detection Used?</h2>
+            <p>The same idea, finding and naming objects in pictures, is used all around us:</p>
+            <ul>
+                <li><strong>Self-driving cars</strong> spot people, vehicles, traffic lights and road signs.</li>
+                <li><strong>Phone cameras</strong> find faces to focus on, and apps can identify plants or products.</li>
+                <li><strong>Helping visually impaired people</strong>: apps describe what's in front of the camera out loud.</li>
+                <li><strong>Shops and warehouses</strong> count stock on shelves and track packages.</li>
+                <li><strong>Hospitals</strong> use it to help doctors spot things in X-rays and scans.</li>
+                <li><strong>Farms and wildlife</strong>: counting animals and finding sick crops from drone photos.</li>
+            </ul>
+            <p>
+                Like any AI, it can make mistakes, especially with unusual objects, poor lighting or things partly hidden,
+                so important decisions still need a person to check.
+            </p>
+        </div>
+
+        <!-- Built with -->
+        <div>
+            <h2>Built With</h2>
+            <ul class="tech-list">
+                <li>Python</li>
+                <li>Flask</li>
+                <li>Ultralytics YOLOE-26</li>
+                <li>PyTorch</li>
+                <li>Pillow</li>
+                <li>NumPy</li>
+            </ul>
+        </div>
+
+        <!-- Buttons -->
+        <div class="button-container">
+            <a href="projects.html">Back to Projects</a>
+        </div>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="assets/js/site.js"></script>
+<script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement(
+    {
+      pageLanguage: 'en',
+      includedLanguages: 'en,hi,kn,ta,ml',
+      autoDisplay: false
+    },
+    'google_translate_element'
+  );
+}
+</script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+</body>
+</html>
