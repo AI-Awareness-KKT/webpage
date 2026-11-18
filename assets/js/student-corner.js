@@ -1,49 +1,75 @@
-/* ---------- GLOBAL STATE ---------- */
-let isAdmin = false;
+/* ---------- SAFE TEXT (blocks code injection) ---------- */
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
 
-/* ---------- ADMIN LOGIN ---------- */
-function enableAdminMode() {
-  const password = prompt("Enter admin password");
-  if (password === "admin123") {
-    isAdmin = true;
-    alert("Admin mode enabled");
-    loadComments("doubts");
-    loadComments("projects");
-  } else {
-    alert("Invalid password");
-  }
+/* ---------- GOOGLE SHEET LINK ---------- */
+// Paste your Apps Script Web App URL here (ends with /exec)
+const SHEET_URL = "https://script.google.com/macros/s/AKfycbwh2g91ifcWddBgEQr_xeqahDBmS2-VHpWDKxJClA_qK9GmAf7Exd-FVl5Sn5CDjfWawg/exec";
+
+function sendToSheet(data) {
+  if (!SHEET_URL || SHEET_URL.startsWith("PASTE")) return Promise.resolve();
+  return fetch(SHEET_URL, {
+    method: "POST",
+    mode: "no-cors",
+    body: new URLSearchParams(data)
+  }).catch(err => console.error("Sheet error:", err));
 }
 
 /* ---------- POST COMMENT ---------- */
 async function postComment(section) {
-  const textarea =
-    document.querySelector(`#${section}-comments`)?.previousElementSibling
-      ?.querySelector("textarea") ||
-    document.querySelector("textarea");
+  let text, authorName, school = "";
+  let fields = [];
 
-  if (!textarea) return;
+  if (section === "doubts") {
+    const nameEl = document.getElementById("doubt-name");
+    const schoolEl = document.getElementById("doubt-school");
+    const textEl = document.getElementById("doubt-text");
+    fields = [nameEl, schoolEl, textEl];
 
-  const text = textarea.value.trim();
-  if (!text) return;
+    authorName = nameEl.value.trim();
+    school = schoolEl.value.trim();
+    text = textEl.value.trim();
 
-  // 🔐 REQUIRE NAME FROM HOME PAGE
-  const authorName = localStorage.getItem("student_name");
-  if (!authorName) {
-    alert("Please enter your name on the home page first.");
-    return;
+    if (!authorName || !school || !text) {
+      alert("Please fill in your Name, School and Doubt.");
+      return;
+    }
+  } else {
+    const textEl = document.getElementById("projects-text");
+    fields = [textEl];
+    text = textEl.value.trim();
+    if (!text) return;
+
+    // REQUIRE NAME FROM HOME PAGE (unchanged for AI ideas)
+    authorName = localStorage.getItem("student_name");
+    if (!authorName) {
+      alert("Please enter your name on the home page first.");
+      return;
+    }
   }
 
-  // ⏳ Prevent multiple clicks
-  textarea.disabled = true;
+  // Prevent multiple clicks
+  fields.forEach(f => (f.disabled = true));
 
-  const { error } = await window.supabase
-    .from(section)
-    .insert({
+  const [{ error }] = await Promise.all([
+    window.supabase.from(section).insert({
       text: text,
       author_name: authorName
-    });
+    }),
+    sendToSheet(
+      section === "doubts"
+        ? { type: "doubt", name: authorName, school: school, doubt: text }
+        : { type: "idea", name: authorName, idea: text }
+    )
+  ]);
 
-  textarea.disabled = false;
+  fields.forEach(f => (f.disabled = false));
 
   if (error) {
     console.error("Insert error:", error);
@@ -51,50 +77,13 @@ async function postComment(section) {
     return;
   }
 
-  textarea.value = "";
+  fields.forEach(f => (f.value = ""));
 
-  // 🔴 KEY LOGIC
   if (section === "projects") {
     alert(
       "Your idea has been submitted successfully.\nWe will reply to you shortly."
     );
     return; // DO NOT LOAD COMMENTS
-  }
-
-  loadComments(section);
-}
-
-
-
-/* ---------- DELETE COMMENT ---------- */
-async function deleteComment(section, id) {
-  if (!confirm("Delete this comment?")) return;
-
-  const { error } = await window.supabase
-    .from(section)
-    .delete()
-    .eq("id", id);
-
-  if (error) {
-    console.error("Delete error:", error);
-  }
-
-  loadComments(section);
-}
-
-/* ---------- SAVE ADMIN REPLY ---------- */
-async function saveReply(section, id) {
-  const input = document.getElementById(`reply-${id}`);
-  const reply = input.value.trim();
-  if (!reply) return;
-
-  const { error } = await window.supabase
-    .from(section)
-    .update({ reply })
-    .eq("id", id);
-
-  if (error) {
-    console.error("Reply error:", error);
   }
 
   loadComments(section);
@@ -118,32 +107,12 @@ async function loadComments(section) {
   data.forEach(item => {
     container.innerHTML += `
       <div class="comment">
-        <div class="author">
-  ${item.author_name || "Student"}
-  ${
-    isAdmin
-      ? `<button class="delete-btn"
-           onclick="deleteComment('${section}', '${item.id}')">
-           Delete
-         </button>`
-      : ""
-  }
-</div>
-
-
-
-
-        <div>${item.text}</div>
+        <div class="author">${escapeHtml(item.author_name || "Student")}</div>
+        <div>${escapeHtml(item.text)}</div>
         <small>${new Date(item.created_at).toLocaleString()}</small>
-
         ${
           item.reply
-            ? `<div class="reply"><strong>Admin</strong><div>${item.reply}</div></div>`
-            : isAdmin
-            ? `<div class="reply">
-                 <textarea id="reply-${item.id}" placeholder="Admin reply..."></textarea>
-                 <button onclick="saveReply('${section}', '${item.id}')">Reply</button>
-               </div>`
+            ? `<div class="reply"><strong>Admin</strong><div>${escapeHtml(item.reply)}</div></div>`
             : ""
         }
       </div>
@@ -154,5 +123,4 @@ async function loadComments(section) {
 /* ---------- INITIAL LOAD ---------- */
 document.addEventListener("DOMContentLoaded", () => {
   loadComments("doubts");
-  
 });
